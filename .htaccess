@@ -1,0 +1,4 @@
+
+#####mime#####
+AddType image/svg+xml .svg
+#####end:mime#####

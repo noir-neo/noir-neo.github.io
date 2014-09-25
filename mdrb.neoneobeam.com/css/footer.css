@@ -1,0 +1,69 @@
+
+footer {
+  margin: 0;
+  padding: 20px 5%;
+  background: #001b19;
+  color: #fff;
+}
+footer #subNavColumn ul li a {
+  color: #fff;
+}
+#siteInfoColumn, #bannerColumn, #subNavColumn {
+  margin: 10px 0;
+}
+footer #siteInfoColumn h4, footer #siteInfoColumn>p {
+  text-align: center;
+}
+footer #siteInfoColumn address p {
+  margin: 0;
+}
+footer #siteInfoColumn address {
+  margin-bottom: 20px;
+}
+
+footer #bannerColumn ul {
+  list-style-type: none;
+}
+footer #bannerColumn ul li {
+  margin: 10px 0;
+}
+footer #subNavColumn div {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+@media screen and (min-width : 768px){
+
+  footer {
+    margin: 0;
+    padding: 20px 10%;
+    background: #001b19;
+    color: #fff;
+    display: flex;
+  }
+  #subNavColumn {
+    width: 30%;
+  }
+  #bannerColumn {
+    width: 30%;
+    order: 3;
+  }
+  #siteInfoColumn {
+    width: 40%;
+    order: 2;
+  }
+  
+  footer {
+    padding: 20px 10%;
+  }
+
+  #siteInfoColumn, #bannerColumn, #subNavColumn {
+    margin: 0 20px;
+  }
+
+}
+
+

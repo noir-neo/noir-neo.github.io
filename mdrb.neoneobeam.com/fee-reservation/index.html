@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>料金・予約 - 八王子セミナーハウス</title>
+        <meta name="description" content="八王子セミナーハウスは、教員と学生の小グループが、静かな環境の中で人格的接触をはかりながら人生経験を持つことを目的として設立されている施設です。">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main_lower.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/fee-reservation.css">
+        <style>
+          body{background-image: url(/img/bg/fee-reservation.jpg);}
+        </style>
+        <script src="/js/vendor/modernizr-2.8.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+          <header>
+            <h1><a href="/"><img src="/img/logo.png" alt="八王子セミナーハウス"></a></h1>
+            <nav>
+              <ul>
+                <li><a href="/institution/index.html">施設案内</a>
+              </li>
+              <li><a href="/seminar/index.html">セミナー情報</a>
+              </li>
+              <li><a href="/fee-reservation/index.html">料金・予約</a>
+              </li>
+              <li><a href="/access/index.html">交通案内</a>
+              </li>
+              </ul>
+            </nav>
+
+            <ol id="breadcrumb">
+              <li><a href="/">TOP</a></li>
+              <!-- <li><a href="../"></a></li> -->
+              <li>料金・予約</li>
+            </ol>
+          </header>
+          <section id="main" role="main">
+            <h2>料金・予約</h2>
+            <article>
+             <h3>見積もり</h3>
+             
+              <ol>
+                <li id="active">見積もり</li>
+                <li>お客様情報</li>
+                <li>確認</li>
+                <li>完了</li>
+              </ol>
+              
+              <div class="btn">
+                <a href="/fee-reservation/vacancy/">空室状況を確認する</a>
+                <a href="/fee-reservation/price/">料金表を確認する</a>
+              </div>
+              <form action="reservation/">
+                <div class="sum_box_top">
+                  <p>合計料金</p>
+                  <p><span class="sum">0</span>円</p>
+                  <input class="submit" type="submit" value="次へ">
+                </div>
+                
+                <div class="form num">
+                  <div class="title_box">
+                    <h4>人数</h4>
+                  </div>
+                  <div class="input_box">
+                    <p><label>男子:<input type="number" min="0" value="0" name="num_male">名</label></p>
+                    <p><label>女子:<input type="number" min="0" value="0" name="num_female">名</label></p>
+                    <p><label>合計:<span class="num_sum">0</span>名</label></p>
+                    <p><input type="radio" name="member" value="0" checked="checked">会員校・準会員校・賛助会員</p>
+                    <p><input type="radio" name="member" value="1">一般校</p>
+                    <p><input type="radio" name="member" value="2">社会人</p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="title_box">
+                    <h4>利用日</h4>
+                  </div>
+                  <div class="input_box">
+                    <p><label>到着日:<input type="datetime-local" name="date_of_arrival">ごろ</label></p>
+                    <p><label>出発日:<input type="datetime-local" name="date_of_departure">ごろ</label></p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="title_box">
+                    <h4>宿泊室</h4>
+                    <p class="radio"><input type="radio" name="use_lodging_room" value="y">利用します<input type="radio" name="use_lodging_room" value="n" checked="checked">利用しません</p>
+                  </div>
+                  <div class="input_box hide">
+                    <p><input type="checkbox" name="lodging_room" value="1">特に希望なし</p>
+                    <p><input type="checkbox" name="lodging_room" value="2">さくら館</p>
+                    <p><input type="checkbox" name="lodging_room" value="3">記念館</p>
+                    <p><input type="checkbox" name="lodging_room" value="4">松下館</p>
+                    <p><input type="checkbox" name="lodging_room" value="5">本館</p>
+                    <p><input type="checkbox" name="lodging_room" value="6">国際館</p>
+                    <p><input type="checkbox" name="lodging_room" value="7">長期館&nbsp;※団体貸切</p>
+                    <p>※1人部屋希望<input type="radio" name="single_room" value="y">あり<input type="radio" name="single_room" value="n">なし</p>
+                    <p><label>その他、宿泊室についてご希望があればご記入ください:</label><br>
+                    <textarea name="wish"></textarea>
+                    </p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="title_box">
+                    <h4>セミナー室</h4>
+                    <p class="radio"><input type="radio" name="use_seminar_room" value="y">利用します<input type="radio" name="use_seminar_room" value="n" checked="checked">利用しません</p>
+                  </div>
+                  <div class="input_box hide">
+                    <p><label><input type="number" min="0" value="0" name="num00">名<input type="text" name="room00">室<input type="datetime-local" name="date_of_use_seminar_room00">～<input type="time" name="time00"></label></p>
+                    <p><label><input type="number" min="0" value="0" name="num01">名<input type="text" name="room01">室<input type="datetime-local" name="date_of_use_seminar_room01">～<input type="time" name="time01"></label></p>
+                    <p><label><input type="number" min="0" value="0" name="num02">名<input type="text" name="room02">室<input type="datetime-local" name="date_of_use_seminar_room02">～<input type="time" name="time02"></label></p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="title_box">
+                    <h4>視聴覚機器</h4>
+                    <p class="radio"><input type="radio" name="use_audio_visual" value="y">利用します<input type="radio" name="use_audio_visual" value="n" checked="checked">利用しません</p>
+                  </div>
+                  <div class="input_box hide">
+                    <p><input type="checkbox" name="audio_visual" value="1">液晶プロジェクター</p>
+                    <p><input type="checkbox" name="audio_visual" value="2">オーバーヘッドカメラ</p>
+                    <p><input type="checkbox" name="audio_visual" value="3">オーバーヘッドプロジェクター</p>
+                    <p><input type="checkbox" name="audio_visual" value="4">スライドプロジェクター</p>
+                    <p><input type="checkbox" name="audio_visual" value="5">ビデオ・DVDデッキ</p>
+                    <p><input type="checkbox" name="audio_visual" value="6">CDラジカセ・CDMDプレーヤー</p>
+                    <p><input type="checkbox" name="audio_visual" value="7">ワイヤレスマイク</p>
+                    <p><input type="checkbox" name="audio_visual" value="8">アンプ付きマイク(ポータブル)</p>
+                    <p><input type="checkbox" name="audio_visual" value="9">アップライトピアノ(講堂のみ)</p>
+                    <p><input type="checkbox" name="audio_visual" value="10">グランドピアノ(中央セミナー室のみ)</p>
+                    <p><input type="checkbox" name="audio_visual" value="11">大型スクリーン(講堂のみ)※講堂以外のセミナー室は無料です</p>
+                    <p><input type="checkbox" name="audio_visual" value="12">演壇(講堂のみ)</p>
+                    <p><input type="checkbox" name="audio_visual" value="13">その他<input type="text" name="audio_visual_other"></p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="title_box">
+                    <h4>食事</h4>
+                    <p class="radio"><input type="radio" name="use_meal" value="y">利用します<input type="radio" name="use_meal" value="n" checked="checked">利用しません</p>
+                  </div>
+                  <div class="input_box hide">
+                  </div>
+                </div>
+                
+                <div class="sum_box_bottom">
+                  <p>合計料金<span class="sum">0</span>円</p>
+                  <input class="submit" type="submit" value="次へ">
+                </div>
+              </form>
+            </article>
+          </section>
+
+          
+          <footer>
+            <div id="subNavColumn">
+              <ul>
+                <li><a href="/sub/faq.html">FAQ</a></li>
+                <li><a href="/sub/privacy-policy.html">プライバシーポリシー</a></li>
+                <li><a href="/sub/contact.html">お問い合わせ</a></li>
+                <li><a href="/sub/corporation.html">法人情報</a></li>
+                <li><a href="/sub/cooperator.html">会員校一覧</a></li>
+                <li><a href="/sub/mail-magazine.html">メールマガジン</a></li>
+              </ul>
+              <script>
+  (function() {
+    var cx = '001451877487420203577:kooffmwdbyc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+            </div>
+            
+            <div id="bannerColumn">
+              <ul>
+                <li><a href="http://artvillage.sakura.ne.jp/"><img src="/img/footer/banner_art_village.jpg" alt="Art village"></a></li>
+                <li><a href="http://www.seminarhouse.or.jp/senninkai/senninkai24.html"><img src="/img/footer/banner_senjinkai.jpg" alt="千人会"></a></li>
+              </ul>
+            </div>
+            
+            <div id="siteInfoColumn">
+             <address>
+                <h4>公益財団法人 大学セミナーハウス</h4>
+                <p id="address">〒192-0372 東京都八王子市下柚木 1987-1</p>
+                <p id="tel">TEL: 042-676-8511(代表) 050-3533-1553(IP)</p>
+                <p id="fax">FAX: 042-676-1220</p>
+                <p id="mail">E-mail: info@seminarhouse.or.jp</p>
+                <!-- TODO: telとmailのリンク -->
+              </address>
+              <p><small>&copy; 2014 Seminarhouse.</small></p>
+            </div>
+            
+          </footer>
+        </div><!-- #wrapper -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/reservation.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
