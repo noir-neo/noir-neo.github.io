@@ -9,7 +9,7 @@ var game = game || {};
     
     
     ns.app = tm.display.CanvasApp('#world'); // canvasのidを指定
-    ns.app.resizeWindow(); // 縦横を指定
+    ns.app.resizeWindow(); // windowサイズに合わせて
     ns.app.fitWindow(); // canvasを画面サイズに合わせて等倍拡大縮小
     
     ns.app.replaceScene(MainScene());
