@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="ja">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>md-stu140614</title>
+        <title>N.E.O.</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +19,26 @@
         <![endif]-->
 
         <!-- canvas(HTML書くのはここだけ！) -->
+        <div id="initializing">
+          <p>PXENEO v9.21.2 2014-10-04 Copyright (C) 1999-2014 S. Shoma.</p>
+          <p>N.E.O. 9000</p>
+          <p>http://neo.neoneobeam.com</p>
+          <p>Distributed under the DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE (WTFPL)</p>
+          <p><br></p>
+          <p>N.E.O. 9000 INITIALIZING...</p>
+          <p>&nbsp;&nbsp;&nbsp;------------------------------</p>
+          <p>:: Starting UDev Daemon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DONE]</p>
+          <p>:: Triggering UDev uevents&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DONE]</p>
+          <p>:: Loading Modules&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DONE]</p>
+          <p>:: Activating Swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DONE]</p>
+          <p>:: Setting Hostname: cream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DONE]</p>
+          <p>&nbsp;&nbsp;&nbsp;------------------------------</p>
+          <p>INIT: Entering runlevel: 3</p>
+          <p><br></p>
+          <p>STARING N.E.O. 9000...</p>
+          
+          
+        </div>
         <canvas id="world"></canvas>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -30,7 +50,13 @@
         
         <script src="js/plugins.js"></script>
         
+        <!-- import -->
+        <script src="js/global.js"></script>
+        <script src="js/asset.js"></script>
+        <script src="js/loadingScene.js"></script>
+        <script src="js/mainScene.js"></script>
         <script src="js/main.js"></script>
+        <!-- import done -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
