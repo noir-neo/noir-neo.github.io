@@ -7,6 +7,7 @@
     
     ns.app.replaceScene(LoadingScene({
       assets: ns.ASSETS,
+      text: '/text/text.txt',
       nextScene: MainScene,
     }));
     
