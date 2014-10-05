@@ -28,7 +28,6 @@
       ns.wrapperMarginTopBottom = 0;
       ns.wrapperMarginRightLeft = 0;
 
-
       var screenRatio = ns.app.width/ns.app.height;
       if (screenRatio > ns.S_RATIO) {
         // 横にはみ出す
@@ -39,7 +38,9 @@
         ns.wrapperHeight = ns.app.width / ns.S_RATIO;
         ns.wrapperMarginTopBottom = (ns.app.height - ns.wrapperHeight) / 2;
       }
-
+      
+      ns.wrapperSizeRatio = ns.wrapperWidth / ns.DS_WIDTH;
+      
       if (ns.app.currentScene.resize)
         ns.app.currentScene.resize();
     }, 200);
