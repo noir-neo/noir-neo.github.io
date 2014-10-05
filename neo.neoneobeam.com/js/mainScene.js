@@ -8,16 +8,25 @@
       this.superInit();
       ns.app.background = '#000'; // 背景色
       
-      
-      
-      this.frame = tm.app.Sprite('frame', ns.app.width, ns.app.height)
-        .setPosition(ns.app.width/2, ns.app.height/2)
+      this.wrapper = tm.app.Shape(ns.wrapperWidth, ns.wrapperHeight)
+        .setOrigin(0, 0)
         .addChildTo(this);
+      
+      this.frame = tm.app.Sprite('frame', ns.wrapperWidth, ns.wrapperHeight)
+        .setOrigin(0, 0)
+        .setPosition(0, 0)
+        .addChildTo(this.wrapper);
+      
+      
+      
+      this.resize();
       
     },
     
     resize: function() {
-      
+      this.wrapper.setSize(ns.wrapperWidth, ns.wrapperHeight)
+        .setPosition(ns.wrapperMarginRightLeft, ns.wrapperMarginTopBottom);
+      this.frame.setSize(ns.wrapperWidth, ns.wrapperHeight);
     },
     
     // 毎フレームごとに呼ばれる

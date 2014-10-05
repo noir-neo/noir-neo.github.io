@@ -1,6 +1,6 @@
 (function(ns) {
   
-  ns.S_RATIO = 16/9;
+  ns.S_RATIO = 9/16;
   
   ns.ASSETS = {
     // main

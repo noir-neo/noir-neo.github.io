@@ -14,9 +14,9 @@
         var loader = tm.asset.Loader();
         
         loader.onload = function() {
-          this.tweener.clear().wait(2000).call( function() {
-            console.log('test');
+          this.tweener.clear().wait(200).call( function() {
             if (param.nextScene) {
+              document.body.removeChild(document.getElementById('initializing'));
               this.app.replaceScene(param.nextScene());
             }
             var e = tm.event.Event("load");
