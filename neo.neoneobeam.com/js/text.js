@@ -20,7 +20,27 @@
     };
   }
   
+  ns.resizeTextArea = function() {
+    var d_message = document.getElementById('message');
+    d_message.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
+    d_message.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+'px';
+    
+    var d_log = document.getElementById('log');
+    d_log.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
+    d_log.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.75+'px';
+    d_log.style.top = (ns.wrapperHeight*ns.canvasSizeRatio)*0.15+'px';
+  }
   
+  ns.showMessageBox = function() {
+    document.getElementById('log').style.display = 'none';
+    document.getElementById('message').style.display = 'block';
+  }
+  ns.showLogBox = function() {
+    document.getElementById('message').style.display = 'none';
+    var d_log = document.getElementById('log');
+    d_log.style.display = 'block';
+    d_log.scrollTop = d_log.scrollHeight;
+  }
   
 
 })(game);

@@ -21,14 +21,9 @@
       
       this.resize();
       
-      console.log('btn x:'+this.btn_close.x+',y:'+this.btn_close.y);
-      console.log('btn x:'+this.btn_close.width+',y:'+this.btn_close.height);
-      
       this.on('pointingend', function(e) {
         var px = e.pointing.x/ns.canvasSizeRatio-ns.wrapperMarginRightLeft;
         var py = e.pointing.y/ns.canvasSizeRatio-ns.wrapperMarginTopBottom;
-        
-        console.log('x:'+px+',y:'+py);
         
         if (this.btn_close.isHitPointRect(px, py)) {
           e.app.popScene();
@@ -36,6 +31,10 @@
         
       });
       
+    },
+    
+    onenter: function() {
+      ns.showLogBox();
     },
     
     resize: function() {

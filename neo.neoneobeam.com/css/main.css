@@ -93,7 +93,7 @@ textarea {
 
 body {
   background: #000;
-  font-family: monospace;
+  overflow: hidden;
 }
 
 #world {
@@ -108,26 +108,53 @@ body {
   
 }
 
+#initializing {
+  overflow: hidden;
+}
+
 #initializing p {
   margin: 0;
   color: #6af;
   font-size: 1.2em;
+  font-family: monospace;
 }
 
 #initializing p span {
 }
 
 #text {
-  position: absolute;
-  display: none;
+  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+#text p, #log ul, #log li {
+  margin: 0;
+  padding: 0;
+}
+#log ul {
+  list-style-type: none;
+}
+#log li {
+  margin-bottom: 20px;
 }
 
 #text #message {
-  
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  display: none;
 }
 
 #text #log {
-  
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  display: none;
+  color: #fff;
 }
 
 

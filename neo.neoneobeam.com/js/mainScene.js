@@ -45,6 +45,10 @@
       
     },
     
+    onenter: function() {
+      ns.showMessageBox();
+    },
+    
     resize: function() {
       this.innerWrapper.setSize(ns.wrapperWidth, ns.wrapperHeight)
         .setPosition(ns.wrapperMarginRightLeft, ns.wrapperMarginTopBottom);
