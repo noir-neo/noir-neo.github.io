@@ -1,7 +1,7 @@
 (function(ns) {
   
   function parseText(i_text) {
-    return i_text.split(';');
+    return i_text.split(/\r\n|\r|\n/);
   }
   
   ns.texts;
@@ -19,6 +19,8 @@
       }
     };
   }
+  
+  
   
 
 })(game);

@@ -117,11 +117,18 @@ body {
 #initializing p span {
 }
 
+#text {
+  position: absolute;
+  display: none;
+}
 
+#text #message {
+  
+}
 
-
-
-
+#text #log {
+  
+}
 
 
 

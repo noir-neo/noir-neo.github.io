@@ -8,27 +8,40 @@
       this.superInit();
       ns.app.background = '#000'; // 背景色
       
+      var self = this;
+      
       this.innerWrapper = tm.display.CanvasElement(ns.wrapperWidth, ns.wrapperHeight)
         .addChildTo(this);
       
       this.bg = MySprite('bg', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
+      this.neo = MySprite('neo', 1307, 1950, -110, 240)
+        .addChildTo(this.innerWrapper);
+      
       this.frame = MySprite('frame', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.header = MySprite('header', 1583, 734, -251, -536)
+      this.header = MySprite('header', 1583, 734, -251, -500)
         .addChildTo(this.innerWrapper);
       
-      this.btn_log = MySprite('btn_log', 384, 181, 24, 1274)
+      this.btn_log = MySprite('btn_log', 384, 181, 26, 1268)
         .addChildTo(this.innerWrapper);
       
-      this.massage = MySprite('message', 1472, 1873, -196, 1380)
+      this.massage = MySprite('message', 1472, 1873, -196, 1365)
         .addChildTo(this.innerWrapper);
-      
-      this.labelMessage = MyLabel().addChildTo(this.innerWrapper);
       
       this.resize();
+      
+      this.on('pointingend', function(e) {
+        
+        var px = e.pointing.x/ns.canvasSizeRatio-ns.wrapperMarginRightLeft;
+        var py = e.pointing.y/ns.canvasSizeRatio-ns.wrapperMarginTopBottom;
+        if (this.btn_log.isHitPointRect(px, py)) {
+          e.app.pushScene(LogScene());
+        }
+        
+      });
       
     },
     
@@ -75,28 +88,4 @@
     
   });
   
-  tm.define('MyLabel', {
-    superClass: 'tm.display.Label',
-    init: function() {
-      this.superInit('message');
-      this.setOrigin(0, 0);
-      
-      this.setFillStyle('#000');
-      
-      this.dw = 1000;
-      this.dh = 300;
-      this.dx = 40;
-      this.dy = 1600;
-    },
-    
-    resize: function () {
-      this.setSize(this.dw * ns.wrapperSizeRatio, this.dh * ns.wrapperSizeRatio);
-      this.setPosition(this.dx * ns.wrapperSizeRatio, this.dy * ns.wrapperSizeRatio);
-    },
-    
-    setText: function(n_text) {
-      this.text = n_text;
-    } ,
-    
-  });
 })(game);

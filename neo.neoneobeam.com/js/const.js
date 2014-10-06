@@ -12,7 +12,10 @@
     'icon_question': 'img/mainScene/icon_question.png',
     'btn_log': 'img/mainScene/logbutton.png',
     'message': 'img/mainScene/message.png',
-    
+    'neo': 'img/mainScene/neo.png',
+    'frame_log': 'img/logScene/frame.png',
+    'btn_close': 'img/logScene/button_close.png',
+    'image_bg': 'img/mainScene/image.png',
   }
 
 })(game);
