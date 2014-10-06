@@ -26,6 +26,8 @@
       this.massage = MySprite('message', 1472, 1873, -196, 1380)
         .addChildTo(this.innerWrapper);
       
+      this.labelMessage = MyLabel().addChildTo(this.innerWrapper);
+      
       this.resize();
       
     },
@@ -72,5 +74,29 @@
     },
     
   });
-
+  
+  tm.define('MyLabel', {
+    superClass: 'tm.display.Label',
+    init: function() {
+      this.superInit('message');
+      this.setOrigin(0, 0);
+      
+      this.setFillStyle('#000');
+      
+      this.dw = 1000;
+      this.dh = 300;
+      this.dx = 40;
+      this.dy = 1600;
+    },
+    
+    resize: function () {
+      this.setSize(this.dw * ns.wrapperSizeRatio, this.dh * ns.wrapperSizeRatio);
+      this.setPosition(this.dx * ns.wrapperSizeRatio, this.dy * ns.wrapperSizeRatio);
+    },
+    
+    setText: function(n_text) {
+      this.text = n_text;
+    } ,
+    
+  });
 })(game);
