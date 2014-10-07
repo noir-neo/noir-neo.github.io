@@ -145,6 +145,7 @@ body {
   right: 0;
   overflow: auto;
   display: none;
+  color: #222;
 }
 
 #text #log {
@@ -154,7 +155,7 @@ body {
   right: 0;
   overflow: auto;
   display: none;
-  color: #fff;
+  color: #ddd;
 }
 
 

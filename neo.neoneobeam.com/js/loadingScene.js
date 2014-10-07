@@ -45,7 +45,7 @@
       }
       
       if (param.text) {
-        ns.loadTextByTXT(param.text, function() {
+        ns.text.loadTextByTXT(param.text, function() {
           onload();
         });
       }

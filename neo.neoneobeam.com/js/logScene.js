@@ -1,63 +1,39 @@
 (function(ns) {
   // メインシーン
   tm.define('LogScene', {
-    superClass: 'tm.app.Scene',
+    superClass: 'MyScene',
     
     // シーンを作るとき最初に呼ばれる
     init: function() {
       this.superInit();
       
-      this.bg = tm.display.Shape(0,0).addChildTo(this);
+      this.bg = tm.display.Shape(0,0);//.addChildTo(this);
       this.bg.canvas.clearColor('rgba(0,0,0,0.83');
-      
-      this.innerWrapper = tm.display.CanvasElement(ns.wrapperWidth, ns.wrapperHeight)
-        .addChildTo(this);
+      this.bg.resize = function() {
+        this.setSize(ns.app.width, ns.app.height)
+        .setOrigin(0,0)
+        .setPosition(0,0);
+      };
+      this.addChildAt(this.bg, 0);
       
       this.frame_log = MySprite('frame_log', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
       this.btn_close = MySprite('btn_close', 87, 87, 865, 105)
         .addChildTo(this.innerWrapper);
-      
-      this.resize();
-      
-      this.on('pointingend', function(e) {
-        var px = e.pointing.x/ns.canvasSizeRatio-ns.wrapperMarginRightLeft;
-        var py = e.pointing.y/ns.canvasSizeRatio-ns.wrapperMarginTopBottom;
-        
-        if (this.btn_close.isHitPointRect(px, py)) {
-          e.app.popScene();
-        }
-        
-      });
-      
+
+    },
+    
+    onpointingendCustom: function(px, py) {
+      if (this.btn_close.isHitPointRect(px, py)) {
+        e.app.popScene();
+      }
     },
     
     onenter: function() {
-      ns.showLogBox();
+      this.resize();
+      ns.text.showLogBox();
     },
-    
-    resize: function() {
-      this.innerWrapper.setSize(ns.wrapperWidth, ns.wrapperHeight)
-        .setPosition(ns.wrapperMarginRightLeft, ns.wrapperMarginTopBottom);
-      this.bg.setSize(ns.app.width, ns.app.height)
-        .setOrigin(0,0)
-        .setPosition(0,0);
-      
-      this.children.each(function(c) {
-        c.children.each(function(c2) {
-          if (c2.resize)
-          c2.resize();
-        });
-      });
-      
-      
-    },
-    
-    // 毎フレームごとに呼ばれる
-    update: function() {
-      
-    }, 
     
   });
   

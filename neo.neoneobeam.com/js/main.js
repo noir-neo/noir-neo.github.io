@@ -47,7 +47,7 @@
     if (ns.app.currentScene.resize)
       ns.app.currentScene.resize();
     
-    ns.resizeTextArea();
+    ns.text.resizeTextArea();
     
   }
 
