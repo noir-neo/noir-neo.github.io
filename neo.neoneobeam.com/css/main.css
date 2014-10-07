@@ -114,23 +114,31 @@ body {
 
 #initializing p {
   margin: 0;
+  width: 100%;
   color: #6af;
   font-size: 1.2em;
   font-family: monospace;
 }
 
-#initializing p span {
+#initializing .loadstatus span:first-child {
+  width: 100%;
+  text-align: left;
+}
+
+#initializing .loadstatus span:last-child {
+  width: 100%;
+  text-align: right;
 }
 
 #text {
   font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
-#text p, #log ul, #log li {
+#text p, #log, #log li {
   margin: 0;
   padding: 0;
 }
-#log ul {
+#log {
   list-style-type: none;
 }
 #log li {

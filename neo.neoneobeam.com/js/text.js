@@ -1,7 +1,11 @@
 (function(ns) {
   
-  function parseText(i_text) {
-    return i_text.split(/\r\n|\r|\n/);
+  var _texts = null;
+  var _index = 0;
+    
+  function _parseText(i_text) {
+    return i_text.split(/\r\n|\r|\n|;/);
+  }
   }
   
   ns.text = {
@@ -16,10 +20,19 @@
       function checkReadyState() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
           // サーバからのデータ受信が正常に完了
-          ns.texts = parseText(xmlHttp.responseText);
+          _texts = _parseText(xmlHttp.responseText);
           callback();
         }
       };
+    },
+    
+    makeTextArea: function() {
+      $('#text').append('<div id="message"></div><ul id="log"></ul>')
+      /*
+      $('#message').on('click', function() {
+        ns.text.next();
+      });
+      */
     },
 
     resizeTextArea: function() {

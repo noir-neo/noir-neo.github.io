@@ -20,7 +20,13 @@
         if (waitCount)
           return;
         
-        self.tweener.clear().wait(200).call( function() {
+        // TODO wait長く
+        $('#initializing').append('<p>INIT: Entering runlevel: 3</p><p><br></p><p id="startingneo">STARTING N.E.O. 9000</p>');
+        self.tweener.clear().wait(100)
+          .call(function() {$('#startingneo').append('.')}).wait(100)
+          .call(function() {$('#startingneo').append('.')}).wait(100)
+          .call(function() {$('#startingneo').append('.')}).wait(100)
+          .call( function() {
             if (param.nextScene) {
               document.body.removeChild(document.getElementById('initializing'));
               self.app.replaceScene(param.nextScene());
@@ -33,8 +39,10 @@
       if (param.assets) {
         var loader = tm.asset.Loader();
         
-        loader.onload = onload();
-
+        loader.onload = function() {
+          $('#assets').text('[DONE]');
+          onload();
+        }
         loader.onprogress = function(e) {
           var event = tm.event.Event("progress");
           event.progress = e.progress;
@@ -46,6 +54,7 @@
       
       if (param.text) {
         ns.text.loadTextByTXT(param.text, function() {
+          $('#txt').text('[DONE]');
           onload();
         });
       }

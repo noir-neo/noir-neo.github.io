@@ -1,8 +1,26 @@
 (function(ns) {
   
   tm.main(function() {
+    document.getElementById('tmlib').textContent = '[DONE]';
+    onload();
+  });
+  
+  $(function() {
+    $('#jquery').text('[DONE]');
+    onload();
+  });
+  
+  var waitCount = 2;
+  function onload() {
+    
+    waitCount--;
+        if (waitCount)
+          return;
     
     ns.app = tm.display.CanvasApp('#world'); // canvasのidを指定
+    
+    ns.text.makeTextArea();
+    
     initWindow();
     
     ns.app.replaceScene(LoadingScene({
@@ -14,7 +32,7 @@
     //ns.app.fps = 1;
     ns.app.run();
     
-  });
+  };
   
   function initWindow() {
     
