@@ -21,11 +21,12 @@
           return;
         
         // TODO wait長く
+        var waittime = 100;
         $('#initializing').append('<p>INIT: Entering runlevel: 3</p><p><br></p><p id="startingneo">STARTING N.E.O. 9000</p>');
-        self.tweener.clear().wait(100)
-          .call(function() {$('#startingneo').append('.')}).wait(100)
-          .call(function() {$('#startingneo').append('.')}).wait(100)
-          .call(function() {$('#startingneo').append('.')}).wait(100)
+        self.tweener.clear().wait(waittime)
+          .call(function() {$('#startingneo').append('.')}).wait(waittime)
+          .call(function() {$('#startingneo').append('.')}).wait(waittime)
+          .call(function() {$('#startingneo').append('.')}).wait(waittime)
           .call( function() {
             if (param.nextScene) {
               document.body.removeChild(document.getElementById('initializing'));

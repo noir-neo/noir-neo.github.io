@@ -51,6 +51,8 @@
       _runScript(ct.script, i_val);
     } else if (ct.text) {
       _changeText(ct.text);
+    } else {
+      _next();
     }
 
   }
@@ -179,6 +181,10 @@
       var d_log = document.getElementById('log');
       d_log.style.display = 'block';
       d_log.scrollTop = d_log.scrollHeight;
+    },
+    
+    showInputBox: function() {
+      
     },
 
   }
