@@ -33,6 +33,8 @@
     onpointingendCustom: function(px, py) {
       if (this.btn_log.isHitPointRect(px, py)) {
         this.app.pushScene(LogScene());
+      } else {
+        ns.text.next();
       }
         
     },
