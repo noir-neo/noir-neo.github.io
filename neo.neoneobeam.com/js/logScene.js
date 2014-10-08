@@ -24,7 +24,7 @@
 
     },
     
-    onpointingendCustom: function(px, py) {
+    onpointingendCustom: function(e, px, py) {
       if (this.btn_close.isHitPointRect(px, py)) {
         e.app.popScene();
       }

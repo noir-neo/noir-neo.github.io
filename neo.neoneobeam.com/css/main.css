@@ -134,20 +134,21 @@ body {
   font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
-#text p, #log, #log li {
+#text p, .log, .log li {
   margin: 0;
   padding: 0;
 }
-#log {
+.log {
   list-style-type: none;
 }
-#log li {
+#textlog li {
   margin-bottom: 20px;
 }
 
 #text #message {
   position: absolute;
-  margin: auto;
+  margin: 0 auto;
+  top: auto;
   bottom: 0;
   left: 0;
   right: 0;
@@ -155,8 +156,12 @@ body {
   display: none;
   color: #222;
 }
+#message.input {
+  top: 0;
+  bottom: auto;
+}
 
-#text #log {
+#text .log {
   position: absolute;
   margin: auto;
   left: 0;
@@ -165,8 +170,12 @@ body {
   display: none;
   color: #ddd;
 }
-
-
+#textlog {
+  
+}
+#imglog {
+  display: flex;
+}
 
 
 

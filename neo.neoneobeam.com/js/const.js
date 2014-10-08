@@ -9,7 +9,7 @@
     'bg': 'img/mainScene/bg.png',
     'frame': 'img/mainScene/frame.png',
     'header': 'img/mainScene/header.png',
-    'icon_question': 'img/mainScene/icon_question.png',
+    'icon_question': 'img/inputScene/icon_question.png',
     'btn_log': 'img/mainScene/logbutton.png',
     'message': 'img/mainScene/message.png',
     'neo': 'img/mainScene/neo.png',

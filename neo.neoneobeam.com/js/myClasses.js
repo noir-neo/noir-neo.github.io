@@ -20,7 +20,7 @@
         var px = e.pointing.x/ns.canvasSizeRatio-ns.wrapperMarginRightLeft;
         var py = e.pointing.y/ns.canvasSizeRatio-ns.wrapperMarginTopBottom;
         if (this.onpointingendCustom)
-          this.onpointingendCustom(px, py);
+          this.onpointingendCustom(e, px, py);
     },
     
     onenter: function() {
@@ -61,6 +61,17 @@
     resize: function () {
       this.setSize(this.dw * ns.wrapperSizeRatio, this.dh * ns.wrapperSizeRatio);
       this.setPosition(this.dx * ns.wrapperSizeRatio, this.dy * ns.wrapperSizeRatio);
+    },
+    
+  });
+  
+  tm.define('MessageSprite', {
+    superClass: 'MySprite',
+    
+    init: function() {
+      this.superInit('message', 1472, 1873, -196, 1365);
+      this.y0 = this.dy;
+      this.y1 = 40;
     },
     
   });

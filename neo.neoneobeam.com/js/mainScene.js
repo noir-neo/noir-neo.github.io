@@ -25,14 +25,14 @@
       this.btn_log = MySprite('btn_log', 384, 181, 26, 1268)
         .addChildTo(this.innerWrapper);
       
-      this.massage = MySprite('message', 1472, 1873, -196, 1365)
+      this.message = MessageSprite()
         .addChildTo(this.innerWrapper);
       
     },
     
-    onpointingendCustom: function(px, py) {
+    onpointingendCustom: function(e, px, py) {
       if (this.btn_log.isHitPointRect(px, py)) {
-        this.app.pushScene(LogScene());
+        e.app.pushScene(LogScene());
       } else {
         ns.text.next();
       }
@@ -42,6 +42,10 @@
     onenter: function() {
       this.resize();
       ns.text.showMessageBox();
+    },
+    
+    pushInputArea: function(type, f, f1) {
+      this.app.pushScene(InputScene(type, f, f1));
     },
     
     

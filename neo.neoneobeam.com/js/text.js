@@ -15,7 +15,7 @@
     
     $('#message').append($nP.clone(false));
     
-    $('#log').append($('<li/>').append($nP.clone(false)));
+    $('#textlog').append($('<li/>').append($nP.clone(false)));
   }
   
   function _logScriptError(i_s) {
@@ -37,10 +37,11 @@
     return {'script':script, 'text':text};
   }
   
-  function _next(i_ct, i_val) {
-    
-    if (i_ct) {
-      ct = i_ct;
+  function _next(p) {
+    var p = p || {};
+    var ct;
+    if (p && p.ct) {
+      ct = p.ct;
     } else {
       ct = _getCurrentText();
     }
@@ -48,11 +49,12 @@
       return;
     
     if (ct.script) {
-      _runScript(ct.script, i_val);
+      _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
     } else {
-      _next();
+      // 空行であると判断…
+      _next({'val':p.val});
     }
 
   }
@@ -63,7 +65,7 @@
       if (ct.script) {
         var s = _scriptReplace(ct.script[0]);
         if (s[0].match(to_s)) {
-          _next(ct);
+          _next({'ct':ct});
           break;
         }
       }
@@ -85,11 +87,11 @@
         case 'image': // 画像
           switch (s[1]) {
               case 'show':
-
+                // TODO:
                 break;
 
               case 'del':
-
+                // TODO:
                 break;
           }
           _next();
@@ -97,6 +99,7 @@
 
         case 'input': // 入力画面を開く
           // TODO:
+          _pushInputArea(s[1]);
           _next();
           break;
 
@@ -121,7 +124,8 @@
           break;
 
         case 'sleep': // スリープモードになっておでこタップされるまで待機
-
+          // TODO:
+          
           break;
 
         default:
@@ -131,10 +135,24 @@
     }
   }
   
+  function _pushInputArea(type) {
+    $('#message').addClass('input');
+    $('#message.input').css({
+      'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.16+ns.wrapperMarginTopBottom+'px',
+      'display': 'none'});
+    if (ns.app.currentScene.pushInputArea)
+      ns.app.currentScene.pushInputArea(type, function(t) {
+        $('#message.input').fadeIn(t);
+      }, function() {
+        $('#message.input').hide().removeClass('input').css('top', 'auto');
+        
+      });
+  }
+  
   ns.text = {
   
-    next: function(i_val) {
-      _next(0, 0);
+    next: function(p) {
+      _next(p);
     },
 
     loadTextByTXT: function(i_path, callback) {
@@ -152,39 +170,49 @@
     },
     
     makeTextArea: function() {
-      $('#text').append('<div id="message"></div><ul id="log"></ul>')
-      /*
+      $('#text').append('<div id="message"></div><ul id="textlog" class="log"></ul><ul id="imglog" class="log"></ul>')
+      
       $('#message').on('click', function() {
-        ns.text.next();
+        if ($('#message').hasClass('input'))
+          return;
+        _next();
       });
-      */
+      
     },
 
     resizeTextArea: function() {
       var d_message = document.getElementById('message');
       d_message.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
       d_message.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+'px';
+      if ($('#message').hasClass('input'))
+        $('#message').css('top', (ns.wrapperHeight*ns.canvasSizeRatio)*0.15+ns.wrapperMarginTopBottom+'px');
 
-      var d_log = document.getElementById('log');
-      d_log.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
-      d_log.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.75+'px';
-      d_log.style.top = (ns.wrapperHeight*ns.canvasSizeRatio)*0.15+'px';
+      $('.log').css({
+        'width': (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px',
+        
+      });
+      $('#textlog').css({
+        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.6+'px',
+        'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.14+ns.wrapperMarginTopBottom+'px',
+      });
+      $('#imglog').css({
+        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.05+'px',
+        'bottom': (ns.wrapperHeight*ns.canvasSizeRatio)*0.1+ns.wrapperMarginTopBottom+'px',
+      });
+      
     },
 
     showMessageBox: function() {
-      document.getElementById('log').style.display = 'none';
-      document.getElementById('message').style.display = 'block';
+      $('.log').hide();
+      $('#message').show();
     },
     
     showLogBox: function() {
-      document.getElementById('message').style.display = 'none';
-      var d_log = document.getElementById('log');
-      d_log.style.display = 'block';
+      $('#message').hide();
+      $('.log').show();
+      var d_log = document.getElementById('textlog');
       d_log.scrollTop = d_log.scrollHeight;
-    },
-    
-    showInputBox: function() {
-      
+
     },
 
   }
