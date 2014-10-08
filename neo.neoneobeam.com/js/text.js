@@ -34,7 +34,7 @@
     var pattern = /\[(.*?)\]/g;
     var script = currentText.match(pattern);
     var text = currentText.replace(pattern, '');
-    return {'script':script,'text':text};
+    return {'script':script, 'text':text};
   }
   
   function _next(i_ct, i_val) {
@@ -49,9 +49,7 @@
     
     if (ct.script) {
       _runScript(ct.script, i_val);
-    }
-
-    if (ct.text) {
+    } else if (ct.text) {
       _changeText(ct.text);
     }
 
@@ -75,62 +73,60 @@
   }
   
   function _runScript(i_script, i_val) {
-    i_script.forEach(function(_script) {
-      var s = _scriptReplace(_script);
-      console.log('script:'+s);
-      switch (s[0]) {
-          case 'neo': // NEOの差分
+    var s = _scriptReplace(i_script[0]);
+    console.log('script:'+s);
+    switch (s[0]) {
+        case 'neo': // NEOの差分
+          _next();
+          break;
+
+        case 'image': // 画像
+          switch (s[1]) {
+              case 'show':
+
+                break;
+
+              case 'del':
+
+                break;
+          }
+          _next();
+          break;
+
+        case 'input': // 入力画面を開く
+          // TODO:
+          _next();
+          break;
+
+        case 'case': // 入力された値に一致すると発火
+          if (s[1] == i_val) {
             _next();
-            break;
+          } else {
+            _skipTextTo(/case|default|endcase/);
+          }
+          break;
 
-          case 'image': // 画像
-            switch (s[1]) {
-                case 'show':
-                  
-                  break;
-                
-                case 'del':
-                  
-                  break;
-            }
+        case 'default': // caseどれにも一致しなかった場合発火
             _next();
-            break;
+          break;
 
-          case 'input': // 入力画面を開く
-            // TODO:
-            _next();
-            break;
+        case 'skipto':
+          _skipTextTo(s[1]);
+          break;
 
-          case 'case': // 入力された値に一致すると発火
-            if (s[1] == i_val) {
-              _next();
-            } else {
-              _skipTextTo(/case|default|endcase/);
-            }
-            break;
+        case 'backto':
+          _skipTextTo(s[1], 'reverse');
+          break;
 
-          case 'default': // caseどれにも一致しなかった場合発火
-              _next();
-            break;
-          
-          case 'skipto':
-            _skipTextTo(s[1]);
-            break;
-          
-          case 'backto':
-            _skipTextTo(s[1], 'reverse');
-            break;
+        case 'sleep': // スリープモードになっておでこタップされるまで待機
 
-          case 'sleep': // スリープモードになっておでこタップされるまで待機
+          break;
 
-            break;
-
-          default:
-            _logScriptError(s[0]);
-            _next();
-            break;
-      }
-    });
+        default:
+          _logScriptError(s[0]);
+          _next();
+          break;
+    }
   }
   
   ns.text = {
