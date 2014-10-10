@@ -19,7 +19,7 @@
       this.frame_log = MySprite('frame_log', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.btn_close = MySprite('btn_close', 87, 87, 865, 105)
+      this.btn_close = MySprite('btn_close', 173, 173, 822, 62)
         .addChildTo(this.innerWrapper);
 
     },
