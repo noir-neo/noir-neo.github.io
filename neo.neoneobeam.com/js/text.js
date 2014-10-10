@@ -74,6 +74,27 @@
     }
   }
   
+  function _showImage(img_name) {
+    
+    if (ns.app.currentScene.showImage)
+      ns.app.currentScene.showImage(img_name);
+    
+    $('#imglog').append($('<li/>')
+      .append($('<img>').attr({
+        src: '/img/images/'+img_name+'_thumb.png',
+        title: img_name
+        }).on('click', function() {
+          ns.text.hideLogBox();
+          ns.text.hideMessageBox();
+          ns.app.pushScene(ImageScene(img_name));
+    })));
+  }
+  
+  function _hideImage(img_name) {
+    if (ns.app.currentScene.hideImage)
+      ns.app.currentScene.hideImage(img_name);
+  }
+  
   function _scriptReplace(i_script) {
     return i_script.replace(/\[|\]/g, '').split(/\s/);
   }
@@ -83,17 +104,18 @@
     console.log('script:'+s);
     switch (s[0]) {
         case 'neo': // NEOの差分
+          // TODO: 
           _next();
           break;
 
         case 'image': // 画像
           switch (s[1]) {
               case 'show':
-                // TODO:
+                _showImage(s[2]);
                 break;
 
               case 'del':
-                // TODO:
+                _hideImage(s[2]);
                 break;
           }
           _next();
@@ -169,7 +191,7 @@
     },
     
     makeTextArea: function() {
-      $('#text').append('<div id="message"></div><ul id="textlog" class="log"></ul><ul id="imglog" class="log"></ul>')
+      $('#text').append('<div id="message"></div><div class="log"><ul id="textlog"></ul><ul id="imglog"</ul></div>');
       
       $('#message').on('click', function() {
         if ($('#message').hasClass('input'))
@@ -186,17 +208,18 @@
       if ($('#message').hasClass('input'))
         $('#message').css('top', (ns.wrapperHeight*ns.canvasSizeRatio)*0.15+ns.wrapperMarginTopBottom+'px');
 
-      $('.log').css({
+      $('#textlog, #imglog').css({
         'width': (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px',
         
       });
       $('#textlog').css({
-        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.6+'px',
+        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.65+'px',
         'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.14+ns.wrapperMarginTopBottom+'px',
       });
+      var imgH = (ns.wrapperHeight*ns.canvasSizeRatio)*0.08+'px';
       $('#imglog').css({
-        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.05+'px',
-        'bottom': (ns.wrapperHeight*ns.canvasSizeRatio)*0.1+ns.wrapperMarginTopBottom+'px',
+        'height': imgH,
+        'bottom': (ns.wrapperHeight*ns.canvasSizeRatio)*0.07+ns.wrapperMarginTopBottom+'px',
       });
       
     },

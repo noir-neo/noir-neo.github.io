@@ -134,11 +134,11 @@ body {
   font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
-#text p, .log, .log li {
+#text p, ul, ul li {
   margin: 0;
   padding: 0;
 }
-.log {
+ul {
   list-style-type: none;
 }
 #textlog li {
@@ -160,14 +160,15 @@ body {
   top: 0;
   bottom: auto;
 }
-
-#text .log {
+.log {
+  display: none;
+}
+#textlog, #imglog {
   position: absolute;
   margin: auto;
   left: 0;
   right: 0;
   overflow: auto;
-  display: none;
   color: #ddd;
 }
 #textlog {
@@ -176,6 +177,19 @@ body {
 #imglog {
   display: flex;
   overflow: auto;
+}
+#imglog li {
+  height: 100%;
+  width: auto;
+  display: block;
+  
+}
+
+#imglog li img {
+  height: 100%;
+  width: auto;
+  display: block;
+  margin: 0 10px;
 }
 
 

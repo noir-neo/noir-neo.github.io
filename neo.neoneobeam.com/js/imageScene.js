@@ -1,10 +1,10 @@
 (function(ns) {
   // メインシーン
-  tm.define('LogScene', {
+  tm.define('ImageScene', {
     superClass: 'MyScene',
     
     // シーンを作るとき最初に呼ばれる
-    init: function() {
+    init: function(img_name) {
       this.superInit();
       
       this.bg = tm.display.Shape(0,0);//.addChildTo(this);
@@ -16,42 +16,39 @@
       };
       this.addChildAt(this.bg, 0);
       
-      this.frame_log = MySprite('frame_log', 1080, 1920, 0, 0)
+      this.img = MySprite(img_name, 941, 928, 69, 496)
         .addChildTo(this.innerWrapper);
       
-      this.btn_close = MySprite('btn_close', 173, 173, 822, 62)
+      this.btn_close = MySprite('btn_close', 173, 173, 870, 463)
         .addChildTo(this.innerWrapper);
 
     },
     
     onpointingendCustom: function(e, px, py) {
-      if (this.btn_close.isHitPointRect(px, py)) {
-        ns.text.hideLogBox();
-        
+      var pop = function() {
         this.innerWrapper
         .tweener.clear()
-        .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeInQuart').call(function() {
+        .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeOutQuart').call(function() {
           e.app.popScene();
         });
-        
+      }.bind(this);
+      if (this.btn_close.isHitPointRect(px, py)) {
+        pop();
+      } else if (this.img.isHitPointRect(px, py)) {
+        return;
       }
+      pop();
+      
     },
-        
+    
     onenter: function() {
-      this.resize();
       ns.text.hideMessageBox();
+      this.resize();
       this.innerWrapper
         .setPosition(this.innerWrapper.width*0.49+this.innerWrapper.x, this.innerWrapper.height*0.49+this.innerWrapper.y)
         .setScale(0.01, 0.01)
         .tweener.clear()
-        .to({scaleX: 1.0, scaleY: 1.0, x: ns.wrapperMarginRightLeft, y: ns.wrapperMarginTopBottom}, 300, 'easeOutQuart').call(function() {
-          ns.text.showLogBox(200);
-        });
-      
-      this.onenter = function() {
-        this.resize();
-        ns.text.showLogBox(200);
-      }
+        .to({scaleX: 1.0, scaleY: 1.0, x: ns.wrapperMarginRightLeft, y: ns.wrapperMarginTopBottom}, 300, 'easeInQuart');
     },
     
   });

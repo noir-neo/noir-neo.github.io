@@ -41,7 +41,15 @@
     'num_7': 'img/inputScene/num7.png',
     'num_8': 'img/inputScene/num8.png',
     'num_9': 'img/inputScene/num9.png',
-    
+    'puritist': 'img/images/puritist.png',
+    'mdw': 'img/images/mdw.png',
+    'gungnir': 'img/images/mdw.png',
+    'poster': 'img/images/mdw.png',
+    'coupon_goraku': 'img/images/mdw.png',
+    'coupon_game': 'img/images/mdw.png',
+    'zawa': 'img/images/mdw.png',
+    'ar': 'img/images/ar.png',
+    'controlsystem': 'img/images/mdw.png',
   }
 
 })(game);

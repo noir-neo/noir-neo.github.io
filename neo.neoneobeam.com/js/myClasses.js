@@ -65,11 +65,40 @@
     
   });
   
+  tm.define('ImageSprite', {
+    superClass: 'MySprite',
+    
+    init: function(sprite, x, y, scale) {
+      this.dscale = scale;
+      this.superInit(sprite, 941, 928, x, y);
+      this.setPosition(this.x+this.width*0.49, this.y+this.height*0.49)
+        .setSize(this.width*0.01, this.height*0.01)
+        .setAlpha(0.0);
+    },
+    
+    show: function() {
+      this.setAlpha(1.0);
+      this.tweener.clear()
+        .to({width: this.dw*ns.wrapperSizeRatio*this.dscale, height: this.dh*ns.wrapperSizeRatio*this.dscale, x: this.dx*ns.wrapperSizeRatio, y: this.dy*ns.wrapperSizeRatio}, 300, 'easeOutQuart');
+    },
+    
+    hide: function() {
+      this.tweener.clear()
+        .to({scaleX: 0.01, scaleY: 0.01, x: this.x+this.width*0.49, y: this.y+this.height*0.49}, 300, 'easeInQuart').call(function(){
+          this.remove();
+          }.bind(this));
+    },
+    resize: function () {
+      this.setSize(this.dw * ns.wrapperSizeRatio*this.dscale, this.dh * ns.wrapperSizeRatio*this.dscale);
+      this.setPosition(this.dx * ns.wrapperSizeRatio, this.dy * ns.wrapperSizeRatio);
+    },
+  });
+  
   tm.define('MessageSprite', {
     superClass: 'MySprite',
     
     init: function() {
-      this.superInit('message', 1472, 1873, -196, 1365);
+      this.superInit('message', 1472, 2915, -196, 1365);
       this.y0 = this.dy;
       this.y1 = 40;
     },

@@ -104,8 +104,9 @@
             .to({y: this.message.y0*ns.wrapperSizeRatio}, 500, 'easeInOutQuart')
             .call(function() {
               this.message.dy = this.message.y0;
+              e.app.popScene();  
               ns.text.next({'val':i_val});
-              e.app.popScene();
+              
             }.bind(this))}.bind(this));
       
     },
