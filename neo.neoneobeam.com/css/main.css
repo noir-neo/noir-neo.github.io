@@ -175,6 +175,7 @@ body {
 }
 #imglog {
   display: flex;
+  overflow: auto;
 }
 
 

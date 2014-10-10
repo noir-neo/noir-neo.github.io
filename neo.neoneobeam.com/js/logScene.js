@@ -30,7 +30,7 @@
         
         this.innerWrapper
         .tweener.clear()
-        .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeInOutQuart').call(function() {
+        .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeOutQuart').call(function() {
           e.app.popScene();
         });
         
@@ -44,7 +44,7 @@
         .setPosition(this.innerWrapper.width*0.49+this.innerWrapper.x, this.innerWrapper.height*0.49+this.innerWrapper.y)
         .setScale(0.01, 0.01)
         .tweener.clear()
-        .to({scaleX: 1.0, scaleY: 1.0, x: ns.wrapperMarginRightLeft, y: ns.wrapperMarginTopBottom}, 300, 'easeInOutQuart').call(function() {
+        .to({scaleX: 1.0, scaleY: 1.0, x: ns.wrapperMarginRightLeft, y: ns.wrapperMarginTopBottom}, 300, 'easeInQuart').call(function() {
           ns.text.showLogBox(200);
         });
     },
