@@ -116,7 +116,7 @@
         .to({y: this.message.y1*ns.wrapperSizeRatio}, 500, 'easeInOutQuart')
         .call(function() {
           this.message.dy = this.message.y1;
-          this.uiWrapper.tweener.clear().fadeIn(300).wait(300).call(function() {
+          this.uiWrapper.tweener.clear().fadeIn(200).wait(300).call(function() {
             this.input_caret.startAnim();
           }.bind(this));
           f(300);

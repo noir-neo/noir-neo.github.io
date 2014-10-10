@@ -9,11 +9,13 @@
   
   function _changeText(i_text) {
     
+    $('#message').hide();
     $('#message').children().remove();
     
     var $nP = $('<p/>').text(i_text);
     
     $('#message').append($nP.clone(false));
+    $('#message').fadeIn(200);
     
     $('#textlog').append($('<li/>').append($nP.clone(false)));
   }
@@ -98,9 +100,7 @@
           break;
 
         case 'input': // 入力画面を開く
-          // TODO:
           _pushInputArea(s[1]);
-          _next();
           break;
 
         case 'case': // 入力された値に一致すると発火
@@ -142,10 +142,9 @@
       'display': 'none'});
     if (ns.app.currentScene.pushInputArea)
       ns.app.currentScene.pushInputArea(type, function(t) {
-        $('#message.input').fadeIn(t);
+        _next();
       }, function() {
         $('#message.input').hide().removeClass('input').css('top', 'auto');
-        
       });
   }
   
@@ -207,12 +206,20 @@
       $('#message').show();
     },
     
-    showLogBox: function() {
+    hideMessageBox: function() {
       $('#message').hide();
-      $('.log').show();
+    },
+    
+    showLogBox: function(t) {
+      $('#message').hide();
+      $('.log').fadeIn(t);
       var d_log = document.getElementById('textlog');
       d_log.scrollTop = d_log.scrollHeight;
 
+    },
+    
+    hideLogBox: function() {
+      $('.log').hide();
     },
 
   }
