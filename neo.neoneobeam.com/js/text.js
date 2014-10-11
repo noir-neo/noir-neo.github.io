@@ -127,6 +127,16 @@
     }
   }
   
+  function _showError() {
+    if (ns.app.currentScene.showError)
+      ns.app.currentScene.showError();
+  }
+  
+  function _hideError() {
+    if (ns.app.currentScene.hideError)
+      ns.app.currentScene.hideError();
+  }
+  
   function _runScript(i_script, i_val) {
     var s = _scriptReplace(i_script[0]);
     console.log('script:'+s);
@@ -147,7 +157,20 @@
           }
           _next();
           break;
+        
+        case 'error': // 画像
+          switch (s[1]) {
+              case 'show':
+                _showError();
+                break;
 
+              case 'del':
+                _hideError();
+                break;
+          }
+          _next();
+          break;
+        
         case 'input': // 入力画面を開く
           _pushInputArea(s[1]);
           break;

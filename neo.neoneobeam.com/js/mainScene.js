@@ -130,6 +130,32 @@
       
     },
     
+    showError: function() {
+      this.error = this.error || [];
+      if (this.error.length === 0) {
+        var newErrorMessage = MySprite('error_message', 1038, 237, 21, 200)
+          .addChildTo(this.innerWrapper);
+          newErrorMessage.tweener.clear().fadeIn(200);
+        this.error.push(newErrorMessage);
+      }
+      
+      var newErrorDialog = MySprite('error_dialog', 961, 715, 380*(this.error.length-1)+38, 150*(this.error.length-1)+280)
+        .addChildTo(this.error[0]);
+        newErrorDialog.tweener.clear().fadeIn(200);
+      this.error.push(newErrorDialog);
+      
+      
+        
+    },
+    
+    hideError: function() {
+      for (var i = 0; i < this.error.length; i++) {
+        this.error[i].tweener.clear().fadeOut(200);
+      }
+      this.error[0].remove();
+      this.error = null;
+    },
+    
     
   });
   

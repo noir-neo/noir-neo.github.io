@@ -14,7 +14,8 @@
     'message': 'img/mainScene/message.png',
     'neo': 'img/mainScene/neo.png',
     'btn_power': 'img/mainScene/powerbutton.png',
-    'error': 'img/mainScene/error.png',
+    'error_message': 'img/mainScene/error_message.png',
+    'error_dialog': 'img/mainScene/error_dialogue.png',
     'frame_log': 'img/logScene/frame.png',
     'btn_close': 'img/logScene/button_close.png',
     'btn_0': 'img/inputScene/0.png',
@@ -49,6 +50,7 @@
     'coupon_goraku': 'img/images/mdw.png',
     'coupon_game': 'img/images/mdw.png',
     'zawa': 'img/images/mdw.png',
+    'map': 'img/images/mdw.png',
     'ar': 'img/images/ar.png',
     'controlsystem': 'img/images/mdw.png',
   }
