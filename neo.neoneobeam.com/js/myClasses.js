@@ -94,15 +94,4 @@
     },
   });
   
-  tm.define('MessageSprite', {
-    superClass: 'MySprite',
-    
-    init: function() {
-      this.superInit('message', 1472, 2915, -196, 1365);
-      this.y0 = this.dy;
-      this.y1 = 40;
-    },
-    
-  });
-  
 })(game);

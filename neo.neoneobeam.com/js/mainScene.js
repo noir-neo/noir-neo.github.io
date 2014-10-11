@@ -13,7 +13,7 @@
       this.bg = MySprite('bg', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.neo = MySprite('neo', 1200, 1920, -60, 0)
+      this.neo = MySprite('neo', 1350, 1920, -135, 0)
         .addChildTo(this.innerWrapper)
         .setAlpha(0);
       
@@ -26,7 +26,7 @@
       this.btn_log = MySprite('btn_log', 384, 181, 26, 1268)
         .addChildTo(this.innerWrapper);
       
-      this.message = MessageSprite()
+      this.message = MySprite('message', 1472, 2915, -196, 1365)
         .addChildTo(this.innerWrapper);
       
       this.images = {};

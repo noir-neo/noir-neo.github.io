@@ -50,7 +50,7 @@
 
   }
   function _next(p) {
-    if (!canNext || !canNextOnClick)
+    if (!canNext || !canNextOnClick || _index>=_texts.length)
       return;
     var p = p || {};
     var ct;
@@ -60,9 +60,7 @@
       ct = _getCurrentText();
     }
     
-    if (!ct) {
-      _next({'val':p.val});
-    } else if (ct.script) {
+    if (ct.script) {
       _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
@@ -188,7 +186,7 @@
   function _pushInputArea(type) {
     $('#message').addClass('input');
     $('#message.input').css({
-      'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.16+ns.wrapperMarginTopBottom+'px',
+      'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+ns.wrapperMarginTopBottom+'px',
       'display': 'none'});
     if (ns.app.currentScene.pushInputArea)
       ns.app.currentScene.pushInputArea(type, function(t) {
@@ -234,7 +232,7 @@
       d_message.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
       d_message.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+'px';
       if ($('#message').hasClass('input'))
-        $('#message').css('top', (ns.wrapperHeight*ns.canvasSizeRatio)*0.15+ns.wrapperMarginTopBottom+'px');
+        $('#message').css('top', (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+ns.wrapperMarginTopBottom+'px');
 
       $('#textlog, #imglog').css({
         'width': (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px',
