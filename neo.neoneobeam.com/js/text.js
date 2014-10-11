@@ -2,6 +2,8 @@
   
   var _texts = null;
   var _index = 0;
+  var canNextOnClick = true;
+  var canNext = true;
     
   function _parseText(i_text) {
     return i_text.split(/\r\n|\r|\n|;/);
@@ -39,7 +41,17 @@
     return {'script':script, 'text':text};
   }
   
+  function _nextByClick(p) {
+    _next(p);
+    setTimeout(function() {
+        canNextOnClick = true;
+      }, 500);
+      canNextOnClick = false;
+
+  }
   function _next(p) {
+    if (!canNext || !canNextOnClick)
+      return;
     var p = p || {};
     var ct;
     if (p && p.ct) {
@@ -47,18 +59,16 @@
     } else {
       ct = _getCurrentText();
     }
-    if(!ct)
-      return;
     
-    if (ct.script) {
+    if (!ct) {
+      _next({'val':p.val});
+    } else if (ct.script) {
       _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
     } else {
-      // 空行であると判断…
       _next({'val':p.val});
     }
-
   }
   
   function _skipTextTo(to_s, i) {
@@ -99,13 +109,32 @@
     return i_script.replace(/\[|\]/g, '').split(/\s/);
   }
   
+  function _changeNeo(i_name) {
+    if (ns.app.currentScene.changeNeo) {
+      canNext = false;
+      ns.app.currentScene.changeNeo(i_name, function() {
+          canNext = true;
+          _next();
+      }); 
+    }
+  }
+  
+  function _sleep() {
+    if (ns.app.currentScene.sleep) {
+      canNext = false;
+      ns.app.currentScene.sleep(function() {
+          canNext = true;
+          _next();
+      }); 
+    }
+  }
+  
   function _runScript(i_script, i_val) {
     var s = _scriptReplace(i_script[0]);
     console.log('script:'+s);
     switch (s[0]) {
         case 'neo': // NEOの差分
-          // TODO: 
-          _next();
+          _changeNeo(s[1]);
           break;
 
         case 'image': // 画像
@@ -144,10 +173,9 @@
         case 'backto':
           _skipTextTo(s[1], 'reverse');
           break;
-
+        
         case 'sleep': // スリープモードになっておでこタップされるまで待機
-          // TODO:
-          
+          _sleep();
           break;
 
         default:
@@ -173,7 +201,7 @@
   ns.text = {
   
     next: function(p) {
-      _next(p);
+      _nextByClick(p);
     },
 
     loadTextByTXT: function(i_path, callback) {
@@ -196,7 +224,7 @@
       $('#message').on('click', function() {
         if ($('#message').hasClass('input'))
           return;
-        _next();
+        _nextByClick();
       });
       
     },

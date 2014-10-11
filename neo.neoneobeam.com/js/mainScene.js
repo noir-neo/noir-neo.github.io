@@ -13,8 +13,9 @@
       this.bg = MySprite('bg', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.neo = MySprite('neo', 1307, 1950, -110, 240)
-        .addChildTo(this.innerWrapper);
+      this.neo = MySprite('neo', 1200, 1920, -60, 0)
+        .addChildTo(this.innerWrapper)
+        .setAlpha(0);
       
       this.frame = MySprite('frame', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
@@ -29,6 +30,8 @@
         .addChildTo(this.innerWrapper);
       
       this.images = {};
+      
+      ns.text.next();
     },
     
     onpointingendCustom: function(e, px, py) {
@@ -37,7 +40,6 @@
         return;
       }
       
-      
       for (var i in this.images) {
         if (this.images[i].isHitPointRect(px, py)) {
           e.app.pushScene(ImageScene(i));
@@ -45,15 +47,53 @@
         }
       }
       
-        
-      ns.text.next();
+      if (this.btn_power) {
+        if(this.btn_power.isHitPointRect(px, py)) {
+          this.btn_power.onwakeup();
+        }
+        return;
+      }
       
-        
+      ns.text.next();
     },
     
     onenter: function() {
       this.resize();
       ns.text.showMessageBox();
+    },
+    
+    changeNeo: function(i_name, i_f) {
+      var name = i_name || ''
+      var f = i_f || function() {};
+      
+      // TODO: 差分
+      
+      
+      if (this.neo.alpha != 1.0) {
+        this.neo.tweener.clear()
+          .fadeIn(1000)
+          .wait(1000).call(f);
+        return;
+      }
+      f();
+      
+    },
+    
+    sleep: function(i_f) {
+      this.btn_power = MySprite('btn_power', 252, 297, 414, 190)
+        .setAlpha(0)
+        .addChildTo(this.innerWrapper);
+      this.btn_power.onwakeup = function() {
+        this.btn_power.tweener.clear().fadeIn(300).wait(500).call(function() {
+          this.btn_power.remove();
+          this.btn_power = null;
+          i_f();
+        }.bind(this));
+      }.bind(this);
+      var anim = function() {
+        this.btn_power.tweener.clear().fadeIn(1000).wait(500).fadeOut(1000).wait(500).call(anim);
+        }.bind(this);
+      anim();
     },
     
     pushInputArea: function(type, f, f1) {
