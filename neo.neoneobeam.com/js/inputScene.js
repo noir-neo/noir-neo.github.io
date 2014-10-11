@@ -63,12 +63,12 @@
         if (this.input_val) {
           this.input_val = this.input_val.slice(0, -1);
           this.input_field.removeChild(this.input_field.children.last);
-          this.input_caret.x-=(45*ns.wrapperSizeRatio);
+          this.input_caret.x-=(55*ns.wrapperSizeRatio);
         }
       } else {
         this.input_val += val;
-        MySprite('num_'+val, 45, 90, (this.input_caret.x/ns.wrapperSizeRatio), 25).addChildTo(this.input_field);
-        this.input_caret.x+=(45*ns.wrapperSizeRatio);
+        MySprite('num_'+val, 55, 90, (this.input_caret.x/ns.wrapperSizeRatio), 25).addChildTo(this.input_field);
+        this.input_caret.x+=(55*ns.wrapperSizeRatio);
       }
       console.log();
     },
