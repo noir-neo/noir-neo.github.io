@@ -13,9 +13,12 @@
       this.bg = MySprite('bg', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.neo = MySprite('neo', 1350, 1920, -135, 0)
-        .addChildTo(this.innerWrapper)
-        .setAlpha(0);
+      this.neo = MySprite('neo_serious', 1350, 1920, -135, 0)
+        .addChildTo(this.innerWrapper);
+      this.neo.changeImage = function(img) {
+        if (img)
+          this.neo.image = 'neo_'+img;
+      }.bind(this);
       
       this.frame = MySprite('frame', 1080, 1920, 0, 0)
         .addChildTo(this.innerWrapper);
@@ -63,11 +66,9 @@
     },
     
     changeNeo: function(i_name, i_f) {
-      var name = i_name || ''
       var f = i_f || function() {};
       
-      // TODO: 差分
-      
+      this.neo.changeImage(i_name);
       
       if (this.neo.alpha != 1.0) {
         this.neo.tweener.clear()
@@ -84,7 +85,7 @@
         .setAlpha(0)
         .addChildTo(this.innerWrapper);
       this.btn_power.onwakeup = function() {
-        this.btn_power.tweener.clear().fadeIn(300).wait(500).call(function() {
+        this.btn_power.tweener.clear().fadeIn(300).wait(300).call(function() {
           this.btn_power.remove();
           this.btn_power = null;
           i_f();

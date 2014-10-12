@@ -12,7 +12,10 @@
     'icon_question': 'img/inputScene/icon_question.png',
     'btn_log': 'img/mainScene/logbutton.png',
     'message': 'img/mainScene/message.png',
-    'neo': 'img/mainScene/neo.png',
+    'neo_serious': 'img/neo/normal.png',
+    'neo_sleep': 'img/neo/sleep.png',
+    'neo_smile': 'img/neo/smile.png',
+    'neo_trouble': 'img/neo/trouble.png',
     'btn_power': 'img/mainScene/powerbutton.png',
     'error_message': 'img/mainScene/error_message.png',
     'error_dialog': 'img/mainScene/error_dialogue.png',
@@ -45,14 +48,14 @@
     'num_9': 'img/inputScene/num9.png',
     'puritist': 'img/images/puritist.png',
     'mdw': 'img/images/mdw.png',
-    'gungnir': 'img/images/mdw.png',
-    'poster': 'img/images/mdw.png',
-    'coupon_goraku': 'img/images/mdw.png',
-    'coupon_game': 'img/images/mdw.png',
-    'zawa': 'img/images/mdw.png',
-    'map': 'img/images/mdw.png',
+    'gungnir': 'img/images/mdw.png',//TODO
+    'poster': 'img/images/mdw.png',//TODO
+    'coupon_goraku': 'img/images/coupon_goraku.png',
+    'coupon_game': 'img/images/coupon_game.png',
+    'zawa': 'img/images/mdw.png',//TODO
+    'map': 'img/images/map.png',
     'ar': 'img/images/ar.png',
-    'controlsystem': 'img/images/mdw.png',
+    'controlsystem': 'img/images/mdw.png',//TODO
   }
 
 })(game);
