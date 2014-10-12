@@ -32,13 +32,10 @@
           e.app.popScene();
         });
       }.bind(this);
-      if (this.btn_close.isHitPointRect(px, py)) {
-        pop();
-      } else if (this.img.isHitPointRect(px, py)) {
-        return;
-      }
-      pop();
       
+      if (this.btn_close.isHitPointRect(px, py) || !this.img.isHitPointRect(px, py)) {
+        pop();
+      }
     },
     
     onenter: function() {

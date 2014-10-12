@@ -68,17 +68,19 @@
           this.input_val = this.input_val.slice(0, -1);
           this.input_field.removeChild(this.input_field.children.last);
           this.input_caret.x-=(55*ns.wrapperSizeRatio);
+          this.input_caret.dx -= 55;
         }
       } else {
         this.input_val += val;
         MySprite('num_'+val, 55, 90, (this.input_caret.x/ns.wrapperSizeRatio), 25).addChildTo(this.input_field);
         this.input_caret.x+=(55*ns.wrapperSizeRatio);
+        this.input_caret.dx += 55;
       }
     },
     
     onpointingendCustom: function(e, px, py) {
       
-      py -= this.innerWrapper.y;
+      py -= this.innerWrapper.y-ns.wrapperMarginTopBottom;
       
       if (this.btn_log.isHitPointRect(px, py)) {
         e.app.pushScene(LogScene());
@@ -98,7 +100,8 @@
         this.oninput(-1);
       }
       if(this.btn_ok.isHitPointRect(px, py)) {
-        this.doneInput(e, this.input_val)
+        this.onpointingendCustom = function() {};
+        this.doneInput(e, this.input_val);
       }
       
       
@@ -110,9 +113,8 @@
       this.icon.tweener.clear().fadeOut(100)
         .call(function() {
           this.innerWrapper.tweener.clear()
-            .to({y: 0}, 500, 'easeInOutQuart')
+            .to({y: ns.wrapperMarginTopBottom}, 500, 'easeInOutQuart')
             .call(function() {
-              this.innerWrapper.dy = 0;
               e.app.popScene();  
               ns.text.next({'val':i_val});
               
@@ -135,7 +137,7 @@
     popUpMessage: function(f) {
       var ty = -1250;
       this.innerWrapper.tweener.clear()
-        .to({y: ty*ns.wrapperSizeRatio}, 500, 'easeInOutQuart')
+        .to({y: ty*ns.wrapperSizeRatio+ns.wrapperMarginTopBottom}, 500, 'easeInOutQuart')
         .call(function() {
           this.innerWrapper.dy = ty;
           this.icon.tweener.clear().fadeIn(200).wait(300).call(function() {

@@ -29,14 +29,13 @@
     
     resize: function() {
       
-      this.children.each(function(c) {
-        if (c.resize)
-          c.resize();
-        c.children.each(function(c2) {
-          if (c2.resize)
-            c2.resize();
-        });
-      });
+      function resizeChildren(child) {
+        if (child.resize)
+          child.resize();
+        if (child.children)
+          child.children.each(function(c) {resizeChildren(c)});
+      }
+      this.children.each(function(c) {resizeChildren(c)});
       
       
     },

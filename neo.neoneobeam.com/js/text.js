@@ -251,12 +251,16 @@
     },
 
     resizeTextArea: function() {
-      var d_message = document.getElementById('message');
-      d_message.style.width = (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px';
-      d_message.style.height = (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+'px';
-      if ($('#message').hasClass('input'))
+      $('#message').css({
+        'width': (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px',
+        'height': (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+'px',
+      });
+      if ($('#message').hasClass('input')) {
         $('#message').css('top', (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+ns.wrapperMarginTopBottom+'px');
-
+      } else {
+        $('#message').css('bottom', ns.wrapperMarginTopBottom+'px');
+      }
+      
       $('#textlog, #imglog').css({
         'width': (ns.wrapperWidth*ns.canvasSizeRatio)*0.85+'px',
         
