@@ -45,7 +45,7 @@
       
       for (var i in this.images) {
         if (this.images[i].isHitPointRect(px, py)) {
-          e.app.pushScene(ImageScene(i));
+          e.app.pushScene(ImageScene(i, {x:this.images[i].x,y:this.images[i].y,width:this.images[i].width,height:this.images[i].height}));
           return;
         }
       }

@@ -4,7 +4,7 @@
     superClass: 'MyScene',
     
     // シーンを作るとき最初に呼ばれる
-    init: function(img_name) {
+    init: function(img_name, dp) {
       this.superInit();
       
       this.bg = tm.display.Shape(0,0);//.addChildTo(this);
@@ -14,6 +14,9 @@
         .setOrigin(0,0)
         .setPosition(0,0);
       };
+      this.bg.onpointingend = function() {
+        this.popImage();
+      };
       this.addChildAt(this.bg, 0);
       
       this.img = MySprite(img_name, 941, 928, 69, 496)
@@ -21,31 +24,39 @@
       
       this.btn_close = MySprite('btn_close', 173, 173, 870, 463)
         .addChildTo(this.innerWrapper);
+      
+      this.dp = dp || {x:this.img.width*0.49+this.img.x, y: this.img.height*0.49+this.img.y,
+                       width: this.img.width*0.01, height: this.img.height*0.01}
+
+    },
+    
+    popImage: function(i_e) {
+      ns.page.pop('image');
+      var e = i_e || this;
+      this.img
+        .tweener.clear()
+        .to({width: this.dp.width, height: this.dp.height, x: this.dp.x, y: this.dp.y}, 200, 'easeOutQuart').call(function() {
+          e.app.popScene();
+        });
 
     },
     
     onpointingendCustom: function(e, px, py) {
-      var pop = function() {
-        this.innerWrapper
-        .tweener.clear()
-        .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeOutQuart').call(function() {
-          e.app.popScene();
-        });
-      }.bind(this);
-      
+    
       if (this.btn_close.isHitPointRect(px, py) || !this.img.isHitPointRect(px, py)) {
-        pop();
+        this.popImage(e);
       }
     },
     
     onenter: function() {
+      ns.page.push('image', function() {this.popImage()}.bind(this));
       ns.text.hideMessageBox();
       this.resize();
-      this.innerWrapper
-        .setPosition(this.innerWrapper.width*0.49+this.innerWrapper.x, this.innerWrapper.height*0.49+this.innerWrapper.y)
-        .setScale(0.01, 0.01)
+      this.img
+        .setPosition(this.dp.x, this.dp.y)
+        .setSize(this.dp.width, this.dp.height)
         .tweener.clear()
-        .to({scaleX: 1.0, scaleY: 1.0, x: ns.wrapperMarginRightLeft, y: ns.wrapperMarginTopBottom}, 300, 'easeInQuart');
+        .to({width: this.img.dw*ns.wrapperSizeRatio, height: this.img.dh*ns.wrapperSizeRatio, x: this.img.dx*ns.wrapperSizeRatio, y: this.img.dy*ns.wrapperSizeRatio}, 200, 'easeInQuart');
     },
     
   });
