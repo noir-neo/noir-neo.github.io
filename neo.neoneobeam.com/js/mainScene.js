@@ -81,7 +81,7 @@
     },
     
     sleep: function(i_f) {
-      this.btn_power = MySprite('btn_power', 252, 297, 414, 190)
+      this.btn_power = MySprite('btn_power', 252, 297, 414, 210)
         .setAlpha(0)
         .addChildTo(this.innerWrapper);
       this.btn_power.onwakeup = function() {
@@ -155,6 +155,17 @@
       }
       this.error[0].remove();
       this.error = null;
+    },
+    
+    transmitNeo: function() {
+      this.neo.tweener.clear()
+          .fadeOut(1000).wait(1000).call(function() {
+        this.transmission = MySprite('transmission_dialog', 961, 715, 60, 490)
+          .setAlpha(0)
+          .addChildTo(this.innerWrapper);
+        this.transmission.tweener.clear()
+          .fadeIn(200);
+      }.bind(this));
     },
     
     

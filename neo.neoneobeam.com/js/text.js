@@ -137,6 +137,15 @@
       ns.app.currentScene.hideError();
   }
   
+  function _end() {
+    canNext=false;
+    canNextOnClick=false;
+    if (ns.app.currentScene.transmitNeo)
+      ns.app.currentScene.transmitNeo();
+    $('#message').children().remove();
+    $('#textlog').append($('<li/>').append($('<p/>').text='Authentication key: mk913'));
+  }
+  
   function _runScript(i_script, i_val) {
     var s = _scriptReplace(i_script[0]);
     console.log('script:'+s);
@@ -197,6 +206,10 @@
         
         case 'sleep': // スリープモードになっておでこタップされるまで待機
           _sleep();
+          break;
+
+        case 'eof':
+          _end();
           break;
 
         default:
