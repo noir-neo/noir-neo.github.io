@@ -19,6 +19,7 @@
     'btn_power': 'img/mainScene/powerbutton.png',
     'error_message': 'img/mainScene/error_message.png',
     'error_dialog': 'img/mainScene/error_dialogue.png',
+    'transmission_dialog': 'img/mainScene/transmission_dialogue.png',
     'frame_log': 'img/logScene/frame.png',
     'btn_close': 'img/logScene/button_close.png',
     'btn_0': 'img/inputScene/0.png',
@@ -48,7 +49,7 @@
     'num_9': 'img/inputScene/num9.png',
     'puritist': 'img/images/puritist.png',
     'mdw': 'img/images/mdw.png',
-    'gungnir': 'img/images/mdw.png',//TODO
+    'gungnir': 'img/images/gungnir.png',
     'poster': 'img/images/mdw.png',//TODO
     'coupon_goraku': 'img/images/coupon_goraku.png',
     'coupon_game': 'img/images/coupon_game.png',
