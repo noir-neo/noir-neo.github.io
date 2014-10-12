@@ -24,20 +24,25 @@
 
     },
     
-    onpointingendCustom: function(e, px, py) {
-      if (this.btn_close.isHitPointRect(px, py)) {
-        ns.text.hideLogBox();
-        
-        this.innerWrapper
+    popLog: function(i_e) {
+      ns.page.pop('log');
+      ns.text.hideLogBox();
+      var e = i_e || this;
+      this.innerWrapper
         .tweener.clear()
         .to({scaleX: 0.01, scaleY: 0.01, x: this.innerWrapper.width*0.49+this.innerWrapper.x, y: this.innerWrapper.height*0.49+this.innerWrapper.y}, 300, 'easeInQuart').call(function() {
           e.app.popScene();
         });
-        
+    },
+    
+    onpointingendCustom: function(e, px, py) {
+      if (this.btn_close.isHitPointRect(px, py)) {
+        this.popLog();
       }
     },
-        
+    
     onenter: function() {
+      ns.page.push('log', function() {this.popLog()}.bind(this));
       this.resize();
       ns.text.hideMessageBox();
       this.innerWrapper

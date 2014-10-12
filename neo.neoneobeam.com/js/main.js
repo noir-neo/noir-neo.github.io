@@ -78,5 +78,27 @@
       initWindow();
     }, 200);
   }
+  
+  var _onPopState = [];
+  var isPopReady = false;
+  
+  ns.page = {
+    push: function(hash, f) {
+      isPopReady = false;
+      location.hash = hash;
+      _onPopState.push(f);
+      isPopReady = true;
+    },
+    pop: function(hash) {
+      console.log(_onPopState);
+      _onPopState.splice(-1, 1);
+      console.log(_onPopState);
+    }
+  }
+  
+  window.addEventListener('popstate', function (event) {
+    if(isPopReady)
+      _onPopState[_onPopState.length-1]();
+  }, false);
 
 })(game);
