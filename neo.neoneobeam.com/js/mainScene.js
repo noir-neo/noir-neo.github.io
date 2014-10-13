@@ -14,7 +14,8 @@
         .addChildTo(this.innerWrapper);
       
       this.neo = MySprite('neo_serious', 1350, 1920, -135, 0)
-        .addChildTo(this.innerWrapper);
+        .addChildTo(this.innerWrapper)
+        .setAlpha(0);
       this.neo.changeImage = function(img) {
         if (img)
           this.neo.image = 'neo_'+img;
@@ -34,7 +35,7 @@
       
       this.images = {};
       
-      ns.text.next();
+      ns.text.textInit();
     },
     
     onpointingendCustom: function(e, px, py) {

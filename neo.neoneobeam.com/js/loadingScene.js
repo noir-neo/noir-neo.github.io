@@ -20,8 +20,13 @@
         if (waitCount)
           return;
         
+        ns.text.loadSaveData();
+        $('#memory').text('[DONE]');
+        
+        clearInterval(ns.loadingTimer);
+        
         // TODO wait長く
-        var waittime = 100;
+        var waittime = 1000;
         $('#initializing').append('<p>INIT: Entering runlevel: 3</p><p><br></p><p id="startingneo">STARTING N.E.O. 9000</p>');
         self.tweener.clear().wait(waittime)
           .call(function() {$('#startingneo').append('.')}).wait(waittime)

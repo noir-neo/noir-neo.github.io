@@ -69,6 +69,11 @@
     
   }
 
+  ns.loadingTimer = setInterval(function() {
+    var t = document.getElementById('init').textContent;
+    document.getElementById('init').textContent = t.length < 5 ? t+'.' : '';
+  }, 1000);
+  
   var timer;
   window.onresize = resizeWindow;
   function resizeWindow() {
@@ -90,9 +95,7 @@
       isPopReady = true;
     },
     pop: function(hash) {
-      console.log(_onPopState);
       _onPopState.splice(-1, 1);
-      console.log(_onPopState);
     }
   }
   
