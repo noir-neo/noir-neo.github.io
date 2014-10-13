@@ -105,10 +105,10 @@
   
 
   // TODO: 書く
-  /*
+  
   window.onbeforeunload = function(e) {
-    return true;
+    return '《必ず帰ってきてくださいね》';
   };
-  */
+  
 
 })(game);

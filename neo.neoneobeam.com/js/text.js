@@ -176,6 +176,7 @@
   }
   
   function _end() {
+    window.onbeforeunload = null;
     canNext=false;
     canNextOnClick=false;
     if (ns.app.currentScene.transmitNeo)
@@ -323,6 +324,7 @@
         _pushInputArea(items.inputType, function(){});
       }
       if (items.isEnd=='true') {
+        window.onbeforeunload = null;
         canNext=false;
         canNextOnClick=false;
         ns.app.currentScene.showAuthenticationKey();
