@@ -46,7 +46,7 @@
     setTimeout(function() {
         canNextOnClick = true;
       }, 500);
-      canNextOnClick = false;
+    canNextOnClick = false;
 
   }
   function _next(p) {
@@ -67,6 +67,12 @@
     } else {
       _next({'val':p.val});
     }
+    _saveData({
+      'index':_index,
+      'message': $('#message').html(),
+      'textlog': $('#textlog').html(),
+      'imglog': $('imglog').html(),
+    });
   }
   
   function _skipTextTo(to_s, i) {
@@ -148,7 +154,7 @@
   
   function _runScript(i_script, i_val) {
     var s = _scriptReplace(i_script[0]);
-    console.log('script:'+s);
+    // console.log('script:'+s);
     switch (s[0]) {
         case 'neo': // NEOの差分
           _changeNeo(s[1]);
@@ -232,10 +238,49 @@
       });
   }
   
+  function _loadData() {
+    var strage = localStorage;
+    // TODO
+    strage.clear();
+    var result = {};
+    for (var i in strage) {
+      result[i] = strage.getItem(i);
+    }
+    return result;
+  }
+  
+  function _saveData(items) {
+    var strage = localStorage;
+    for (var i in items) {
+      strage.setItem(i,items[i]);
+    }
+  }
+  
   ns.text = {
   
     next: function(p) {
       _nextByClick(p);
+    },
+    
+    loadSaveData: function(c) {
+      var items = _loadData();
+      if (items.index) {
+        _index = items.index;
+        if(items.message) 
+          $('#message').html(items.message)
+        if (items.textlog)
+          $('#textlog').html(items.textlog);
+        if (items.imglog)
+          $('#imglog').html(items.imglog);
+      }
+    },
+    
+    textInit: function() {
+      if (_index) {
+        
+      } else {
+        _next();
+      }
     },
 
     loadTextByTXT: function(i_path, callback) {
