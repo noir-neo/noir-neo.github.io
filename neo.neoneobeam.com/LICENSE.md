@@ -1,5 +1,6 @@
-md-stu140614
-==
+# N.E.O. License
+
+## Source codes
 The MIT License (MIT)
 
 Copyright (c) 2014 neo.
@@ -23,9 +24,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Images
 
-HTML5 Boilerplate
-==
+(c) Sushi.
+(c) Zawa.
+(c) Tanaka.
+
+
+## Texts
+
+(c) Hosaka.
+
+
+## Libraries
+
+### tmlib.js
+
+http://github.com/phi-jp/tmlib.js  
+MIT Licensed  
+Copyright (C) 2010 phi, http://tmlife.net  
+
+
+### HTML5 Boilerplate
+
 Copyright (c) HTML5 Boilerplate
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
