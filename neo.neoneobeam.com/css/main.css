@@ -175,21 +175,12 @@ ul {
   
 }
 #imglog {
-  display: flex;
-  overflow: auto;
+  display: inline;
+  overflow-x: auto;
+  white-space: nowrap;
 }
-#imglog li {
-  height: 100%;
-  width: auto;
-  display: block;
-  
-}
-
-#imglog li img {
-  height: 100%;
-  width: auto;
-  display: block;
-  margin: 0 10px;
+#imglog img {
+  margin: 0 5px;
 }
 
 

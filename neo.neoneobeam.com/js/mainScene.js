@@ -127,6 +127,8 @@
           break;
         }
       }
+      if (!this.images[img_name])
+        return;
       this.images[img_name].hide();
       delete this.images[img_name];
       

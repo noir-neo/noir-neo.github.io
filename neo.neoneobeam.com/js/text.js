@@ -71,7 +71,7 @@
       'index':_index,
       'message': $('#message').html(),
       'textlog': $('#textlog').html(),
-      'imglog': $('imglog').html(),
+      'imglog': $('#imglog').html(),
     });
   }
   
@@ -93,15 +93,25 @@
     if (ns.app.currentScene.showImage)
       ns.app.currentScene.showImage(img_name);
     
-    $('#imglog').append($('<li/>')
+    /* なんかうまくいかない
+    var has = false;
+    $('#imglog').each(function() {
+      if ($('li img', this).attr('title')==img_name) {
+        has = true;
+        return;
+      }
+    });
+    if (has) return;
+    */
+    $('#imglog')
       .append($('<img>').attr({
         src: '/img/images/'+img_name+'_thumb.png',
-        title: img_name
+        title: img_name,
         }).on('click', function() {
           ns.text.hideLogBox();
           ns.text.hideMessageBox();
           ns.app.pushScene(ImageScene(img_name));
-    })));
+    }));
   }
   
   function _hideImage(img_name) {
@@ -241,12 +251,27 @@
   function _loadData() {
     var strage = localStorage;
     // TODO
-    strage.clear();
-    var result = {};
+    //_deleteData();
+    var items = {};
     for (var i in strage) {
-      result[i] = strage.getItem(i);
+      items[i] = strage.getItem(i);
     }
-    return result;
+    if (items.index) {
+      _index = items.index;
+      if(items.message) 
+        $('#message').html(items.message)
+      if (items.textlog)
+        $('#textlog').html(items.textlog);
+      if (items.imglog) {
+        $('#imglog').html(items.imglog);
+        $('#imglog>img').on('click', function() {
+          ns.text.hideLogBox();
+          ns.text.hideMessageBox();
+          ns.app.pushScene(ImageScene($(this).attr('title')));
+        });
+      }
+    }
+
   }
   
   function _saveData(items) {
@@ -298,7 +323,7 @@
     },
     
     makeTextArea: function() {
-      $('#text').append('<div id="message"></div><div class="log"><ul id="textlog"></ul><ul id="imglog"</ul></div>');
+      $('#text').append('<div id="message"></div><div class="log"><ul id="textlog"></ul><div id="imglog"</div></div>');
       
       $('#message').on('click', function() {
         if ($('#message').hasClass('input'))
@@ -331,6 +356,10 @@
       $('#imglog').css({
         'height': imgH,
         'bottom': (ns.wrapperHeight*ns.canvasSizeRatio)*0.07+ns.wrapperMarginTopBottom+'px',
+      });
+      $('#imglog img').css({
+        'width': imgH,
+        'height': imgH,
       });
       
     },
