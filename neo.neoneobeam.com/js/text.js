@@ -281,6 +281,15 @@
     }
   }
   
+  var deleteCounter = 0;
+  function _deleteData() {
+    if (deleteCounter++ > 9) {
+      var strage = localStorage;
+      strage.clear();
+      alert('セーブデータを消去しました。リロードすると最初から');
+    }
+  }
+  
   ns.text = {
   
     next: function(p) {
@@ -288,16 +297,11 @@
     },
     
     loadSaveData: function(c) {
-      var items = _loadData();
-      if (items.index) {
-        _index = items.index;
-        if(items.message) 
-          $('#message').html(items.message)
-        if (items.textlog)
-          $('#textlog').html(items.textlog);
-        if (items.imglog)
-          $('#imglog').html(items.imglog);
-      }
+      _loadData();
+    },
+    
+    deleteData: function() {
+      _deleteData();
     },
     
     textInit: function() {

@@ -38,7 +38,10 @@
     onpointingendCustom: function(e, px, py) {
       if (this.btn_close.isHitPointRect(px, py)) {
         this.popLog();
+        return;
       }
+      if (px < 100 && py < 100)
+        ns.text.deleteData();
     },
     
     onenter: function() {
