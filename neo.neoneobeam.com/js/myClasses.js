@@ -37,6 +37,7 @@
       }
       this.children.each(function(c) {resizeChildren(c)});
       
+      ns.initWindow();
       
     },
     

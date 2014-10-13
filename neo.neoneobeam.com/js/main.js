@@ -21,7 +21,7 @@
     
     ns.text.makeTextArea();
     
-    initWindow();
+    ns.initWindow();
     
     ns.app.replaceScene(LoadingScene({
       assets: ns.ASSETS,
@@ -29,12 +29,12 @@
       nextScene: MainScene,
     }));
     
-    //ns.app.fps = 1;
+    ns.app.fps = 15;
     ns.app.run();
     
   };
   
-  function initWindow() {
+  ns.initWindow = function() {
     
     ns.canvasSizeRatio = 1/window.devicePixelRatio;
     var b = document.body;
@@ -62,9 +62,6 @@
 
     ns.wrapperSizeRatio = ns.wrapperWidth / ns.DS_WIDTH;
 
-    if (ns.app.currentScene.resize)
-      ns.app.currentScene.resize();
-    
     ns.text.resizeTextArea();
     
   }
@@ -80,7 +77,9 @@
     if (timer !== false)
       clearTimeout(timer);
     timer = setTimeout(function() {
-      initWindow();
+      ns.initWindow();
+      if (ns.app.currentScene.resize)
+        ns.app.currentScene.resize();
     }, 200);
   }
   
@@ -103,5 +102,13 @@
     if(isPopReady)
       _onPopState[_onPopState.length-1]();
   }, false);
+  
+
+  // TODO: 書く
+  /*
+  window.onbeforeunload = function(e) {
+    return true;
+  };
+  */
 
 })(game);
