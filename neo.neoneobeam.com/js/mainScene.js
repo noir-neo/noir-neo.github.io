@@ -35,7 +35,6 @@
       
       this.images = {};
       
-      ns.text.textInit();
     },
     
     onpointingendCustom: function(e, px, py) {
@@ -62,10 +61,20 @@
     },
     
     onenter: function() {
-      this.resize();
-      ns.text.showMessageBox();
+      ns.text.textInit();
+      
+      var onenter = function() {
+        this.resize();
+        ns.text.showMessageBox();
+      }.bind(this);
+      onenter();
+      this.onenter = onenter;
     },
     
+    reversionNeo: function(i_name) {
+      this.neo.setAlpha(1);
+      this.neo.changeImage(i_name);
+    },
     changeNeo: function(i_name, i_f) {
       var f = i_f || function() {};
       
@@ -159,15 +168,17 @@
       this.error[0].remove();
       this.error = null;
     },
-    
-    transmitNeo: function() {
-      this.neo.tweener.clear()
-          .fadeOut(1000).wait(1000).call(function() {
-        this.transmission = MySprite('transmission_dialog', 961, 715, 60, 490)
+    showAuthenticationKey: function() {
+      this.transmission = MySprite('transmission_dialog', 961, 715, 60, 490)
           .setAlpha(0)
           .addChildTo(this.innerWrapper);
         this.transmission.tweener.clear()
           .fadeIn(200);
+    },
+    transmitNeo: function() {
+      this.neo.tweener.clear()
+          .fadeOut(1000).wait(1000).call(function() {
+        this.showAuthenticationKey();
       }.bind(this));
     },
     

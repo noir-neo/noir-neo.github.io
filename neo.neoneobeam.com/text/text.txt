@@ -71,10 +71,11 @@ MDWと協力関係にある『ごらく部』と『GAME部』が、CS祭にて�
 [image del coupon_game]
 私は省電力のためにスリープモードになります。
 ポスターの裏にある座標情報を手に入れられたら、おでこの電源ボタンを押して起こしてください。
+[image show poster]
 [neo sleep]
 [sleep]
 [neo smile]
-
+[image del poster]
 おはようございます。座標情報を見つけたんですね。
 
 [input num]

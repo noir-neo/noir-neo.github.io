@@ -32,7 +32,7 @@
     
     if(i)
       _index += i;
-
+    
     var currentText = _texts[_index++];
 
     var pattern = /\[(.*?)\]/g;
@@ -93,6 +93,10 @@
     if (ns.app.currentScene.showImage)
       ns.app.currentScene.showImage(img_name);
     
+    var items = _loadData();
+    var cImages = items.images ? items.images+','+img_name : img_name;
+    _saveData({'images':cImages});
+    
     /* なんかうまくいかない
     var has = false;
     $('#imglog').each(function() {
@@ -117,6 +121,16 @@
   function _hideImage(img_name) {
     if (ns.app.currentScene.hideImage)
       ns.app.currentScene.hideImage(img_name);
+    
+    var items = _loadData();
+    var cImages = items.images.split(',');
+    var nImages = '';
+    for (var i=0; i < cImages.length; i++) {
+      if (cImages[i] != img_name)
+        nImages = nImages ? nImages+','+cImages[i] : cImages[i];
+    }
+    _saveData({'images':nImages});
+    
   }
   
   function _scriptReplace(i_script) {
@@ -126,17 +140,21 @@
   function _changeNeo(i_name) {
     if (ns.app.currentScene.changeNeo) {
       canNext = false;
+      _saveData({'neo': i_name});
       ns.app.currentScene.changeNeo(i_name, function() {
           canNext = true;
           _next();
       }); 
+      
     }
   }
   
   function _sleep() {
     if (ns.app.currentScene.sleep) {
+      _saveData({isSleep: 'true'});
       canNext = false;
       ns.app.currentScene.sleep(function() {
+          _saveData({isSleep: 'false'});
           canNext = true;
           _next();
       }); 
@@ -146,11 +164,15 @@
   function _showError() {
     if (ns.app.currentScene.showError)
       ns.app.currentScene.showError();
+    var items = _loadData();
+    var newError = items.error ? parseInt(items.error)+1 : 1;
+    _saveData({error: newError});
   }
   
   function _hideError() {
     if (ns.app.currentScene.hideError)
       ns.app.currentScene.hideError();
+    _saveData({error: 0});
   }
   
   function _end() {
@@ -160,6 +182,7 @@
       ns.app.currentScene.transmitNeo();
     $('#message').children().remove();
     $('#textlog').append($('<li/>').append($('<p/>').text='Authentication key: mk913'));
+    _saveData({isEnd:'true',neo:''});
   }
   
   function _runScript(i_script, i_val) {
@@ -235,27 +258,36 @@
     }
   }
   
-  function _pushInputArea(type) {
+  function _pushInputArea(type, i_f) {
+    _saveData({isInput:'true',inputType:type});
     $('#message').addClass('input');
     $('#message.input').css({
       'top': (ns.wrapperHeight*ns.canvasSizeRatio)*0.2+ns.wrapperMarginTopBottom+'px',
       'display': 'none'});
+    var f = i_f || function() {
+      _next();
+    };
+    var f1 = function() {
+      _saveData({isInput:'false',inputType:null});
+      $('#message.input').hide().removeClass('input').css('top', 'auto');
+    };
     if (ns.app.currentScene.pushInputArea)
-      ns.app.currentScene.pushInputArea(type, function(t) {
-        _next();
-      }, function() {
-        $('#message.input').hide().removeClass('input').css('top', 'auto');
-      });
+      ns.app.currentScene.pushInputArea(type, f, f1);
   }
   
+  var _items;
   function _loadData() {
     var strage = localStorage;
     // TODO
-    //_deleteData();
+    //strage.clear();
     var items = {};
     for (var i in strage) {
       items[i] = strage.getItem(i);
     }
+    return items;
+  }
+  
+  function _reversion(items) {
     if (items.index) {
       _index = items.index;
       if(items.message) 
@@ -270,8 +302,32 @@
           ns.app.pushScene(ImageScene($(this).attr('title')));
         });
       }
+      if (items.neo) {
+        ns.app.currentScene.reversionNeo(items.neo);
+      }
+      if (items.images) {
+        var cImages = items.images.split(',');
+        for (var i=0; i < cImages.length; i++) {
+          ns.app.currentScene.showImage(cImages[i]);
+        }
+      }
+      if (items.error) {
+        for (var i=0; i<parseInt(items.error); i++) {
+          ns.app.currentScene.showError();
+        }
+      }
+      if (items.isSleep=='true') {
+        _sleep();
+      }
+      if (items.isInput=='true' && items.inputType) {
+        _pushInputArea(items.inputType, function(){});
+      }
+      if (items.isEnd=='true') {
+        canNext=false;
+        canNextOnClick=false;
+        ns.app.currentScene.showAuthenticationKey();
+      }
     }
-
   }
   
   function _saveData(items) {
@@ -297,7 +353,7 @@
     },
     
     loadSaveData: function(c) {
-      _loadData();
+      _items = _loadData();
     },
     
     deleteData: function() {
@@ -305,8 +361,8 @@
     },
     
     textInit: function() {
-      if (_index) {
-        
+      if (_items.index>0) {
+        _reversion(_items);
       } else {
         _next();
       }

@@ -143,7 +143,7 @@
           this.icon.tweener.clear().fadeIn(200).wait(300).call(function() {
             this.input_caret.startAnim();
           }.bind(this));
-          f(300);
+          f();
           }.bind(this));
     },
     
