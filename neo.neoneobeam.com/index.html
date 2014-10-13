@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>N.E.O.</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- canvas(HTML書くのはここだけ！) -->
+        <canvas id="world"></canvas>
+        
+        <div id="initializing">
+          <p>PXENEO v9.21.2 2014-10-04 Copyright (C) 1999-2014 S. Shoma.</p>
+          <p>N.E.O. 9000</p>
+          <p>http://neo.neoneobeam.com</p>
+          <p>Distributed under the DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE (WTFPL)</p>
+          <p><br></p>
+          <p>N.E.O. 9000 INITIALIZING<span id="init"></span></p>
+          <p>&nbsp;&nbsp;&nbsp;------------------------------</p>
+          <p class="loadstatus">:: Getting jQuery................<span id="jquery"></span></p>
+          <p class="loadstatus">:: Loading tmlib.js..............<span id="tmlib"></span></p>
+          <p class="loadstatus">:: Parsing text/text.txt.........<span id="txt"></span></p>
+          <p class="loadstatus">:: Acquiring Image Asset Files...<span id="assets"></span></p>
+          <p class="loadstatus">:: Synchronize Memory............<span id="memory"></span></p>
+          <p>&nbsp;&nbsp;&nbsp;------------------------------</p>
+        </div>
+        
+        <div id="text">
+          
+        </div>
+        
+        
+       
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        
+        
+        <!-- tmlibの読み込み -->
+        <!-- <script src="//rawgithub.com/phi-jp/tmlib.js/0.2.0/build/tmlib.js"></script> -->
+        <script src="js/vendor/tmlib.min.js"></script>
+        
+        <script src="js/plugins.js"></script>
+        
+        <!-- import -->
+        <script src="js/global.js"></script>
+        <script src="js/const.js"></script>
+        <script src="js/text.js"></script>
+        <script src="js/myClasses.js"></script>
+        <script src="js/loadingScene.js"></script>
+        <script src="js/mainScene.js"></script>
+        <script src="js/logScene.js"></script>
+        <script src="js/inputScene.js"></script>
+        <script src="js/imageScene.js"></script>
+        <script src="js/main.js"></script>
+        <!-- import done -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
