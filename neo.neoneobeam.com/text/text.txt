@@ -2,9 +2,9 @@
 
 [neo serious]
 [input num]
-// TODO: ここで問題
+次の "????" に入る数字4桁を答えよ。 「Media Design Works ????」
 
-[case 0]
+[case 2014]
 お見事です。
 [skipto endcase]
 
@@ -70,7 +70,6 @@ MDWと協力関係にある『ごらく部』と『GAME部』が、CS祭にて�
 [image del coupon_game]
 私は省電力のためにスリープモードになります。
 ポスターの裏にある座標情報を手に入れられたら、おでこの電源ボタンを押して起こしてください。
-それでは、行動を開始してください。
 [image show poster]
 [neo sleep]
 [sleep]
