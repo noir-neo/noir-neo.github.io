@@ -107,7 +107,7 @@
   // TODO: 書く
   
   window.onbeforeunload = function(e) {
-    return '《必ず帰ってきてくださいね》';
+    return '『貴方の帰還を信じています。』';
   };
   
 
