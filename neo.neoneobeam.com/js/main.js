@@ -29,7 +29,7 @@
       nextScene: MainScene,
     }));
     
-    ns.app.fps = 15;
+    ns.app.fps = 30;
     ns.app.run();
     
   };
