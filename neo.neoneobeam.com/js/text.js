@@ -333,9 +333,24 @@
   }
   
   function _saveData(items) {
+    if (!isLocalStorageSupported)
+      return;
     var strage = localStorage;
     for (var i in items) {
       strage.setItem(i,items[i]);
+    }
+  }
+  
+  function isLocalStorageSupported() {
+    if (!window.sessionStorage) return false;
+
+    var testKey = 'test';
+    try {
+      window.sessionStorage.setItem(testKey, '1');
+      window.sessionStorage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
     }
   }
   
