@@ -104,11 +104,8 @@
   }, false);
   
 
-  // TODO: 書く
-  /*
   window.onbeforeunload = function(e) {
     return '『貴方の帰還を信じています。』';
   };
-  */
 
 })(game);
