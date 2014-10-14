@@ -278,12 +278,16 @@
   
   var _items;
   function _loadData() {
-    var strage = localStorage;
+    var strage = window.localStorage;
     // TODO
     //strage.clear();
     var items = {};
     for (var i in strage) {
-      items[i] = strage.getItem(i);
+      try {
+        items[i] = strage.getItem(i);
+      } catch (e) {
+        console.log(e);
+      }
     }
     return items;
   }
@@ -333,18 +337,41 @@
   }
   
   function _saveData(items) {
-    var strage = localStorage;
+    if (!isLocalStorageSupported)
+      return;
+    var strage = window.localStorage;
     for (var i in items) {
-      strage.setItem(i,items[i]);
+      try {
+        strage.setItem(i,items[i]);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
+  
+  function isLocalStorageSupported() {
+    if (!window.sessionStorage) return false;
+
+    var testKey = 'test';
+    try {
+      window.sessionStorage.setItem(testKey, '1');
+      window.sessionStorage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
     }
   }
   
   var deleteCounter = 0;
   function _deleteData() {
     if (deleteCounter++ > 9) {
-      var strage = localStorage;
-      strage.clear();
-      alert('セーブデータを消去しました。リロードすると最初から');
+      var strage = window.localStorage;
+      try {
+        strage.clear();
+        alert('セーブデータを消去しました。リロードすると最初から');
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
   
