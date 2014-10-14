@@ -369,6 +369,7 @@
       try {
         strage.clear();
         alert('セーブデータを消去しました。リロードすると最初から');
+        window.onbeforeunload = null;
       } catch (e) {
         console.log(e);
       }
