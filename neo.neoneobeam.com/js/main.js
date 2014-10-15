@@ -69,6 +69,8 @@
   ns.loadingTimer = setInterval(function() {
     var t = document.getElementById('init').textContent;
     document.getElementById('init').textContent = t.length < 5 ? t+'.' : '';
+    var d = document.getElementById('initializing');
+    d.scrollTop = d.scrollHeight;
   }, 1000);
   
   var timer;
