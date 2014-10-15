@@ -16,10 +16,10 @@
       };
       this.addChildAt(this.bg, 0);
       
-      this.frame_log = MySprite('frame_log', 1080, 1920, 0, 0)
+      this.frame_log = MySprite('frame_log', 540, 960, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.btn_close = MySprite('btn_close', 173, 173, 822, 62)
+      this.btn_close = MySprite('btn_close', 86, 86, 411, 31)
         .addChildTo(this.innerWrapper);
 
     },

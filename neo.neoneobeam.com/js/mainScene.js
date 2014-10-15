@@ -10,10 +10,10 @@
       
       var self = this;
       
-      this.bg = MySprite('bg', 1080, 1920, 0, 0)
+      this.bg = MySprite('bg', 540, 960, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.neo = MySprite('neo_serious', 1350, 1920, -135, 0)
+      this.neo = MySprite('neo_serious', 675, 960, -67, 0)
         .addChildTo(this.innerWrapper)
         .setAlpha(0);
       this.neo.changeImage = function(img) {
@@ -21,16 +21,16 @@
           this.neo.image = 'neo_'+img;
       }.bind(this);
       
-      this.frame = MySprite('frame', 1080, 1920, 0, 0)
+      this.frame = MySprite('frame', 540, 960, 0, 0)
         .addChildTo(this.innerWrapper);
       
-      this.header = MySprite('header', 1583, 734, -251, -500)
+      this.header = MySprite('header', 791, 367, -126, -250)
         .addChildTo(this.innerWrapper);
       
-      this.btn_log = MySprite('btn_log', 384, 181, 26, 1268)
+      this.btn_log = MySprite('btn_log', 192, 90, 13, 634)
         .addChildTo(this.innerWrapper);
       
-      this.message = MySprite('message', 1472, 2915, -196, 1365)
+      this.message = MySprite('message', 736, 1458, -98, 682)
         .addChildTo(this.innerWrapper);
       
       this.images = {};
@@ -91,7 +91,7 @@
     },
     
     sleep: function(i_f) {
-      this.btn_power = MySprite('btn_power', 252, 297, 414, 210)
+      this.btn_power = MySprite('btn_power', 126, 148, 207, 105)
         .setAlpha(0)
         .addChildTo(this.innerWrapper);
       this.btn_power.onwakeup = function() {
@@ -112,10 +112,10 @@
     },
     
     showImage: function(img_name, p) {
-      var positions = [{x: 60, y: 680}, {x: 560, y: 880}];
-      var p = p || positions[Object.keys(this.images).length];
-      var w = 941;
-      var h = 928;
+      var positions = [{x: 30, y: 340}, {x: 280, y: 440}];
+      var p = p || positions[Object.keys(this.images).length%2];
+      var w = 470;
+      var h = 464;
       while (1) {
         if (this.images[img_name]) {
           img_name+='1';
@@ -146,13 +146,13 @@
     showError: function() {
       this.error = this.error || [];
       if (this.error.length === 0) {
-        var newErrorMessage = MySprite('error_message', 1038, 237, 21, 200)
+        var newErrorMessage = MySprite('error_message', 519, 118, 10, 100)
           .addChildTo(this.innerWrapper);
           newErrorMessage.tweener.clear().fadeIn(200);
         this.error.push(newErrorMessage);
       }
       
-      var newErrorDialog = MySprite('error_dialog', 961, 715, 380*(this.error.length-1)+38, 150*(this.error.length-1)+280)
+      var newErrorDialog = MySprite('error_dialog', 480, 357, 190*(this.error.length-1)+30, 75*(this.error.length-1)+140)
         .addChildTo(this.error[0]);
         newErrorDialog.tweener.clear().fadeIn(200);
       this.error.push(newErrorDialog);
@@ -168,8 +168,9 @@
       this.error[0].remove();
       this.error = null;
     },
+    
     showAuthenticationKey: function() {
-      this.transmission = MySprite('transmission_dialog', 961, 715, 60, 490)
+      this.transmission = MySprite('transmission_dialog', 480, 357, 30, 245)
           .setAlpha(0)
           .addChildTo(this.innerWrapper);
         this.transmission.tweener.clear()
