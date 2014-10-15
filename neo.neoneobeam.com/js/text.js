@@ -289,12 +289,7 @@
         console.log(e);
       }
     }
-    if (items.version===ns.VERSION) {
-      return items;
-    } else {
-      _deleteData(true, 'versionが上がったのでセーブデータを消去しました');
-      return _loadData();
-    }
+    return items;
   }
   
   function _reversion(items) {
@@ -368,13 +363,12 @@
   }
   
   var deleteCounter = 0;
-  function _deleteData(isNow, text) {
+  function _deleteData(isNow) {
     if (deleteCounter++ > 9 || isNow) {
       var strage = window.localStorage;
       try {
         strage.clear();
-        _saveData({version:ns.VERSION});
-        alert(text || 'セーブデータを消去しました');
+        alert('セーブデータを消去しました');
         window.onbeforeunload = null;
       } catch (e) {
         console.log(e);
