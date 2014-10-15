@@ -39,8 +39,8 @@
     ns.canvasSizeRatio = 1/window.devicePixelRatio;
     var b = document.body;
     var d = document.documentElement;
-    ns.app.resize(Math.max(b.clientWidth, b.scrollWidth, d.scrollWidth, d.clientWidth) / ns.canvasSizeRatio, 
-                  Math.max(b.clientHeight, b.scrollHeight, d.scrollHeight, d.clientHeight) / ns.canvasSizeRatio); // windowサイズに合わせて
+    ns.app.resize(d.clientWidth / ns.canvasSizeRatio, 
+                  d.clientHeight / ns.canvasSizeRatio); // windowサイズに合わせて
       //ns.app.fitWindow(); // canvasを画面サイズに合わせて等倍拡大縮小
       //ns.app.canvas.scale(1/window.devicePixelRatio, 1/window.devicePixelRatio);
 

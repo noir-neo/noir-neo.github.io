@@ -70,7 +70,7 @@
     
     init: function(sprite, x, y, scale) {
       this.dscale = scale;
-      this.superInit(sprite, 941, 928, x, y);
+      this.superInit(sprite, 470, 464, x, y);
       this.setPosition(this.x+this.width*0.49, this.y+this.height*0.49)
         .setSize(this.width*0.01, this.height*0.01)
         .setAlpha(0.0);

@@ -19,10 +19,10 @@
       };
       this.addChildAt(this.bg, 0);
       
-      this.img = MySprite(img_name, 941, 928, 69, 496)
+      this.img = MySprite(img_name, 470, 464, 35, 248)
         .addChildTo(this.innerWrapper);
       
-      this.btn_close = MySprite('btn_close', 173, 173, 870, 463)
+      this.btn_close = MySprite('btn_close', 86, 86, 435, 231)
         .addChildTo(this.innerWrapper);
       
       this.dp = dp || {x:this.img.width*0.49+this.img.x, y: this.img.height*0.49+this.img.y,
