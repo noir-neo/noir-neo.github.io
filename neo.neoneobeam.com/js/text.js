@@ -41,14 +41,17 @@
     return {'script':script, 'text':text};
   }
   
+  var _toggleClickableTimer;
   function _nextByClick(p) {
+    _hideClickableIcon();
     _next(p);
-    setTimeout(function() {
+    clearTimeout(_toggleClickableTimer);
+    _toggleClickableTimer = setTimeout(function() {
         canNextOnClick = true;
       }, 500);
     canNextOnClick = false;
-
   }
+  
   function _next(p) {
     if (!canNext || !canNextOnClick || _index>=_texts.length)
       return;
@@ -64,6 +67,7 @@
       _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
+      _showClickableIcon();
     } else {
       _next({'val':p.val});
     }
@@ -87,6 +91,24 @@
       }
     }
   }
+  
+  var _showClickableIconTimer;
+  function _showClickableIcon() {
+    clearTimeout(_showClickableIconTimer);
+    _showClickableIconTimer = setTimeout(function() {
+      if (!canNext || !canNextOnClick || _index>=_texts.length)
+        return;
+      if (ns.app.currentScene.showClickableIcon)
+        ns.app.currentScene.showClickableIcon();
+      ns.text.isShowingClickableIcon = true;
+    }, 3000);
+    
+  }
+  function _hideClickableIcon() {
+    if (ns.app.currentScene.hideClickableIcon)
+      ns.app.currentScene.hideClickableIcon();
+    ns.text.isShowingClickableIcon = false;
+  };
   
   function _showImage(img_name) {
     
@@ -289,19 +311,16 @@
         console.log(e);
       }
     }
-    if (items.version===ns.VERSION) {
-      return items;
-    } else {
-      _deleteData(true, 'versionが上がったのでセーブデータを消去しました');
-      return _loadData();
-    }
+    return items;
   }
   
   function _reversion(items) {
     if (items.index) {
       _index = items.index;
-      if(items.message) 
-        $('#message').html(items.message)
+      if(items.message) {
+        $('#message').html(items.message);
+        _showClickableIcon();
+      }
       if (items.textlog)
         $('#textlog').html(items.textlog);
       if (items.imglog) {
@@ -368,13 +387,12 @@
   }
   
   var deleteCounter = 0;
-  function _deleteData(isNow, text) {
+  function _deleteData(isNow) {
     if (deleteCounter++ > 9 || isNow) {
       var strage = window.localStorage;
       try {
         strage.clear();
-        _saveData({version:ns.VERSION});
-        alert(text || 'セーブデータを消去しました');
+        alert('セーブデータを消去しました');
         window.onbeforeunload = null;
       } catch (e) {
         console.log(e);
@@ -383,6 +401,8 @@
   }
   
   ns.text = {
+    
+    isShowingClickableIcon: false,
   
     next: function(p) {
       _nextByClick(p);

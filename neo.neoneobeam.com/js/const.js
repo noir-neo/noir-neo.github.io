@@ -20,6 +20,7 @@
     'neo_trouble': 'img/neo/trouble.png',
     'neo_glitch': 'img/neo/glitch.png',
     'btn_power': 'img/mainScene/powerbutton.png',
+    'clickable_icon': 'img/mainScene/clickable_icon.png',
     'error_message': 'img/mainScene/error_message.png',
     'error_dialog': 'img/mainScene/error_dialogue.png',
     'transmission_dialog': 'img/mainScene/transmission_dialogue.png',

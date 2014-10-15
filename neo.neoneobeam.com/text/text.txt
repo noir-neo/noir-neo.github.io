@@ -2,7 +2,7 @@
 
 [neo serious]
 [input num]
-次の "????" に入る数字4桁を答えよ。 「Media Design Works ????」
+適正者診断。次の "????" に入る数字4桁を答えなさい。 「Media Design Works ????」
 
 [case 2014]
 お見事です。
