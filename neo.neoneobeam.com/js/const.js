@@ -1,6 +1,6 @@
 (function(ns) {
   
-  ns.VERSION = 'v0.2.4';
+  ns.VERSION = 'v0.2.5';
   
   ns.DS_WIDTH = 540;
   ns.DS_HEIGHT = 960;
