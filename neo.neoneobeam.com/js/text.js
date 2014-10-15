@@ -42,6 +42,7 @@
   }
   
   function _nextByClick(p) {
+    _hideClickableIcon();
     _next(p);
     setTimeout(function() {
         canNextOnClick = true;
@@ -64,6 +65,7 @@
       _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
+      _showClickableIcon();
     } else {
       _next({'val':p.val});
     }
@@ -87,6 +89,22 @@
       }
     }
   }
+  
+  function _showClickableIcon() {
+    setTimeout(function() {
+      if (!canNext || !canNextOnClick || _index>=_texts.length)
+        return;
+      if (ns.app.currentScene.showClickableIcon)
+        ns.app.currentScene.showClickableIcon();
+      ns.text.isShowingClickableIcon = true;
+    }, 1000);
+    
+  }
+  function _hideClickableIcon() {
+    if (ns.app.currentScene.hideClickableIcon)
+      ns.app.currentScene.hideClickableIcon();
+    ns.text.isShowingClickableIcon = false;
+  };
   
   function _showImage(img_name) {
     
@@ -295,8 +313,10 @@
   function _reversion(items) {
     if (items.index) {
       _index = items.index;
-      if(items.message) 
-        $('#message').html(items.message)
+      if(items.message) {
+        $('#message').html(items.message);
+        _showClickableIcon();
+      }
       if (items.textlog)
         $('#textlog').html(items.textlog);
       if (items.imglog) {
@@ -377,6 +397,8 @@
   }
   
   ns.text = {
+    
+    isShowingClickableIcon: false,
   
     next: function(p) {
       _nextByClick(p);
