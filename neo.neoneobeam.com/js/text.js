@@ -97,7 +97,7 @@
       if (ns.app.currentScene.showClickableIcon)
         ns.app.currentScene.showClickableIcon();
       ns.text.isShowingClickableIcon = true;
-    }, 1000);
+    }, 3000);
     
   }
   function _hideClickableIcon() {

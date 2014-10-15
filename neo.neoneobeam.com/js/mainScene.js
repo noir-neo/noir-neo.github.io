@@ -33,7 +33,7 @@
       this.message = MySprite('message', 736, 1458, -98, 682)
         .addChildTo(this.innerWrapper);
       
-      this.clickableIcon = MySprite('clickable_icon', 64, 64, 464, 884)
+      this.clickableIcon = MySprite('clickable_icon', 48, 48, 478, 906)
         .setAlpha(0)
         .addChildTo(this.innerWrapper);
       
