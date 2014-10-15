@@ -41,15 +41,17 @@
     return {'script':script, 'text':text};
   }
   
+  var _toggleClickableTimer;
   function _nextByClick(p) {
     _hideClickableIcon();
     _next(p);
-    setTimeout(function() {
+    clearTimeout(_toggleClickableTimer);
+    _toggleClickableTimer = setTimeout(function() {
         canNextOnClick = true;
       }, 500);
     canNextOnClick = false;
-
   }
+  
   function _next(p) {
     if (!canNext || !canNextOnClick || _index>=_texts.length)
       return;
@@ -90,8 +92,10 @@
     }
   }
   
+  var _showClickableIconTimer;
   function _showClickableIcon() {
-    setTimeout(function() {
+    clearTimeout(_showClickableIconTimer);
+    _showClickableIconTimer = setTimeout(function() {
       if (!canNext || !canNextOnClick || _index>=_texts.length)
         return;
       if (ns.app.currentScene.showClickableIcon)
