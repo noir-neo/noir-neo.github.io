@@ -80,12 +80,13 @@ MDWと協力関係にある『ごらく部』と『GAME部』が、CS祭にて�
 [input num]
 座標情報を入力してください。
 [case 114514]
-
 [image show gungnir]
+[neo smile]
 データ照合完了。対地狙撃用衛星兵器―グングニール―コントロールシステムにアクセスします。
 [skipto endcase]
 
 [default]
+[neo trouble]
 このデータは不正です。もう一度入力してください。
 [backto input]
 

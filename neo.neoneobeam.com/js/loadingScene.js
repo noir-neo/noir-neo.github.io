@@ -29,9 +29,13 @@
         var waittime = 1000;
         $('#initializing').append('<p>INIT: Entering runlevel: 3</p><p><br></p><p id="startingneo">STARTING N.E.O. 9000</p>');
         self.tweener.clear().wait(waittime)
-          .call(function() {$('#startingneo').append('.')}).wait(waittime)
-          .call(function() {$('#startingneo').append('.')}).wait(waittime)
-          .call(function() {$('#startingneo').append('.')}).wait(waittime)
+          .call(function() {
+            $('#startingneo').append('.');
+            var d = document.getElementById('initializing');
+            d.scrollTop = d.scrollHeight;
+                           }).wait(waittime)
+          .call(function() {$('#startingneo').append('.');}).wait(waittime)
+          .call(function() {$('#startingneo').append('.');}).wait(waittime)
           .call( function() {
             if (param.nextScene) {
               document.body.removeChild(document.getElementById('initializing'));

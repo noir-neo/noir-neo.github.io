@@ -1,7 +1,9 @@
 (function(ns) {
   
-  ns.DS_WIDTH = 1080;
-  ns.DS_HEIGHT = 1920;
+  ns.VERSION = 'v0.2.3';
+  
+  ns.DS_WIDTH = 540;
+  ns.DS_HEIGHT = 960;
   ns.S_RATIO = ns.DS_WIDTH/ns.DS_HEIGHT;
   
   ns.ASSETS = {
@@ -36,7 +38,7 @@
     'btn_delete': 'img/inputScene/delete.png',
     'btn_ok': 'img/inputScene/ok.png',
     'frame_input': 'img/inputScene/frame_input.png',
-    'input_field': 'img/inputScene/input_field.png',
+    'input_field': 'img/inputScene/field.png',
     'input_caret': 'img/inputScene/caret.png',
     'num_0': 'img/inputScene/num0.png',
     'num_1': 'img/inputScene/num1.png',
