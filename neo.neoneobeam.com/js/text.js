@@ -145,6 +145,8 @@
       ns.app.currentScene.hideImage(img_name);
     
     var items = _loadData();
+    if (!items.images)
+      return;
     var cImages = items.images.split(',');
     var nImages = '';
     for (var i=0; i < cImages.length; i++) {
@@ -298,11 +300,13 @@
       ns.app.currentScene.pushInputArea(type, f, f1);
   }
   
+  // TODO: 空のitemsを返すとまずいので
   var _items;
   function _loadData() {
+    if (_items)
+      return _items;
+    
     var strage = window.localStorage;
-    // TODO
-    //strage.clear();
     var items = {};
     for (var i in strage) {
       try {
@@ -365,6 +369,7 @@
       return;
     var strage = window.localStorage;
     for (var i in items) {
+      _items[i] = items[i];
       try {
         strage.setItem(i,items[i]);
       } catch (e) {
