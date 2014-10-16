@@ -190,11 +190,16 @@
     },
     
     showClickableIcon: function() {
-      this.clickableIcon.setAlpha(1)
+      this.clickableIcon.setAlpha(0.7)
         .setOrigin(0.5, 0.5)
         .setRotation(0);
       var rotation = function() {
-        this.clickableIcon.tweener.clear().to({rotation: this.clickableIcon.rotation+360}, 1500).call(rotation);
+        this.clickableIcon.tweener.clear()
+          .to({rotation: this.clickableIcon.rotation+360, y: this.clickableIcon.y-20}, 300, 'easeOutCirc')
+          .wait(500)
+          .to({y: this.clickableIcon.y}, 300, 'easeOutBack')
+          .wait(1000)
+          .call(rotation);
       }.bind(this);
       rotation();
     },
