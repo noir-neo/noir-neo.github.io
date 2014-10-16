@@ -33,7 +33,8 @@
       this.message = MySprite('message', 736, 1458, -98, 682)
         .addChildTo(this.innerWrapper);
       
-      this.clickableIcon = MySprite('clickable_icon', 40, 40, 500, 910)
+      this.clickableIcon = MySprite('clickable_icon', 40, 40, 520, 910)
+        .setOrigin(0.5, 0.5)
         .setAlpha(0)
         .addChildTo(this.innerWrapper);
       
@@ -191,7 +192,6 @@
     
     showClickableIcon: function() {
       this.clickableIcon.setAlpha(0.7)
-        .setOrigin(0.5, 0.5)
         .setRotation(0);
       var rotation = function() {
         this.clickableIcon.tweener.clear()
