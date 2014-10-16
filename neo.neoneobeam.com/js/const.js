@@ -1,6 +1,6 @@
 (function(ns) {
   
-  ns.VERSION = 'v0.2.6';
+  ns.VERSION = 'v0.2.7';
   
   ns.DS_WIDTH = 540;
   ns.DS_HEIGHT = 960;
@@ -54,13 +54,13 @@
     'puritist': 'img/images/puritist.png',
     'mdw': 'img/images/mdw.png',
     'gungnir': 'img/images/gungnir.png',
-    'poster': 'img/images/mdw.png',//TODO
+    'poster': 'img/images/poster.png',
     'coupon_goraku': 'img/images/coupon_goraku.png',
     'coupon_game': 'img/images/coupon_game.png',
-    'zawa': 'img/images/mdw.png',//TODO
+    'zawa': 'img/images/zawa.png',
     'map': 'img/images/map.png',
     'ar': 'img/images/ar.png',
-    'controlsystem': 'img/images/mdw.png',//TODO
+    'controlsystem': 'img/images/controlsystem.png',
   }
 
 })(game);
