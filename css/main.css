@@ -292,7 +292,8 @@ h2 {
   height: 60px;
   border-radius: 100%;
   /*border-radius: 20px;*/
-  
+  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
+  box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
 }
 
 
@@ -357,7 +358,7 @@ img.circle {
 
   #profile ul > li {
     margin: 10px;
-    padding: 0 20px;
+    padding: 0 15px;
     width: 260px;
     border-radius: 20px;
   
@@ -365,6 +366,7 @@ img.circle {
 
 
   #profile ul > li > a > span {
+    margin-left: 15px;
     display: inline;
   }
 
