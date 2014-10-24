@@ -71,7 +71,7 @@ var name = name || {};
         $('.page').hide();
         
         anim('nav', currentAngle, 300, function () {
-          $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeInOutQuart);
+          $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
         });
 
       }
