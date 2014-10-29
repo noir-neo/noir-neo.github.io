@@ -221,17 +221,28 @@ h2 {
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
-  flex-wrap: wrap;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #works ul li {
-  margin: 0 0 20px 0;
-  width: 50%;
+  margin: 0 2% 4% 2%;
+  padding: 2%;
+  width: 42%;
+  border-radius: 20px;
+  -webkit-order: 1;
+  -moz-order: 1;
+  -ms-order: 1;
+  -o-order: 1;
+  order: 1;
 }
 
 #works h3 {
@@ -249,12 +260,26 @@ h2 {
 }
 
 #works img {
-  width: 100px;
-  height: 100px;
+  width: 80%;
+  height: 80%;
+  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
+  box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
 }
 
 #works ul li p {
   display: none;
+}
+
+#works ul li.active {
+  width: 92%;
+  -webkit-order: 0;
+  -moz-order: 0;
+  -ms-order: 0;
+  -o-order: 0;
+  order: 0;
+}
+#works ul li.active p {
+  display: block;
 }
 
 /*
@@ -279,9 +304,11 @@ h2 {
   margin: 0 auto;
   padding: 0;
   width: 300px;
-  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
 }
 
 #profile ul > li {
@@ -325,24 +352,26 @@ img.circle {
   }
 
   #works ul li {
-    margin: 0 2%;
-    width: 21%;
+    width: 17%;
   }
 
   #works img {
-    width: 150px;
-    height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 300px;
   }
   
   #works ul li p {
-    display: block;
+    /*display: block;*/
   }
 
   
   .column-wrap {
-    display: flex;
     display: -webkit-flex;
     display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     align-items: center;
   }
   
