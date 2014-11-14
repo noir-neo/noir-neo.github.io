@@ -1,184 +1,111 @@
-<!doctype html>
-<html class="no-js" lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>neoneobeam.com</title>
-    <meta name="description" content="ねおのポートフォリオサイトです。">
-    <meta name="keywords" content="neo,noir_neo,ねお,佐藤翔馬">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+---
+ 
+<nav>
+  <ul>
+    <li><a href="#home"><p>home</p></a></li>
+    <li><a href="#works"><p>works</p></a></li>
+    <li><a href="#profile"><p>profile</p></a></li>
+  </ul>
+</nav>
 
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+<div id="wrapper">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href='http://fonts.googleapis.com/css?family=Nova+Mono' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.0.min.js"></script>
-  </head>
-  <body>
-    <!--[if lt IE 8]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    
-    <nav>
-      <ul>
-        <li><a href="#home"><p>home</p></a></li>
-        <li><a href="#works"><p>works</p></a></li>
-        <li><a href="#profile"><p>profile</p></a></li>
+  <canvas id="bg"></canvas>
+  <div id="home" class="page">
+
+      <header>
+        <h1><a href="//neoneobeam.com">neoneobeam.com</a></h1>
+      </header>
+      <footer>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
+        <small>&copy; neo.</small>
+      </footer>
+
+  </div>
+
+  <section id="works" class="page">
+      <h2>works</h2>
+      <ul class="flex wrap works_list">
+      {% for work in site.data.works %}
+        <li class="works_item">
+          <article>
+            <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
+            <h4>{{ work.title }}</h4>
+            <div class="works_detail">
+              <p>{{ work.description }}</p>
+              {% if work.links %}
+                <ul class="works_link_list">
+                  {% for link in work.links %}
+                    <li class="works_link_item"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
       </ul>
-    </nav>
-    
-    <div id="wrapper">
-     
-      <canvas id="bg"></canvas>
-      <div id="home" class="page">
-        
-          <header>
-            <h1><a href="//neoneobeam.com">neoneobeam.com</a></h1>
-          </header>
-          <footer>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
-            <small>&copy; neo.</small>
-          </footer>
-        
-      </div>
-      
-      <section id="works" class="page">
-          <h2>works</h2>
-          <ul>
-            <li>
-              <article>
-                <a href="//sugoi-ninja.com" target="_blank">
-                  <h3><span>THE SUGOI NINJA</span></h3>
-                  <img src="img/works/thesugoininja.png" class="circle">
-                </a>
-                <p>忍者となり敵城を上り詰めていく数学的思考力ゲーム。 <a href="//www.globalmath.info/globalmath_pfweb/" target="_blank">Global Math</a> コンテスト開発優秀賞受賞(グループ作品/ディレクタ・エディタ・プログラマ)</p>
-              </article>
+  </section>
+
+  <section id="profile" class="page">
+      <h2>profile</h2>
+      <div class="column-wrap">
+        <div class="column">
+          <h3><span>neo / Shoma SATO</span></h3>
+          <img id="icon" class="circle" src="img/profile/icon.png">
+          <p>
+            デザイン系大学3年生
+          </p>
+          <p>
+            作るものは Web とか Android アプリとかゲームとか
+          </p>
+          <p>
+            UI / UX デザインとプログラミング、コーヒーと甘いものが好き
+          </p>
+        </div>
+        <div class="column" id="accounts">
+          <ul class="flex">
+            <li class="shadow">
+              <a href="//twitter.com/noir_neo" target="_blank"> <img src="img/profile/twitter.png"><span>Twitter: @noir_neo</span></a>
             </li>
-            
-            <li>
-              <article>
-                <a href="//github.com/noir-neo/FU" target="_blank">
-                  <h3><span>FU</span></h3>
-                  <img src="img/works/fu.png" class="circle">
-                </a>
-                <p>ミクさんがあなたの生活をサポートする、 Android アプリ</p>
-              </article>
+            <li class="shadow">
+              <a href="//github.com/noir-neo" target="_blank"> <img src="img/profile/github.png"><span>GitHub: noir-neo</span></a>
             </li>
-            
-            <li>
-              <article>
-                <a href="//mdw2013.github.io/" target="_blank">
-                  <h3><span>Media Design Works 2013</span></h3>
-                  <img src="img/works/mdw.png" class="circle">
-                </a>
-                <p>メディアデザイン専攻領域の学生有志による学祭展示(自由制作グループ展/代表・ Web メインプログラマ)</p>
-              </article>
+            <li class="shadow">
+              <a href="//play.google.com/store/apps/developer?id=neo" target="_blank"> <img src="img/profile/googleplay.png"><span>Google play: neo</span></a>
             </li>
-            
-            <li>
-              <article>
-                <a href="//play.google.com/store/apps/details?id=com.neoneobeam.pybg" target="_blank">
-                  <h3><span>Press Yes Battle Game</span></h3>
-                  <img src="img/works/pybg.png" class="circle">
-                </a>
-                <p>You only press only "YES" only 100 times!</p>
-              </article>
-            </li>
-                        
-            <li>
-              <article>
-                <a href="//play.google.com/store/apps/details?id=com.neoneobeam.s4k" target="_blank">
-                  <h3><span>出席管理4クズ</span></h3>
-                  <img src="img/works/s4k.png" class="circle">
-                </a>
-                <p>クズのための時間割アプリ</p>
-              </article>
-            </li>
-            
-            <li>
-              <article>
-                <a href="//nnb.neoneobeam.com" target="_blank">
-                  <h3><span>ねおねお☆びーむ(公開停止)</span></h3>
-                  <img src="img/works/nnb.png" class="circle">
-                </a>
-                <p>スマートな連投と愛のある fav に特化した Twitter クライアント</p>
-              </article>
-            </li>
-            
-            <li>
-              <article>
-                <a href="//www.youtube.com/watch?v=pfj7_SlC6bE" target="_blank">
-                  <h3><span>DANMAKU/Duo</span></h3>
-                  <img src="img/works/dnmaku.png" class="circle">
-                </a>
-                <p>新感覚弾幕シューティングゲーム。両手を動かして、2機の自機を操作！</p>
-              </article>
-            </li>
-            
           </ul>
-      </section>
-      
-      <section id="profile" class="page">
-          <h2>profile</h2>
-          <div class="column-wrap">
-            <div class="column">
-              <h3><span>neo / Shoma SATO</span></h3>
-              <img id="icon" class="circle" src="img/profile/icon.png">
-              <p>
-                デザイン系大学3年生
-              </p>
-              <p>
-                作るものは Web とか Android アプリとかゲームとか
-              </p>
-              <p>
-                UI / UX デザインとプログラミング、コーヒーと甘いものが好き
-              </p>
-            </div>
-            <div class="column" id="accounts">
-              <ul>
-                <li>
-                  <a href="//twitter.com/noir_neo" target="_blank"> <img src="img/profile/twitter.png"><span>Twitter: @noir_neo</span></a>
-                </li>
-                <li>
-                  <a href="//github.com/noir-neo" target="_blank"> <img src="img/profile/github.png"><span>GitHub: noir-neo</span></a>
-                </li>
-                <li>
-                  <a href="//play.google.com/store/apps/developer?id=neo" target="_blank"> <img src="img/profile/googleplay.png"><span>Google play: neo</span></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-      </section>
-      
-    </div>
+        </div>
+      </div>
+  </section>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>
-      window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')
-    </script>
-    <script src="js/plugins.js"></script>
-    <script src="js/vendor/jquery.easing.1.3.js"></script>
-    <script src="js/vendor/jQueryRotate.js"></script>
-    
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    <script src="js/main.js"></script>
+</div>
 
-    <script>
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] ||
-        function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-41950579-1', 'neoneobeam.com');
-      ga('send', 'pageview');
-    </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')
+</script>
+<script src="js/plugins.js"></script>
+<script src="js/vendor/jquery.easing.1.3.js"></script>
+<script src="js/vendor/jQueryRotate.js"></script>
 
-  </body>
-</html>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="js/main.js"></script>
+
+<script>
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] ||
+    function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-41950579-1', 'neoneobeam.com');
+  ga('send', 'pageview');
+</script>

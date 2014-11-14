@@ -212,20 +212,15 @@ h2 {
   margin-bottom: 100px;
 }
 
-
-/*
- * works
- */
-#works ul {
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
+.flex {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+}
+
+.wrap {
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -233,7 +228,16 @@ h2 {
   flex-wrap: wrap;
 }
 
-#works ul li {
+/*
+ * works
+ */
+#works ul.works_list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#works li.works_item {
   margin: 0 2% 4% 2%;
   padding: 2%;
   width: 42%;
@@ -244,43 +248,34 @@ h2 {
   -o-order: 1;
   order: 1;
 }
-
 #works h3 {
-  height: 3.0em;
+  text-align: center;
+  margin: 0 auto;
+}
+.works_icon_image {
+  width: 80%;
+  height: 80%;
+}
+
+#works h4 {
   line-height: 1.5em;
   width: 100%;
   text-align: center;
-  display: table;
-  margin: 0 0 5px 0;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
-#works h3 span {
-  display: table-cell;
-  vertical-align: bottom;
+#works .works_link_list {
+  
 }
 
-#works img {
-  width: 80%;
-  height: 80%;
-  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
-  box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
-}
-
-#works ul li p {
+#works .works_detail {
   display: none;
 }
-
-#works ul li.active {
-  width: 92%;
-  -webkit-order: 0;
-  -moz-order: 0;
-  -ms-order: 0;
-  -o-order: 0;
-  order: 0;
-}
-#works ul li.active p {
+.works_item.active .works_detail {
   display: block;
 }
+
 
 /*
  * profile
@@ -304,11 +299,6 @@ h2 {
   margin: 0 auto;
   padding: 0;
   width: 300px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
 }
 
 #profile ul > li {
@@ -318,9 +308,6 @@ h2 {
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  /*border-radius: 20px;*/
-  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
-  box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 2px;
 }
 
 
@@ -338,6 +325,16 @@ img.circle {
   border-radius: 100%;
 }
 
+.shadow {
+  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 4px 2px 2px;
+  box-shadow: rgba(51, 51, 51, 0.6) 4px 2px 2px;
+}
+
+.shadow:hover {
+  -webkit-box-shadow: rgba(34, 34, 34, 0.8) 2px 1px 1px;
+  box-shadow: rgba(34, 34, 34, 0.8) 2px 1px 1px;
+}
+
 @media screen and (min-width : 480px){
   header {
     font-size: 22px;
@@ -351,20 +348,15 @@ img.circle {
     font-size: 42px;
   }
 
-  #works ul li {
+  #works li.works_item {
     width: 17%;
   }
 
-  #works img {
+  .works_icon_image {
     min-width: 150px;
     min-height: 150px;
     max-width: 300px;
   }
-  
-  #works ul li p {
-    /*display: block;*/
-  }
-
   
   .column-wrap {
     display: -webkit-flex;

@@ -1,0 +1,51 @@
+- title: THE SUGOI NINJA
+  dir: the_sugoi_ninja
+  description: 忍者となり敵城を上り詰めていく数学的思考力ゲーム。 Global Math コンテスト開発優秀賞受賞(グループ作品/ディレクタ・エディタ・プログラマ)
+  links:
+    - text: THE SUGOI NINJA
+      url: //sugoi-ninja.com
+    - text: Global Math
+      url: //www.globalmath.info/globalmath_pfweb/game_detail?locale=1&gameId=48
+    
+
+- title: FU
+  dir: fu
+  description: ミクさんがあなたの生活をサポートする、 Android アプリ
+  links:
+    - text: GitHub
+      url: //github.com/noir-neo/FU
+
+- title: Media Design Works 2013
+  dir: mdw2013
+  description: メディアデザイン専攻領域の学生有志による学祭展示(自由制作グループ展/代表・ Web メインプログラマ)
+  links:
+    - text: Media Design Works 2013
+      url: //mdw2013.github.io/
+
+- title: Press Yes Battle Game
+  dir: pybg
+  description: You only press only "YES" only 100 times!
+  links:
+    - text: Google Play
+      url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
+
+- title: 出席管理4クズ
+  dir: s4k
+  description: クズのための時間割アプリ
+  links:
+    - text: Google Play
+      url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
+
+- title: ねおねお☆びーむ(公開停止)
+  dir: nnb
+  description: スマートな連投と愛のある fav に特化した Twitter クライアント
+  links:
+    - text: ねおねお☆びーむ
+      url: //nnb.neoneobeam.com
+
+- title: DANMAKU/Duo
+  dir: danmaku
+  description: 新感覚弾幕シューティングゲーム。両手を動かして、2機の自機を操作！
+  links:
+    - text: YouTube
+      url: //www.youtube.com/watch?v=pfj7_SlC6bE
