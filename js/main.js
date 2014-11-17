@@ -65,6 +65,7 @@ var name = name || {};
     }
 
     function openWorksDetail(target) {
+      $('.works_item').removeClass('active');
       $('#works_'+target).addClass('active');
     }
 
