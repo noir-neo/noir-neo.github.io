@@ -91,6 +91,141 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+@-webkit-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+  to { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+}
+@-o-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+  to { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+}
+@-moz-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+  to { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+}
+@keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+  to { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+}
+
+@-webkit-keyframes h2top-left {
+  from { 
+    top: 40%;
+  }
+  to { 
+    top: 0;
+  }
+}
+@-o-keyframes h2top-left {
+  from { 
+    top: 40%;
+  }
+  to { 
+    top: 0;
+  }
+}
+@-moz-keyframes h2top-left {
+  from { 
+    top: 40%;
+  }
+  to { 
+    top: 0;
+  }
+}
+@keyframes h2top-left {
+  from { 
+    top: 40%;
+  }
+  to { 
+    top: 0;
+  }
+}
+
+
+@-webkit-keyframes header2default {
+  from { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+}
+@-o-keyframes header2default {
+  from { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+}
+@-moz-keyframes header2default {
+  from { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+}
+@keyframes header2default {
+  from { 
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+}
+
+
+
 html, body {
   height: 100%;
   font-family: 'Nova Mono', "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", Meiryo, cursive;
@@ -117,6 +252,11 @@ nav {
   right: 30px;
   width: 140px;
   height: 140px;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
 nav > ul {
@@ -138,6 +278,26 @@ nav > ul > li {
   top: 50%;
   left: 50%;
   text-align: center;
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+
+li.nav_home {
+}
+li.nav_works {
+  -webkit-transform: rotate(-120deg);
+  -ms-transform: rotate(-120deg);
+  -o-transform: rotate(-120deg);
+  transform: rotate(-120deg);
+}
+li.nav_profile {
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
 }
 
 nav > ul > li > a {
@@ -161,43 +321,87 @@ nav > ul > li > a {
   padding: 0 5%;
 }
 
-#home, body {
-  background: #ecf0f1;
+body {
   min-height: 100%;
 }
 
-#works {
-  background: #2980b9;
-  display: none;
-  margin-bottom: 20px;
+body, body.home {
+  background: #ecf0f1;
 }
 
-#profile {
+body.works {
+  background: #2980b9;
+}
+
+body.profile {
   background: #e74c3c;
-  display: none;
-  margin-bottom: 30px;
 }
 
 /*
  * home
  */
+#home {
+  min-height: 100%;
+}
+
 header {
   position: absolute;
-  top: 40%;
-  width: 90%;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   font-size: 14px;
   text-align: center;
+  margin: 0;
+}
+
+.home header {
+  -webkit-animation: header2default 0.3s ease forwards;
+  -o-animation: header2default 0.3s ease forwards;
+  animation: header2default 0.3s ease forwards;
+}
+
+.works header, .profile header {
+  background: #ecf0f1;
+  border-bottom-right-radius: 20px;
+  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 1px 2px 4px;
+  box-shadow: rgba(51, 51, 51, 0.6) 1px 2px 4px;
+  line-height: 60px;
+  -webkit-animation: header2top-left 0.3s ease forwards;
+  -o-animation: header2top-left 0.3s ease forwards;
+  animation: header2top-left 0.3s ease forwards;
+}
+.works header:hover, .profile header:hover {
+  -webkit-box-shadow: rgba(34, 34, 34, 0.8) 1px 2px 1px;
+  box-shadow: rgba(34, 34, 34, 0.8) 1px 2px 1px;
+}
+
+
+header h1 {
+  position: relative;
+  top: 40%;
+}
+
+.works header h1, .profile header h1 {
+  margin: 0;
+  -webkit-animation: h2top-left 0.3s ease forwards;
+  -o-animation: h2top-left 0.3s ease forwards;
+  animation: h2top-left 0.3s ease forwards;
 }
 
 h1 a {
   color: #e74c3c;
   text-decoration: none;
+  display: block;
 }
 
 footer {
   position: fixed;
+  z-index: 110;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   height: 10%;
   min-height: 60px;
   line-height: 60px;
@@ -208,27 +412,6 @@ footer {
 .twitter-share-button {
   position: fixed;
   right: 0;
-}
-
-#works h1, #profile h1 {
-  font-size: 28px;
-  width: 260px;
-  height: 60px;
-  line-height: 60px;
-  margin: 0;
-  background: #ecf0f1;
-  border-bottom-right-radius: 20px;
-}
-
-
-#works h1 a, #profile h1 a {
-  display: block;
-
-}
-
-h2 {
-  margin-top: 30px;
-  margin-bottom: 60px;
 }
 
 .flex {
@@ -247,9 +430,20 @@ h2 {
   flex-wrap: wrap;
 }
 
+
+h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
 /*
  * works
  */
+#works {
+  display: none;
+  margin-bottom: 20px;
+}
+
 #works ul.works_list {
   list-style-type: none;
   margin: 0 auto;
@@ -299,6 +493,11 @@ h2 {
 /*
  * profile
  */
+#profile {
+  display: none;
+  margin-bottom: 30px;
+}
+
 #profile #icon {
   width: 100px;
   height: 100px;
@@ -354,17 +553,253 @@ img.circle {
   box-shadow: rgba(34, 34, 34, 0.8) 2px 2px 1px;
 }
 
+
 @media screen and (min-width : 480px){
+
+@-webkit-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+  to { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+}
+@-o-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+  to { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+}
+@-moz-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+  to { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+}
+@keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+  to { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+}
+
+@-webkit-keyframes header2default {
+  from { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+}
+@-o-keyframes header2default {
+  from { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+}
+@-moz-keyframes header2default {
+  from { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+}
+@keyframes header2default {
+  from { 
+    width: 260px;
+    height: 60px;
+    font-size: 14px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+  }
+}  
   header {
     font-size: 22px;
   }
 }
 
+
 @media screen and (min-width : 768px){
+
+  @-webkit-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+  to { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+}
+@-o-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+  to { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+}
+@-moz-keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+  to { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+}
+@keyframes header2top-left {
+  from { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+  to { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+}
+
+@-webkit-keyframes header2default {
+  from { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+}
+@-o-keyframes header2default {
+  from { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+}
+@-moz-keyframes header2default {
+  from { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+}
+@keyframes header2default {
+  from { 
+    width: 420px;
+    height: 80px;
+    font-size: 24px;
+  }
+  to { 
+    width: 100%;
+    height: 100%;
+    font-size: 42px;
+  }
+}  
+@-webkit-keyframes h2top-left {
+  from { 
+    top: 30%;
+  }
+  to { 
+    top: 0;
+  }
+}
+  
+@-o-keyframes h2top-left {
+  from { 
+    top: 30%;
+  }
+  to { 
+    top: 0;
+  }
+}
+@-moz-keyframes h2top-left {
+  from { 
+    top: 30%;
+  }
+  to { 
+    top: 0;
+  }
+}
+@keyframes h2top-left {
+  from { 
+    top: 30%;
+  }
+  to { 
+    top: 0;
+  }
+}
   
   header {
-    top: 30%;
     font-size: 42px;
+  }
+  header h1 {
+    top: 30%;
+  }
+  .works header h1, .profile header h1 {
+    margin: 0;
   }
 
   #works li.works_item {
@@ -412,8 +847,6 @@ img.circle {
 
   
 }
-
-
 
 
 

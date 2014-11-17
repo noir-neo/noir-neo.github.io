@@ -15,30 +15,16 @@ var name = name || {};
     var isAnimating = false;
 
     var PAGE_ID = [
-    '#home', '#works', '#profile',
-  ];
+      '#home', '#works', '#profile',
+    ];
     // 現在のページ
     var currentPage = 0;
 
     init();
 
     function init() {
-      initNav();
       changePageByUri();
 
-    }
-
-    function initNav() {
-      for (var i = 0; i < 3; i++) {
-        $('nav>ul>li').eq(i).rotate({
-          angle: -120 * i,
-          center: ['50%', '0'],
-        });
-      }
-      $('nav').rotate({
-        angle: currentAngle,
-        center: ['50%', '50%'],
-      });
     }
 
     /**
@@ -46,11 +32,12 @@ var name = name || {};
      * @param {Object} target_id
      */
     function changePageById(target_id) {
+      $('body').removeClass();
+      $('body').addClass(target_id.replace('#', ''));
+      
       var target_index = PAGE_ID.indexOf(target_id);
       if (target_index !== -1) {
         var ra = target_index - currentPage;
-        if (ra === 0) 
-          return;
         if (ra === 2)
           ra = -1;
         if (ra === -2)
@@ -69,10 +56,8 @@ var name = name || {};
         isAnimating = true;
         currentAngle += ra * 120;
 
-        $('body').css('background', PAGE_BG[target_index]);
         $('.page').hide();
-        
-        anim('nav', currentAngle, 300, function () {
+        animationRotate('nav', currentAngle, 300, function () {
           $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
         });
 
@@ -115,7 +100,7 @@ var name = name || {};
      * @param {object} center
      * @param {Object} callbackFunc
      */
-    function anim(selector, angle, duration, callbackFunc) {
+    function animationRotate(selector, angle, duration, callbackFunc) {
       $(selector).rotate({
         animateTo: angle,
         //center : center,
@@ -130,7 +115,6 @@ var name = name || {};
       console.log(hash);
       if (hash[0] !== '') {
         changePageById(hash[0]);
-        closeWorksDetail();
         if (hash[0] === '#works' && hash[1] !== '') {
           openWorksDetail(hash[1]);
         }
