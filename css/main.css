@@ -153,7 +153,10 @@ nav > ul > li > a {
 .page {
   position: absolute;
   top: 0;
-  padding: 0;
+  width: 100%;
+}
+
+.page_inner {
   width: 90%;
   padding: 0 5%;
 }
@@ -186,7 +189,7 @@ header {
   text-align: center;
 }
 
-header > h1 > a {
+h1 a {
   color: #e74c3c;
   text-decoration: none;
 }
@@ -207,9 +210,25 @@ footer {
   right: 0;
 }
 
+#works h1, #profile h1 {
+  font-size: 28px;
+  width: 260px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0;
+  background: #ecf0f1;
+  border-bottom-right-radius: 20px;
+}
+
+
+#works h1 a, #profile h1 a {
+  display: block;
+
+}
+
 h2 {
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 60px;
 }
 
 .flex {
@@ -272,7 +291,7 @@ h2 {
 #works .works_detail {
   display: none;
 }
-.works_item.active .works_detail {
+#works .works_item.active .works_detail {
   display: block;
 }
 
@@ -326,13 +345,13 @@ img.circle {
 }
 
 .shadow {
-  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 4px 2px 2px;
-  box-shadow: rgba(51, 51, 51, 0.6) 4px 2px 2px;
+  -webkit-box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 4px;
+  box-shadow: rgba(51, 51, 51, 0.6) 2px 2px 4px;
 }
 
 .shadow:hover {
-  -webkit-box-shadow: rgba(34, 34, 34, 0.8) 2px 1px 1px;
-  box-shadow: rgba(34, 34, 34, 0.8) 2px 1px 1px;
+  -webkit-box-shadow: rgba(34, 34, 34, 0.8) 2px 2px 1px;
+  box-shadow: rgba(34, 34, 34, 0.8) 2px 2px 1px;
 }
 
 @media screen and (min-width : 480px){

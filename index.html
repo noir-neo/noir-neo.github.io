@@ -26,57 +26,65 @@ layout: default
   </div>
 
   <section id="works" class="page">
-      <h2>works</h2>
-      <ul class="flex wrap works_list">
-      {% for work in site.data.works %}
-        <li class="works_item">
-          <article>
-            <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
-            <h4>{{ work.title }}</h4>
-            <div class="works_detail">
-              <p>{{ work.description }}</p>
-              {% if work.links %}
-                <ul class="works_link_list">
-                  {% for link in work.links %}
-                    <li class="works_link_item"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
-          </article>
-        </li>
-      {% endfor %}
-      </ul>
+      <h1 class="shadow"><a href="#home">neoneobeam.com</a></h1>
+      <div class="page_inner">
+        <h2>works</h2>
+        <ul class="flex wrap works_list">
+        {% for work in site.data.works %}
+          <li class="works_item" id="works_{{ work.dir }}">
+            <article>
+              <a href="#works-{{ work.dir }}">
+                <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
+                <h4>{{ work.title }}</h4>
+              </a>
+              <div class="works_detail">
+                <p>{{ work.description }}</p>
+                {% if work.links %}
+                  <ul class="works_link_list">
+                    {% for link in work.links %}
+                      <li class="works_link_item"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            </article>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
   </section>
 
   <section id="profile" class="page">
-      <h2>profile</h2>
-      <div class="column-wrap">
-        <div class="column">
-          <h3><span>neo / Shoma SATO</span></h3>
-          <img id="icon" class="circle" src="img/profile/icon.png">
-          <p>
-            デザイン系大学3年生
-          </p>
-          <p>
-            作るものは Web とか Android アプリとかゲームとか
-          </p>
-          <p>
-            UI / UX デザインとプログラミング、コーヒーと甘いものが好き
-          </p>
-        </div>
-        <div class="column" id="accounts">
-          <ul class="flex">
-            <li class="shadow">
-              <a href="//twitter.com/noir_neo" target="_blank"> <img src="img/profile/twitter.png"><span>Twitter: @noir_neo</span></a>
-            </li>
-            <li class="shadow">
-              <a href="//github.com/noir-neo" target="_blank"> <img src="img/profile/github.png"><span>GitHub: noir-neo</span></a>
-            </li>
-            <li class="shadow">
-              <a href="//play.google.com/store/apps/developer?id=neo" target="_blank"> <img src="img/profile/googleplay.png"><span>Google play: neo</span></a>
-            </li>
-          </ul>
+      <h1 class="shadow"><a href="#home">neoneobeam.com</a></h1>
+      <div class="page_inner">
+        <h2>profile</h2>
+        <div class="column-wrap">
+          <div class="column">
+            <h3><span>neo / Shoma SATO</span></h3>
+            <img id="icon" class="circle" src="img/profile/icon.png">
+            <p>
+              デザイン系大学3年生
+            </p>
+            <p>
+              作るものは Web とか Android アプリとかゲームとか
+            </p>
+            <p>
+              UI / UX デザインとプログラミング、コーヒーと甘いものが好き
+            </p>
+          </div>
+          <div class="column" id="accounts">
+            <ul class="flex">
+              <li class="shadow">
+                <a href="//twitter.com/noir_neo" target="_blank"> <img src="img/profile/twitter.png"><span>Twitter: @noir_neo</span></a>
+              </li>
+              <li class="shadow">
+                <a href="//github.com/noir-neo" target="_blank"> <img src="img/profile/github.png"><span>GitHub: noir-neo</span></a>
+              </li>
+              <li class="shadow">
+                <a href="//play.google.com/store/apps/developer?id=neo" target="_blank"> <img src="img/profile/googleplay.png"><span>Google play: neo</span></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
   </section>

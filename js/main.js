@@ -49,6 +49,8 @@ var name = name || {};
       var target_index = PAGE_ID.indexOf(target_id);
       if (target_index !== -1) {
         var ra = target_index - currentPage;
+        if (ra === 0) 
+          return;
         if (ra === 2)
           ra = -1;
         if (ra === -2)
@@ -77,7 +79,13 @@ var name = name || {};
       }
     }
 
+    function openWorksDetail(target) {
+      $('#works_'+target).addClass('active');
+    }
 
+    function closeWorksDetail(target) {
+      $('.works_item').removeClass('active');
+    }
 
     /**
      * 回転の中心点を返します
@@ -118,9 +126,15 @@ var name = name || {};
     }
 
     function changePageByUri() {
-      var hash = location.hash;
-      if (hash !== '')
-        changePageById(hash);
+      var hash = location.hash.split('-');
+      console.log(hash);
+      if (hash[0] !== '') {
+        changePageById(hash[0]);
+        closeWorksDetail();
+        if (hash[0] === '#works' && hash[1] !== '') {
+          openWorksDetail(hash[1]);
+        }
+      }
     };
 
     /*
