@@ -1,6 +1,9 @@
 - title: THE SUGOI NINJA
   dir: tsn
-  description: 忍者となり敵城を上り詰めていく数学的思考力ゲーム。 Global Math コンテスト開発優秀賞受賞(グループ作品/ディレクタ・エディタ・プログラマ)
+  description: 
+    - 忍者となり敵城を上り詰めていく数学的思考力ゲーム。
+    - Global Math コンテスト開発優秀賞受賞
+    - グループ作品 / ディレクタ・エディタ・プログラマ
   links:
     - text: THE SUGOI NINJA
       url: //sugoi-ninja.com
@@ -17,7 +20,9 @@
 
 - title: Media Design Works 2013
   dir: mdw2013
-  description: メディアデザイン専攻領域の学生有志による学祭展示(自由制作グループ展/代表・ Web メインプログラマ)
+  description: 
+    - メディアデザイン専攻領域の学生有志による学祭展示
+    - 自由制作グループ展 / 代表・ Webサイト メインプログラマ
   links:
     - text: Media Design Works 2013
       url: //mdw2013.github.io/

@@ -12,7 +12,7 @@ layout: default
 
 <div id="wrapper">
   
-  <header>
+  <header class="main_header">
     <h1><a href="//neoneobeam.com">neoneobeam.com</a></h1>
   </header>
   <div id="home" class="page">
@@ -29,21 +29,36 @@ layout: default
         <ul class="flex wrap works_list">
         {% for work in site.data.works %}
           <li class="works_item" id="works_{{ work.dir }}">
-            <article>
-              <a href="#works-{{ work.dir }}">
-                <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
-                <h4>{{ work.title }}</h4>
-              </a>
+            <article class="works_item_article">
+              <header class="works_item_header flex">
+                <a href="#works-{{ work.dir }}">
+                  <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
+                  <h4><span>{{ work.title }}</span></h4>
+                </a>
+              </header>
               <div class="works_detail">
-                <p>{{ work.description }}</p>
+                {% if work.description %}
+                  {% for p in work.description %}
+                    <p>{{ p }}</p>
+                  {% endfor %}
+                {% endif %}
+                {% if work.images %}
+                  <ul class="works_image_list flex wrap">
+                    {% for image in work.images %}
+                      <li class="works_image_item shadow"><img src="img/works/{{ work.dir }}/{{ image.thumb }}" ></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
                 {% if work.links %}
-                  <ul class="works_link_list">
+                  <ul class="works_link_list flex wrap">
                     {% for link in work.links %}
                       <li class="works_link_item shadow"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
                     {% endfor %}
                   </ul>
                 {% endif %}
               </div>
+              <a href="#works" class="works_detail_closebutton"><img src="img/close_button.svg" alt="閉じるボタン"></a>
             </article>
           </li>
         {% endfor %}
