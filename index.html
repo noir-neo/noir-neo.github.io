@@ -2,11 +2,11 @@
 layout: default
 ---
  
-<nav>
-  <ul>
-    <li class="nav_home"><a href="#home"><p>home</p></a></li>
-    <li class="nav_works"><a href="#works"><p>works</p></a></li>
-    <li class="nav_profile"><a href="#profile"><p>profile</p></a></li>
+<nav class="main_nav">
+  <ul class="main_nav_list">
+    <li class="main_nav_list_item nav_home"><a href="#home"><p>home</p></a></li>
+    <li class="main_nav_list_item nav_works"><a href="#works"><p>works</p></a></li>
+    <li class="main_nav_list_item nav_profile"><a href="#profile"><p>profile</p></a></li>
   </ul>
 </nav>
 
@@ -26,43 +26,56 @@ layout: default
   <section id="works" class="page">
       <div class="page_inner">
         <h2>works</h2>
-        <ul class="flex wrap works_list">
-        {% for work in site.data.works %}
-          <li class="works_item" id="works_{{ work.dir }}">
-            <article class="works_item_article">
-              <header class="works_item_header flex">
-                <a href="#works-{{ work.dir }}">
-                  <h3><img src="img/works/{{ work.dir }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
-                  <h4><span>{{ work.title }}</span></h4>
+        <div class="works_section flex wrap">
+          <nav class="works_nav">
+            <ul class="works_nav_list flex wrap">
+            {% for work in site.data.works %}
+              <li class="works_nav_list_item">
+                <a href="#works-{{ work.id }}">
+                  <img src="img/works/{{ work.id }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow">
                 </a>
-              </header>
-              <div class="works_detail">
-                {% if work.description %}
-                  {% for p in work.description %}
-                    <p>{{ p }}</p>
-                  {% endfor %}
-                {% endif %}
-                {% if work.images %}
-                  <ul class="works_image_list flex wrap">
-                    {% for image in work.images %}
-                      <li class="works_image_item shadow"><img src="img/works/{{ work.dir }}/{{ image.thumb }}" ></li>
+              </li>
+            {% endfor %}
+            </ul>
+          </nav>
+          <ul class="flex wrap works_list">
+          {% for work in site.data.works %}
+            <li class="works_item" id="works-{{ work.id }}">
+              <article class="works_item_article">
+                <header class="works_item_header flex">
+                  <a href="#works-{{ work.id }}" class="flex">
+                    <h3><img src="img/works/{{ work.id }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
+                    <h4><span>{{ work.title }}</span></h4>
+                  </a>
+                </header>
+                <section class="works_detail">
+                  {% if work.description %}
+                    {% for p in work.description %}
+                      <p>{{ p }}</p>
                     {% endfor %}
-                  </ul>
-                {% endif %}
+                  {% endif %}
+                  {% if work.images %}
+                    <ul class="works_image_list flex wrap">
+                      {% for image in work.images %}
+                        <li class="works_image_item shadow"><img src="img/works/{{ work.id }}/{{ image.thumb }}" ></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
 
-                {% if work.links %}
-                  <ul class="works_link_list flex wrap">
-                    {% for link in work.links %}
-                      <li class="works_link_item shadow"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </div>
-              <a href="#works" class="works_detail_closebutton"><img src="img/close_button.svg" alt="閉じるボタン"></a>
-            </article>
-          </li>
-        {% endfor %}
-        </ul>
+                  {% if work.links %}
+                    <ul class="works_link_list flex wrap">
+                      {% for link in work.links %}
+                        <li class="works_link_item shadow"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </section>
+              </article>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+        
       </div>
   </section>
 

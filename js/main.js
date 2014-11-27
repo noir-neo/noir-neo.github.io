@@ -57,7 +57,7 @@ var name = name || {};
         currentAngle += ra * 120;
 
         $('.page').hide();
-        animationRotate('nav', currentAngle, 300, function () {
+        animationRotate('.main_nav_list', currentAngle, 300, function () {
           $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
         });
 

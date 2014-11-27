@@ -1,5 +1,5 @@
 - title: THE SUGOI NINJA
-  dir: tsn
+  id: tsn
   description: 
     - 忍者となり敵城を上り詰めていく数学的思考力ゲーム。
     - Global Math コンテスト開発優秀賞受賞
@@ -12,14 +12,14 @@
     
 
 - title: FU
-  dir: fu
+  id: fu
   description: ミクさんがあなたの生活をサポートする、 Android アプリ
   links:
     - text: GitHub
       url: //github.com/noir-neo/FU
 
 - title: Media Design Works 2013
-  dir: mdw2013
+  id: mdw2013
   description: 
     - メディアデザイン専攻領域の学生有志による学祭展示
     - 自由制作グループ展 / 代表・ Webサイト メインプログラマ
@@ -28,28 +28,28 @@
       url: //mdw2013.github.io/
 
 - title: Press Yes Battle Game
-  dir: pybg
+  id: pybg
   description: You only press only "YES" only 100 times!
   links:
     - text: Google Play
       url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
 
 - title: 出席管理4クズ
-  dir: s4k
+  id: s4k
   description: クズのための時間割アプリ
   links:
     - text: Google Play
       url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
 
 - title: ねおねお☆びーむ(公開停止)
-  dir: nnb
+  id: nnb
   description: スマートな連投と愛のある fav に特化した Twitter クライアント
   links:
     - text: ねおねお☆びーむ
       url: //nnb.neoneobeam.com
 
 - title: DANMAKU/Duo
-  dir: danmaku
+  id: danmaku
   description: 新感覚弾幕シューティングゲーム。両手を動かして、2機の自機を操作！
   links:
     - text: YouTube
