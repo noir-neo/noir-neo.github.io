@@ -1,7 +1,24 @@
+- title: MISSION//MDW
+  id: missionmdw
+  description: 
+    - 学祭グループ展 Media Design Works 2014 にて行った、"ARG(代替現実ゲーム)"。
+    - プレイヤーがスマートフォンでQRコードを読み込むと"人工知能N.E.O."が起動。彼女から"MDW"のメンバーが危機に陥っている、力を貸してほしいと依頼される。
+    - グループ作品 / プランナ・プログラマ
+  links:
+    - text: Media Design Works 2014
+      url: //mdw2014.github.io
+
+- title: Web サイトのリニューアル提案
+  id: seminarhouse
+  description: 
+    - 八王子セミナーハウス Web サイトについてのリニューアル提案
+    - 既存サイトの更新頻度の高さや情報量が豊富である点を活かしつつ、ビジュアルの刷新及びコンテンツ整理を行った。
+    - 授業・グループ課題 / コーダー・UX デザイナ
+
 - title: THE SUGOI NINJA
   id: tsn
   description: 
-    - 忍者となり敵城を上り詰めていく数学的思考力ゲーム。
+    - 忍者となり敵城を上り詰めていく数学的思考力ゲーム
     - Global Math コンテスト開発優秀賞受賞
     - グループ作品 / ディレクタ・エディタ・プログラマ
   links:
@@ -9,7 +26,8 @@
       url: //sugoi-ninja.com
     - text: Global Math
       url: //www.globalmath.info/globalmath_pfweb/game_detail?locale=1&gameId=48
-    
+    - text: Making of THE SUGOI NINJA // Speaker Deck
+      url: https://speakerdeck.com/noir_neo/making-of-the-sugoi-ninja
 
 - title: FU
   id: fu

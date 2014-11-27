@@ -42,11 +42,8 @@ layout: default
           {% for work in site.data.works %}
             <li class="works_item" id="works-{{ work.id }}">
               <article class="works_item_article">
-                <header class="works_item_header flex">
-                  <a href="#works-{{ work.id }}" class="flex">
-                    <h3><img src="img/works/{{ work.id }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow"></h3>
-                    <h4><span>{{ work.title }}</span></h4>
-                  </a>
+                <header class="works_item_header flex" style="background-image:url('img/works/{{ work.id }}/header.png');">
+                  <h3>{{ work.title }}</h3>
                 </header>
                 <section class="works_detail">
                   {% if work.description %}

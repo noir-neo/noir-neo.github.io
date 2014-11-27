@@ -223,104 +223,6 @@ textarea {
   }
 }
 
-@-webkit-keyframes open-works-detail {
-  from { 
-    height: 80px;
-    background: #ecf0f1;
-  }
-  to {
-    height: auto;
-    background: #333;
-  }
-}
-@-o-keyframes open-works-detail {
-  from { 
-    height: 80px;
-    background: #ecf0f1;
-  }
-  to {
-    height: auto;
-    background: #333;
-  }
-}
-@-moz-keyframes open-works-detail {
-  from { 
-    height: 80px;
-    background: #ecf0f1;
-  }
-  to {
-    height: auto;
-    background: #333;
-  }
-}
-@keyframes open-works-detail {
-  from { 
-    height: 80px;
-    background: #ecf0f1;
-  }
-  to {
-    height: auto;
-    background: #333;
-  }
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-
 html, body {
   height: 100%;
   font-family: 'Nova Mono', "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", Meiryo, cursive;
@@ -550,82 +452,70 @@ h2 {
   margin-bottom: 20px;
 }
 
-#works ul.works_list {
+.works_nav_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.works_nav_list_item {
+  width: 25%;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.works_list {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
   position: relative;
-}
-
-.works_item {
-  margin: 0 2% 4% 2%;
-  padding: 0;
-  width: 96%;
-  height: 80px;
-  background: #ecf0f1;
-  border-radius: 20px;
-}
-.works_item.active {
-  height: auto;
-  background: #333;
-  text-align: left;
-  position: relative;
-  -webkit-animation: open-works-detail 0.5s ease;
-  -o-animation: open-works-detail 0.5s ease;
-  animation: open-works-detail 0.5s ease;
-}
-.works_item_header {
-  
-  height: 60px;
-  margin: 0;
-  padding: 10px;
-}
-.works_item_header a {
   width: 100%;
-}
-.works_item_header h3 {
-  width: 60px;
-  margin: 0;
-  margin-right: 10px;
 }
 .works_icon_image {
   width: 60px;
   height: 60px;
 }
-.works_item_header h4 {
-  line-height: 1.5em;
-  width: 60%;
-  height: 60px;
+.works_item {
+  margin: 0 auto 20px auto;
+  padding: 0;
+  width: 96%;
+  max-width: 800px;
+  background: rgba(51, 51, 51, 0.2);
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(51, 51, 51, 0.5) 0 1px 2px;
+  box-shadow: rgba(51, 51, 51, 0.5) 0 1px 2px;
+}
+.works_item_header {
+  width: 100%;
+  height: 150px;
   margin: 0;
-  text-align: left;
+  background: center no-repeat;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: table;
 }
-.works_item_header h4 span {
+.works_item_header h3 {
   display: table-cell;
-  vertical-align: middle;
-}
-
-.works_item.active .works_item_header {
-
-}
-.works_item.active .works_item_header h4 {
-  color: #fff;
+  vertical-align: bottom;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0 10px;
+  text-shadow: 0 1px 1px rgba(51, 51, 51, 0.6);
+  background: -moz-linear-gradient(top,  rgba(30,87,153,0) 70%, rgba(51,51,51,0.9) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%,rgba(30,87,153,0)), color-stop(100%,rgba(51,51,51,0.9))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(30,87,153,0) 70%,rgba(51,51,51,0.9) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(30,87,153,0) 70%,rgba(51,51,51,0.9) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(30,87,153,0) 70%,rgba(51,51,51,0.9) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(30,87,153,0) 70%,rgba(51,51,51,0.9) 100%); /* W3C */
 }
 
 .works_detail {
-  display: none;
   margin: 0;
-  border-top: 1px solid #fff;
+  border-top: 3px groove rgba(51, 51, 51, 0.4);
   padding: 20px;
 }
-.works_item.active .works_detail {
-  display: block;
-  opacity: 0;
-  -webkit-animation: fadeIn 0.5s ease-out 0.5s forwards;
-  -o-animation: fadeIn 0.5s ease-out 0.5s forwards;
-  animation: fadeIn 0.5s ease-out 0.5s forwards;
-}
-
 .works_detail_main {
   margin: 30px 5% 0 5%;
 }
@@ -638,15 +528,14 @@ h2 {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 .works_link_item {
   background: #ecf0f1;
   margin: 10px 0;
-  padding: 0 5%;
+  padding: 10px 5%;
   width: 90%;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .works_link_item a {
   display: block;
@@ -842,7 +731,12 @@ img.circle {
     height: 60px;
     font-size: 14px;
   }
-  
+  .works_nav_list_item {
+    width: 20%;
+  }
+  .works_item_header {
+    height: 200px;
+  }
   
 }
 
@@ -1004,15 +898,20 @@ img.circle {
     top: 0;
   }
 
-  .works_item {
-    width: 96%;
+  .works_nav {
+    width: 10%;
   }
-  .works_item.active {
-    width: 96%;
+  .works_nav_list {
+    width: 100%;
+  } 
+  .works_nav_list_item {
+    width: 100%;
   }
-
-  .works_icon_image {
-    max-width: 300px;
+  .works_list {
+    width: 80%;
+  }
+  .works_item_header {
+    height: 250px;
   }
   
   .column-wrap {
