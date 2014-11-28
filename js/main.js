@@ -12,30 +12,22 @@ var name = name || {};
     // 現在の角度
     var currentAngle = 0;
 
-    var isAnimating = false;
-
     var PAGE_ID = [
       '#home', '#works', '#profile',
     ];
     // 現在のページ
     var currentPage = 0;
 
-    init();
-
-    function init() {
-      changePageByUri();
-
-    }
-
     /**
      * idからページ遷移
      * @param {Object} target_id
      */
-    function changePageById(target_id) {
+    function changePageById(target_id, callback) {
+      callback = callback || function(){};
       $('body').removeClass();
-      $('body').addClass(target_id.replace('#', ''));
+      $('body').addClass(target_id);
       
-      var target_index = PAGE_ID.indexOf(target_id);
+      var target_index = PAGE_ID.indexOf('#'+target_id);
       if (target_index !== -1) {
         var ra = target_index - currentPage;
         if (ra === 2)
@@ -43,7 +35,7 @@ var name = name || {};
         if (ra === -2)
           ra = 1;
         currentPage = (currentPage + ra + 3) % 3;
-        changePage(target_index, ra);
+        changePage(target_index, ra, callback);
       }
     }
 
@@ -51,26 +43,26 @@ var name = name || {};
      * 回転してページ遷移
      * @param {Object} ra
      */
-    function changePage(target_index, ra) {
+    function changePage(target_index, ra, callback) {
       if (ra !== 0) {
-        isAnimating = true;
         currentAngle += ra * 120;
-
         $('.page').hide();
-        animationRotate('.main_nav_list', currentAngle, 300, function () {
+        animationRotate('.main-nav', currentAngle, 300, function () {
           $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
+          callback();
         });
 
       }
     }
 
-    function openWorksDetail(target) {
-      $('.works_item').removeClass('active');
-      $('#works_'+target).addClass('active');
-    }
-
-    function closeWorksDetail(target) {
-      $('.works_item').removeClass('active');
+    function scrollToWorks(target) {
+      if (!$('body').hasClass('works')) {
+        changePageById('works', function(){return scrollToWorks(target);});
+        return;
+      }
+      $('html, body').animate({
+        scrollTop: $('#works-'+target).offset().top
+      }, 300, $.easing.easeInOutQuart);
     }
 
     /**
@@ -112,22 +104,38 @@ var name = name || {};
     }
 
     function changePageByUri() {
-      var hash = location.hash.split('-');
-      console.log(hash);
-      if (hash[0] !== '') {
-        changePageById(hash[0]);
-        if (hash[0] === '#works' && hash[1] !== '') {
-          openWorksDetail(hash[1]);
-        }
+      var params = {};
+      var queryStrings = window.location.hash.substring(1);
+      var regex = /([^&=]+)=([^&]*)/g;
+      var m;
+      while(m = regex.exec(queryStrings)) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      }
+      if (params['page']) {
+        changePageById(params['page']);
+      }
+      if (params['works']) {
+        scrollToWorks(params['works']);
       }
     };
 
-    /*
-     * 戻るボタンによる#からのページ遷移
-     */
-    window.addEventListener('popstate', function (event) {
-      changePageByUri();
-    }, false);
+    function init() {
+      changePageByUri(true);
+      
+      /*
+       * 戻るボタンによる#からのページ遷移
+       */
+      window.addEventListener('popstate', function (event) {
+        changePageByUri();
+      }, false);
+      
+      $('a[href*=#]').click(function() {
+        return true;
+      });
+      
+      $('.swipebox').swipebox();
+    }
+    init();
 
   });
 

@@ -3,10 +3,10 @@ layout: default
 ---
  
 <nav class="main_nav">
-  <ul class="main_nav_list">
-    <li class="main_nav_list_item nav_home"><a href="#home"><p>home</p></a></li>
-    <li class="main_nav_list_item nav_works"><a href="#works"><p>works</p></a></li>
-    <li class="main_nav_list_item nav_profile"><a href="#profile"><p>profile</p></a></li>
+  <ul class="main_nav_list main-nav">
+    <li class="main_nav_list_item nav_home"><a href="#page=home"><p>home</p></a></li>
+    <li class="main_nav_list_item nav_works"><a href="#page=works"><p>works</p></a></li>
+    <li class="main_nav_list_item nav_profile"><a href="#page=profile"><p>profile</p></a></li>
   </ul>
 </nav>
 
@@ -20,7 +20,6 @@ layout: default
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
         <small>&copy; neo.</small>
       </footer>
-
   </div>
 
   <section id="works" class="page">
@@ -31,7 +30,7 @@ layout: default
             <ul class="works_nav_list flex wrap">
             {% for work in site.data.works %}
               <li class="works_nav_list_item">
-                <a href="#works-{{ work.id }}">
+                <a href="#works={{ work.id }}">
                   <img src="img/works/{{ work.id }}/icon.png" alt="{{ work.title }}のアイコンです。" class="works_icon_image circle shadow">
                 </a>
               </li>
@@ -42,7 +41,7 @@ layout: default
           {% for work in site.data.works %}
             <li class="works_item" id="works-{{ work.id }}">
               <article class="works_item_article">
-                <header class="works_item_header flex" style="background-image:url('img/works/{{ work.id }}/header.png');">
+                <header class="works_item_header flex" style="background-image:url('img/works/{{ work.id }}/header.jpg');">
                   <h3>{{ work.title }}</h3>
                 </header>
                 <section class="works_detail">
@@ -54,7 +53,11 @@ layout: default
                   {% if work.images %}
                     <ul class="works_image_list flex wrap">
                       {% for image in work.images %}
-                        <li class="works_image_item shadow"><img src="img/works/{{ work.id }}/{{ image.thumb }}" ></li>
+                        <li class="works_image_item shadow">
+                          <a href="img/works/{{ work.id }}/{{ image }}" rel="{{ work.id }}" class="swipebox" title="{{ image.title  }}">
+                            <img src="img/works/{{ work.id }}/{{ image }}" alt="{{ image.title }}">
+                          </a>
+                        </li>
                       {% endfor %}
                     </ul>
                   {% endif %}
@@ -72,7 +75,10 @@ layout: default
           {% endfor %}
           </ul>
         </div>
-        
+        <footer>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
+          <small>&copy; neo.</small>
+        </footer>
       </div>
   </section>
 
@@ -107,6 +113,10 @@ layout: default
             </ul>
           </div>
         </div>
+        <footer>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
+          <small>&copy; neo.</small>
+        </footer>
       </div>
   </section>
 
@@ -119,6 +129,7 @@ layout: default
 <script src="js/plugins.js"></script>
 <script src="js/vendor/jquery.easing.1.3.js"></script>
 <script src="js/vendor/jQueryRotate.js"></script>
+<script src="js/vendor/jquery.swipebox.min.js"></script>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="js/main.js"></script>

@@ -4,6 +4,13 @@
     - 学祭グループ展 Media Design Works 2014 にて行った、"ARG(代替現実ゲーム)"。
     - プレイヤーがスマートフォンでQRコードを読み込むと"人工知能N.E.O."が起動。彼女から"MDW"のメンバーが危機に陥っている、力を貸してほしいと依頼される。
     - グループ作品 / プランナ・プログラマ
+  images:
+    - ss0.jpg
+    - ss1.jpg
+    - ss2.jpg
+    - ss3.jpg
+    - ss4.jpg
+    - image1.jpg
   links:
     - text: Media Design Works 2014
       url: //mdw2014.github.io
@@ -14,6 +21,11 @@
     - 八王子セミナーハウス Web サイトについてのリニューアル提案
     - 既存サイトの更新頻度の高さや情報量が豊富である点を活かしつつ、ビジュアルの刷新及びコンテンツ整理を行った。
     - 授業・グループ課題 / コーダー・UX デザイナ
+  images:
+    - android.png
+    - header.jpg
+    - ss1.jpg
+    - ss2.jpg
 
 - title: THE SUGOI NINJA
   id: tsn
@@ -21,6 +33,10 @@
     - 忍者となり敵城を上り詰めていく数学的思考力ゲーム
     - Global Math コンテスト開発優秀賞受賞
     - グループ作品 / ディレクタ・エディタ・プログラマ
+  images:
+    - header.jpg
+    - playing.jpg
+    - team.jpg
   links:
     - text: THE SUGOI NINJA
       url: //sugoi-ninja.com
@@ -32,6 +48,8 @@
 - title: FU
   id: fu
   description: ミクさんがあなたの生活をサポートする、 Android アプリ
+  images:
+    - header.jpg
   links:
     - text: GitHub
       url: //github.com/noir-neo/FU
@@ -41,6 +59,8 @@
   description: 
     - メディアデザイン専攻領域の学生有志による学祭展示
     - 自由制作グループ展 / 代表・ Webサイト メインプログラマ
+  images:
+    - header.jpg
   links:
     - text: Media Design Works 2013
       url: //mdw2013.github.io/
@@ -48,6 +68,8 @@
 - title: Press Yes Battle Game
   id: pybg
   description: You only press only "YES" only 100 times!
+  images:
+    - ss.jpg
   links:
     - text: Google Play
       url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
@@ -55,6 +77,7 @@
 - title: 出席管理4クズ
   id: s4k
   description: クズのための時間割アプリ
+  images: header.jpg
   links:
     - text: Google Play
       url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
@@ -62,6 +85,8 @@
 - title: ねおねお☆びーむ(公開停止)
   id: nnb
   description: スマートな連投と愛のある fav に特化した Twitter クライアント
+  images:
+    - header.jpg
   links:
     - text: ねおねお☆びーむ
       url: //nnb.neoneobeam.com
@@ -69,6 +94,8 @@
 - title: DANMAKU/Duo
   id: danmaku
   description: 新感覚弾幕シューティングゲーム。両手を動かして、2機の自機を操作！
+  images:
+    - header.jpg
   links:
     - text: YouTube
       url: //www.youtube.com/watch?v=pfj7_SlC6bE

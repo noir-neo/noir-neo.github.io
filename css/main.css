@@ -416,9 +416,13 @@ footer {
   text-align: center;
   color: #666;
 }
+.works footer, .profile footer {
+  position: relative;
+  color: #ccc;
+}
 
 .twitter-share-button {
-  position: fixed;
+  position: absolute;
   right: 0;
 }
 
@@ -440,8 +444,8 @@ footer {
 
 
 h2 {
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 140px;
+  margin-bottom: 30px;
 }
 
 /*
@@ -477,7 +481,7 @@ h2 {
   height: 60px;
 }
 .works_item {
-  margin: 0 auto 20px auto;
+  margin: 0 auto 30px auto;
   padding: 0;
   width: 96%;
   max-width: 800px;
@@ -524,6 +528,20 @@ h2 {
   line-height: 1.5em;
 }
 
+.works_image_list {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+.works_image_item {
+  height: 80px;
+  margin: 10px;
+}
+.works_image_item img {
+  width: auto;
+  height: 100%;
+}
+
 .works_link_list {
   list-style-type: none;
   padding: 0;
@@ -540,32 +558,13 @@ h2 {
 .works_link_item a {
   display: block;
 }
-.works_detail_closebutton {
-  display: none;
-}
-.works_item.active .works_detail_closebutton {
-  display: block;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  opacity: 0.6;
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-}
-.works_item.active .works_detail_closebutton:hover {
-  opacity: 1;
-}
-.works_detail_closebutton img {
-  width: 100%;
-}
 
 /*
  * profile
  */
 #profile {
   display: none;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #profile #icon {
@@ -590,7 +589,7 @@ h2 {
 }
 
 #profile ul > li {
-  margin: 10px;
+  margin: 0 auto 30px auto;
   padding: 10px;
   background: #ecf0f1;
   width: 60px;
@@ -934,7 +933,7 @@ img.circle {
   }
 
   #profile ul > li {
-    margin: 10px;
+    margin: 30px auto;
     padding: 0 15px;
     width: 260px;
     border-radius: 20px;
