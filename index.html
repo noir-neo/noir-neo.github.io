@@ -37,43 +37,46 @@ layout: default
             {% endfor %}
             </ul>
           </nav>
-          <ul class="flex wrap works_list">
-          {% for work in site.data.works %}
-            <li class="works_item" id="works-{{ work.id }}">
-              <article class="works_item_article">
-                <header class="works_item_header flex" style="background-image:url('img/works/{{ work.id }}/header.jpg');">
-                  <h3>{{ work.title }}</h3>
-                </header>
-                <section class="works_detail">
-                  {% if work.description %}
-                    {% for p in work.description %}
-                      <p>{{ p }}</p>
-                    {% endfor %}
-                  {% endif %}
-                  {% if work.images %}
-                    <ul class="works_image_list flex wrap">
-                      {% for image in work.images %}
-                        <li class="works_image_item shadow">
-                          <a href="img/works/{{ work.id }}/{{ image }}" rel="{{ work.id }}" class="swipebox" title="{{ image.title  }}">
-                            <img src="img/works/{{ work.id }}/{{ image }}" alt="{{ image.title }}">
-                          </a>
-                        </li>
+          <div class="works_main">
+            <ul class="flex wrap works_list">
+            {% for work in site.data.works %}
+              <li class="works_item" id="works-{{ work.id }}">
+                <article class="works_item_article">
+                  <header class="works_item_header flex" style="background-image:url('img/works/{{ work.id }}/header.jpg');">
+                    <h3>{{ work.title }}</h3>
+                  </header>
+                  <section class="works_detail">
+                    {% if work.description %}
+                      {% for p in work.description %}
+                        <p>{{ p }}</p>
                       {% endfor %}
-                    </ul>
-                  {% endif %}
+                    {% endif %}
+                    {% if work.images %}
+                      <ul class="works_image_list flex wrap">
+                        {% for image in work.images %}
+                          <li class="works_image_item shadow">
+                            <a href="img/works/{{ work.id }}/{{ image }}" rel="{{ work.id }}" class="swipebox" title="{{ image.title  }}">
+                              <img src="img/works/{{ work.id }}/{{ image }}" alt="{{ image.title }}">
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
-                  {% if work.links %}
-                    <ul class="works_link_list flex wrap">
-                      {% for link in work.links %}
-                        <li class="works_link_item shadow"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                </section>
-              </article>
-            </li>
-          {% endfor %}
-          </ul>
+                    {% if work.links %}
+                      <ul class="works_link_list flex wrap">
+                        {% for link in work.links %}
+                          <li class="works_link_item shadow"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </section>
+                </article>
+              </li>
+            {% endfor %}
+            </ul>
+            <a href="#page=works" class="scrollToTop"><img src="img/toTop.svg" alt="ページトップへ" class="circle  shadow"></a>
+          </div>
         </div>
         <footer>
           <a href="https://twitter.com/share" class="twitter-share-button" data-via="noir_neo" data-lang="ja">ツイート</a>
@@ -85,7 +88,7 @@ layout: default
   <section id="profile" class="page">
       <div class="page_inner">
         <h2>profile</h2>
-        <div class="column-wrap">
+        <div class="profile_section column-wrap">
           <div class="column">
             <h3><span>neo / Shoma SATO</span></h3>
             <img id="icon" class="circle" src="img/profile/icon.png">

@@ -44,6 +44,7 @@ var name = name || {};
      * @param {Object} ra
      */
     function changePage(target_index, ra, callback) {
+      smoothScrollTo(PAGE_ID[target_index]);
       if (ra !== 0) {
         currentAngle += ra * 120;
         $('.page').hide();
@@ -51,8 +52,13 @@ var name = name || {};
           $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
           callback();
         });
-
       }
+    }
+
+    function smoothScrollTo(target) {
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 300, $.easing.easeInOutQuart);
     }
 
     function scrollToWorks(target) {
@@ -60,9 +66,7 @@ var name = name || {};
         changePageById('works', function(){return scrollToWorks(target);});
         return;
       }
-      $('html, body').animate({
-        scrollTop: $('#works-'+target).offset().top
-      }, 300, $.easing.easeInOutQuart);
+      smoothScrollTo('#works-'+target);
     }
 
     /**
