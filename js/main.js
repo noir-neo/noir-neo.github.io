@@ -12,41 +12,22 @@ var name = name || {};
     // 現在の角度
     var currentAngle = 0;
 
-    var isAnimating = false;
-
     var PAGE_ID = [
-    '#home', '#works', '#profile',
-  ];
+      '#home', '#works', '#profile',
+    ];
     // 現在のページ
     var currentPage = 0;
-
-    init();
-
-    function init() {
-      initNav();
-      changePageByUri();
-
-    }
-
-    function initNav() {
-      for (var i = 0; i < 3; i++) {
-        $('nav>ul>li').eq(i).rotate({
-          angle: -120 * i,
-          center: ['50%', '0'],
-        });
-      }
-      $('nav').rotate({
-        angle: currentAngle,
-        center: ['50%', '50%'],
-      });
-    }
 
     /**
      * idからページ遷移
      * @param {Object} target_id
      */
-    function changePageById(target_id) {
-      var target_index = PAGE_ID.indexOf(target_id);
+    function changePageById(target_id, callback) {
+      callback = callback || function(){};
+      $('body').removeClass();
+      $('body').addClass(target_id);
+      
+      var target_index = PAGE_ID.indexOf('#'+target_id);
       if (target_index !== -1) {
         var ra = target_index - currentPage;
         if (ra === 2)
@@ -54,7 +35,7 @@ var name = name || {};
         if (ra === -2)
           ra = 1;
         currentPage = (currentPage + ra + 3) % 3;
-        changePage(target_index, ra);
+        changePage(target_index, ra, callback);
       }
     }
 
@@ -62,22 +43,31 @@ var name = name || {};
      * 回転してページ遷移
      * @param {Object} ra
      */
-    function changePage(target_index, ra) {
+    function changePage(target_index, ra, callback) {
+      smoothScrollTo(PAGE_ID[target_index]);
       if (ra !== 0) {
-        isAnimating = true;
         currentAngle += ra * 120;
-
-        $('body').css('background', PAGE_BG[target_index]);
         $('.page').hide();
-        
-        anim('nav', currentAngle, 300, function () {
-          $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeInOutQuart);
+        animationRotate('.main-nav', currentAngle, 300, function () {
+          $(PAGE_ID[target_index]).fadeIn(200, $.easing.easeOutQuart);
+          callback();
         });
-
       }
     }
 
+    function smoothScrollTo(target) {
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 300, $.easing.easeInOutQuart);
+    }
 
+    function scrollToWorks(target) {
+      if (!$('body').hasClass('works')) {
+        changePageById('works', function(){return scrollToWorks(target);});
+        return;
+      }
+      smoothScrollTo('#works-'+target);
+    }
 
     /**
      * 回転の中心点を返します
@@ -107,7 +97,7 @@ var name = name || {};
      * @param {object} center
      * @param {Object} callbackFunc
      */
-    function anim(selector, angle, duration, callbackFunc) {
+    function animationRotate(selector, angle, duration, callbackFunc) {
       $(selector).rotate({
         animateTo: angle,
         //center : center,
@@ -118,17 +108,38 @@ var name = name || {};
     }
 
     function changePageByUri() {
-      var hash = location.hash;
-      if (hash !== '')
-        changePageById(hash);
+      var params = {};
+      var queryStrings = window.location.hash.substring(1);
+      var regex = /([^&=]+)=([^&]*)/g;
+      var m;
+      while(m = regex.exec(queryStrings)) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      }
+      if (params['page']) {
+        changePageById(params['page']);
+      }
+      if (params['works']) {
+        scrollToWorks(params['works']);
+      }
     };
 
-    /*
-     * 戻るボタンによる#からのページ遷移
-     */
-    window.addEventListener('popstate', function (event) {
-      changePageByUri();
-    }, false);
+    function init() {
+      changePageByUri(true);
+      
+      /*
+       * 戻るボタンによる#からのページ遷移
+       */
+      window.addEventListener('popstate', function (event) {
+        changePageByUri();
+      }, false);
+      
+      $('a[href*=#]').click(function() {
+        return true;
+      });
+      
+      $('.swipebox').swipebox();
+    }
+    init();
 
   });
 
