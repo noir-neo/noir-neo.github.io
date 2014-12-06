@@ -1,6 +1,6 @@
 (function(ns) {
   
-  ns.VERSION = 'v0.2.3';
+  ns.VERSION = 'v0.2.10';
   
   ns.DS_WIDTH = 540;
   ns.DS_HEIGHT = 960;
@@ -20,6 +20,7 @@
     'neo_trouble': 'img/neo/trouble.png',
     'neo_glitch': 'img/neo/glitch.png',
     'btn_power': 'img/mainScene/powerbutton.png',
+    'clickable_icon': 'img/mainScene/clickable_icon.png',
     'error_message': 'img/mainScene/error_message.png',
     'error_dialog': 'img/mainScene/error_dialogue.png',
     'transmission_dialog': 'img/mainScene/transmission_dialogue.png',
@@ -53,13 +54,13 @@
     'puritist': 'img/images/puritist.png',
     'mdw': 'img/images/mdw.png',
     'gungnir': 'img/images/gungnir.png',
-    'poster': 'img/images/mdw.png',//TODO
+    'poster': 'img/images/poster.png',
     'coupon_goraku': 'img/images/coupon_goraku.png',
     'coupon_game': 'img/images/coupon_game.png',
-    'zawa': 'img/images/mdw.png',//TODO
+    'zawa': 'img/images/zawa.png',
     'map': 'img/images/map.png',
     'ar': 'img/images/ar.png',
-    'controlsystem': 'img/images/mdw.png',//TODO
+    'controlsystem': 'img/images/controlsystem.png',
   }
 
 })(game);

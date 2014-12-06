@@ -41,14 +41,17 @@
     return {'script':script, 'text':text};
   }
   
+  var _toggleClickableTimer;
   function _nextByClick(p) {
+    _hideClickableIcon();
     _next(p);
-    setTimeout(function() {
+    clearTimeout(_toggleClickableTimer);
+    _toggleClickableTimer = setTimeout(function() {
         canNextOnClick = true;
       }, 500);
     canNextOnClick = false;
-
   }
+  
   function _next(p) {
     if (!canNext || !canNextOnClick || _index>=_texts.length)
       return;
@@ -64,6 +67,7 @@
       _runScript(ct.script, p.val);
     } else if (ct.text) {
       _changeText(ct.text);
+      _showClickableIcon();
     } else {
       _next({'val':p.val});
     }
@@ -87,6 +91,24 @@
       }
     }
   }
+  
+  var _showClickableIconTimer;
+  function _showClickableIcon() {
+    clearTimeout(_showClickableIconTimer);
+    _showClickableIconTimer = setTimeout(function() {
+      if (!canNext || !canNextOnClick || _index>=_texts.length)
+        return;
+      if (ns.app.currentScene.showClickableIcon)
+        ns.app.currentScene.showClickableIcon();
+      ns.text.isShowingClickableIcon = true;
+    }, 3000);
+    
+  }
+  function _hideClickableIcon() {
+    if (ns.app.currentScene.hideClickableIcon)
+      ns.app.currentScene.hideClickableIcon();
+    ns.text.isShowingClickableIcon = false;
+  };
   
   function _showImage(img_name) {
     
@@ -123,6 +145,8 @@
       ns.app.currentScene.hideImage(img_name);
     
     var items = _loadData();
+    if (!items.images)
+      return;
     var cImages = items.images.split(',');
     var nImages = '';
     for (var i=0; i < cImages.length; i++) {
@@ -276,11 +300,13 @@
       ns.app.currentScene.pushInputArea(type, f, f1);
   }
   
+  // TODO: 空のitemsを返すとまずいので
   var _items;
   function _loadData() {
+    if (_items)
+      return _items;
+    
     var strage = window.localStorage;
-    // TODO
-    //strage.clear();
     var items = {};
     for (var i in strage) {
       try {
@@ -295,8 +321,10 @@
   function _reversion(items) {
     if (items.index) {
       _index = items.index;
-      if(items.message) 
-        $('#message').html(items.message)
+      if(items.message) {
+        $('#message').html(items.message);
+        _showClickableIcon();
+      }
       if (items.textlog)
         $('#textlog').html(items.textlog);
       if (items.imglog) {
@@ -341,6 +369,7 @@
       return;
     var strage = window.localStorage;
     for (var i in items) {
+      _items[i] = items[i];
       try {
         strage.setItem(i,items[i]);
       } catch (e) {
@@ -377,6 +406,8 @@
   }
   
   ns.text = {
+    
+    isShowingClickableIcon: false,
   
     next: function(p) {
       _nextByClick(p);

@@ -33,6 +33,11 @@
       this.message = MySprite('message', 736, 1458, -98, 682)
         .addChildTo(this.innerWrapper);
       
+      this.clickableIcon = MySprite('clickable_icon', 40, 40, 520, 910)
+        .setOrigin(0.5, 0.5)
+        .setAlpha(0)
+        .addChildTo(this.innerWrapper);
+      
       this.images = {};
       
     },
@@ -66,6 +71,8 @@
       var onenter = function() {
         this.resize();
         ns.text.showMessageBox();
+        if (ns.text.isShowingClickableIcon)
+          this.showClickableIcon();
       }.bind(this);
       onenter();
       this.onenter = onenter;
@@ -181,6 +188,23 @@
           .fadeOut(1000).wait(1000).call(function() {
         this.showAuthenticationKey();
       }.bind(this));
+    },
+    
+    showClickableIcon: function() {
+      this.clickableIcon.setAlpha(0.7)
+        .setRotation(0);
+      var rotation = function() {
+        this.clickableIcon.tweener.clear()
+          .to({rotation: this.clickableIcon.rotation+360, y: (this.clickableIcon.dy-20)*ns.wrapperSizeRatio}, 300, 'easeOutCirc')
+          .wait(500)
+          .to({y: (this.clickableIcon.dy)*ns.wrapperSizeRatio}, 300, 'easeOutBack')
+          .wait(1000)
+          .call(rotation);
+      }.bind(this);
+      rotation();
+    },
+    hideClickableIcon: function() {
+      this.clickableIcon.setAlpha(0);
     },
     
     
