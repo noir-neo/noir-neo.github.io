@@ -1,7 +1,0 @@
-
-#####basicauth#####
-AuthUserFile "/home/st129959/neoneobeam.com/htpasswd/mdrb.neoneobeam.com/.htpasswd"
-AuthName "Member Site"
-AuthType BASIC
-require valid-user
-#####end:basicauth#####
