@@ -1,5 +1,4 @@
-var name = name || {};
-(function (ns) {
+(function () {
   $(function () {
 
     var COLOR = {
@@ -145,4 +144,4 @@ var name = name || {};
 
   });
 
-})(name);
+})();
