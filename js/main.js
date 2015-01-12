@@ -138,6 +138,8 @@ var name = name || {};
       });
       
       $('.swipebox').swipebox();
+      
+      FastClick.attach(document.body);
     }
     init();
 
