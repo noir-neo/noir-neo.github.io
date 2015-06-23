@@ -1,3 +1,11 @@
+- title: TZU学食メニューbot
+  id: tzulunch
+  description: 
+  - 毎日お昼前に東京造形大学の学食メニューをお知らせ
+  links:
+  - text: TZU学食メニューbot(@tzu_lunch) | Twitter
+    url: //twitter.com/tzu_lunch
+
 - title: MISSION//MDW
   id: missionmdw
   description: 
@@ -72,7 +80,7 @@
     - ss.jpg
   links:
     - text: Google Play
-      url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
+      url: //play.google.com/store/apps/details?id=com.neoneobeam.pybg
 
 - title: 出席管理4クズ
   id: s4k
