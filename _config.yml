@@ -1,6 +1,6 @@
 # Site settings
 title: neoneobeam.com
-url: "http://neoneobeam.com"
+url: "https://neoneobeam.com"
 
 # Build settings
 markdown: kramdown
