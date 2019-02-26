@@ -594,21 +594,20 @@ h2 {
 
 #profile .column-wrap {
   width: 100%;
-  text-align: center;
 }
 
 #profile .column {
   width: 100%;
 }
 
-#profile ul {
+#accounts ul {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
   width: 300px;
 }
 
-#profile ul > li {
+#accounts ul > li {
   margin: 30px auto;
   padding: 10px;
   background: #ecf0f1;
@@ -617,11 +616,11 @@ h2 {
   border-radius: 100%;
 }
 
-#profile ul > li > a {
+#accounts ul > li > a {
   display: block;
   font-size: 18px;
 }
-#profile ul > li > a > span {
+#accounts ul > li > a > span {
   display: none;
 }
 
@@ -950,12 +949,12 @@ img.circle {
     height: 150px;
   }
 
-  #profile ul {
+  #accounts ul {
     display: block;
     text-align: left;
   }
 
-  #profile ul > li {
+  #accounts ul > li {
     margin: 30px auto;
     padding: 0 15px;
     width: 260px;
@@ -964,7 +963,7 @@ img.circle {
   }
 
 
-  #profile ul > li > a > span {
+  #accounts ul > li > a > span {
     margin-left: 15px;
     display: inline;
   }
