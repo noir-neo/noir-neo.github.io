@@ -1,11 +1,3 @@
-- title: TZU学食メニューbot
-  id: tzulunch
-  description: 
-  - 毎日お昼前に東京造形大学の学食メニューをお知らせ
-  links:
-  - text: TZU学食メニューbot(@tzu_lunch) | Twitter
-    url: //twitter.com/tzu_lunch
-
 - title: MISSION//MDW
   id: missionmdw
   description: 
@@ -23,18 +15,6 @@
     - text: Media Design Works 2014
       url: //mdw2014.github.io
 
-- title: Web サイトのリニューアル提案
-  id: seminarhouse
-  description: 
-    - 八王子セミナーハウス Web サイトについてのリニューアル提案
-    - 既存サイトの更新頻度の高さや情報量が豊富である点を活かしつつ、ビジュアルの刷新及びコンテンツ整理を行った。
-    - 授業・グループ課題 / コーダー・UX デザイナ
-  images:
-    - android.png
-    - header.jpg
-    - ss1.jpg
-    - ss2.jpg
-
 - title: THE SUGOI NINJA
   id: tsn
   description: 
@@ -47,63 +27,4 @@
     - team.jpg
   links:
     - text: THE SUGOI NINJA
-      url: //sugoi-ninja.com
-    - text: Global Math
-      url: //www.globalmath.info/globalmath_pfweb/game_detail?locale=1&gameId=48
-    - text: Making of THE SUGOI NINJA // Speaker Deck
-      url: https://speakerdeck.com/noir_neo/making-of-the-sugoi-ninja
-
-- title: FU
-  id: fu
-  description: ミクさんがあなたの生活をサポートする、 Android アプリ
-  images:
-    - header.jpg
-  links:
-    - text: GitHub
-      url: //github.com/noir-neo/FU
-
-- title: Media Design Works 2013
-  id: mdw2013
-  description: 
-    - メディアデザイン専攻領域の学生有志による学祭展示
-    - 自由制作グループ展 / 代表・ Webサイト メインプログラマ
-  images:
-    - header.jpg
-  links:
-    - text: Media Design Works 2013
-      url: //mdw2013.github.io/
-
-- title: Press Yes Battle Game
-  id: pybg
-  description: You only press only "YES" only 100 times!
-  images:
-    - ss.jpg
-  links:
-    - text: Google Play
-      url: //play.google.com/store/apps/details?id=com.neoneobeam.pybg
-
-- title: 出席管理4クズ
-  id: s4k
-  description: クズのための時間割アプリ
-  images: header.jpg
-  links:
-    - text: Google Play
-      url: //play.google.com/store/apps/details?id=com.neoneobeam.s4k
-
-- title: ねおねお☆びーむ(公開停止)
-  id: nnb
-  description: スマートな連投と愛のある fav に特化した Twitter クライアント
-  images:
-    - header.jpg
-  links:
-    - text: ねおねお☆びーむ
-      url: //nnb.neoneobeam.com
-
-- title: DANMAKU/Duo
-  id: danmaku
-  description: 新感覚弾幕シューティングゲーム。両手を動かして、2機の自機を操作！
-  images:
-    - header.jpg
-  links:
-    - text: YouTube
-      url: //www.youtube.com/watch?v=pfj7_SlC6bE
+      url: https://sugoi-ninja.github.io/sugoi-ninja/
