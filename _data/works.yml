@@ -1,1 +1,25 @@
+- title: GRILL MASTER
+  id: grill-master
+  description:
+    - 火炎放射器を持ったイルカを操作して魚を焼くゲーム
+    - 時間内により多くの魚を焼きましょう。フグをキメると高速な移動が可能になる代わりに、視界がアレな感じになります。
+    - one night game jam 2019/09/06-07
+  images:
+    - title.png
+    - ss0.png
+  links:
+    - text: GRILL MASTER
+      url: https://one-night-game-jam.github.io/grill-master-dolphin/
 
+- title: THE SUGOI NINJA
+  id: tsn
+  description:
+    - 忍者となり敵城を上り詰めていく数学的思考力ゲーム
+    - Global Math 2013 コンテスト 開発優秀賞受賞
+  images:
+    - header.jpg
+    - playing.jpg
+    - team.jpg
+  links:
+    - text: THE SUGOI NINJA
+      url: https://sugoi-ninja.github.io/sugoi-ninja/
